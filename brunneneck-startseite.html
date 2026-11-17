@@ -118,8 +118,15 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 .section-header p { margin-top: 1.2rem; color: var(--muted); font-size: 1.05rem; max-width: 60ch; line-height: 1.75; }
 
 /* ── IHRE MÖGLICHKEITEN ── */
-.moeglichkeiten-grid {
+.we-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+/* "Zum Verkauf" badge in header */
+.verkauf-badge {
+  display: inline-block; margin-top: .8rem;
+  background: var(--gold); color: #fff;
+  font-size: .58rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
+  padding: .3rem .8rem;
 }
 .option-card { border: 1px solid var(--rule); overflow: hidden; display: flex; flex-direction: column; }
 .option-card-header { background: var(--dark); color: #fff; padding: 1.8rem 2rem; }
@@ -135,6 +142,26 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 .option-fact:nth-last-child(-n+2) { border-bottom: none; }
 .option-fact-val { font-size: 1.4rem; font-weight: 300; color: var(--dark); line-height: 1; }
 .option-fact-label { font-size: .62rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: .3rem; }
+/* Alternative Zusammenlegung – volle Breite */
+.alternative-wrap {
+  margin-top: clamp(2.5rem,5vw,4rem);
+  border: 1px solid var(--rule);
+}
+.alternative-header {
+  display: flex; align-items: center; gap: 1.5rem; padding: 1.4rem 2rem;
+  background: var(--warm); border-bottom: 1px solid var(--rule);
+}
+.alternative-eyebrow { font-size: .62rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.alternative-header h3 { font-size: clamp(1.2rem,2vw,1.6rem); font-weight: 300; }
+.alternative-header h3 strong { font-weight: 600; }
+.alternative-body { display: grid; grid-template-columns: 1fr 1.6fr; gap: 0; }
+.alternative-info { padding: 2rem; border-right: 1px solid var(--rule); }
+.alternative-gr { padding: 1.5rem; }
+@media (max-width: 860px) {
+  .we-grid { grid-template-columns: 1fr; }
+  .alternative-body { grid-template-columns: 1fr; }
+  .alternative-info { border-right: none; border-bottom: 1px solid var(--rule); }
+}
 .option-highlights { list-style: none; }
 .option-highlights li { display: flex; align-items: baseline; gap: .7rem; padding: .55rem 0; border-bottom: 1px solid var(--rule); font-size: .88rem; }
 .option-highlights li:last-child { border-bottom: none; }
@@ -318,43 +345,46 @@ footer a:hover { color: rgba(255,255,255,.8); }
   <div class="wrap">
     <div class="section-header fi">
       <span class="eyebrow">Ihre Möglichkeiten</span>
-      <h2>Zwei Einheiten.<br>Oder ein großes Ganzes.</h2>
-      <p>Das Dachgeschoss über beide Gebäude steht zum Ausbau bereit. Sie wählen: zwei eigenständige Penthouses mit je eigenem Zugang und Terrasse – oder ein zusammengeführtes Gesamtpenthouse von 242 m² auf einer Ebene. Beide Varianten sind individuell realisierbar.</p>
+      <h2>Zwei Penthouses –<br>einzeln zu erwerben.</h2>
+      <p>Beide Einheiten im Dachgeschoss stehen unabhängig voneinander zum Verkauf. Jede Wohnung hat eigenen Aufzugszugang, eigene Dachterrasse und wird individuell nach Ihren Wünschen ausgebaut. Raumkonzept: Nora Witzigmann.</p>
     </div>
 
-    <div class="moeglichkeiten-grid fi">
+    <!-- Die zwei einzelnen Wohnungen nebeneinander -->
+    <div class="we-grid fi">
 
-      <!-- Option A: Zwei Einzelwohnungen -->
+      <!-- Wohnung 3 · Ecke -->
       <div class="option-card">
         <div class="option-card-header">
-          <div class="option-no">Option A</div>
-          <h3>Zwei Einzelwohnungen</h3>
-          <div class="option-architect">Raumkonzept <span>Nora Witzigmann</span></div>
+          <div class="option-no">Penthouse · Wohnung 3</div>
+          <h3>Ecke Rheinsberger Str.</h3>
+          <div class="verkauf-badge">Einzeln zu erwerben</div>
+          <div class="option-architect" style="margin-top:.6rem;">Raumkonzept <span>Nora Witzigmann</span></div>
         </div>
         <div class="option-card-body">
           <div class="option-facts">
             <div class="option-fact">
-              <div class="option-fact-val">Whg. 3</div>
-              <div class="option-fact-label">Ecke · Rheinsberger Str.</div>
+              <div class="option-fact-val">ca. 110 m²</div>
+              <div class="option-fact-label">Wohnfläche</div>
             </div>
             <div class="option-fact">
-              <div class="option-fact-val">Whg. 4</div>
-              <div class="option-fact-label">Hof · Brunnenstr.</div>
+              <div class="option-fact-val">1</div>
+              <div class="option-fact-label">Dachterrasse</div>
             </div>
             <div class="option-fact">
-              <div class="option-fact-val">2</div>
-              <div class="option-fact-label">Dachterrassen je Einheit</div>
+              <div class="option-fact-val">Ecke</div>
+              <div class="option-fact-label">Ausrichtung</div>
             </div>
             <div class="option-fact">
               <div class="option-fact-val">M 1:75</div>
-              <div class="option-fact-label">Maßstab Grundriss</div>
+              <div class="option-fact-label">Grundrissmaßstab</div>
             </div>
           </div>
           <ul class="option-highlights">
-            <li><strong>Whg. 3 (Ecke):</strong> Mastersuite, Ankleide, Masterbad, Küche+Essen, Wohnen, Dachterrasse</li>
-            <li><strong>Whg. 4 (Hof):</strong> Masterbedroom, Masterbad, Ankleide, Küche/Bar, Wohnen+Essen, 2 Terrassen</li>
-            <li>Jede Einheit mit eigenem Aufzugszugang und unabhängig veräußerbar</li>
-            <li>Provisionsfrei direkt vom Projektentwickler</li>
+            <li>Mastersuite mit Ankleide</li>
+            <li>Masterbad</li>
+            <li>Küche + Essen · Wohnzimmer</li>
+            <li>Dachterrasse · Diele · WC</li>
+            <li>Privater Aufzugszugang</li>
           </ul>
           <div class="grundriss-frame">
             <span class="grundriss-label">Grundriss · Whg. 3 · Ecke</span>
@@ -363,6 +393,44 @@ footer a:hover { color: rgba(255,255,255,.8); }
               <span class="grundriss-zoom-hint">Vergrößern</span>
             </div>
           </div>
+          <a class="detail-link" href="#kontakt" style="margin-top:auto;padding-top:1.5rem;">Anfrage stellen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Wohnung 4 · Hof -->
+      <div class="option-card">
+        <div class="option-card-header">
+          <div class="option-no">Penthouse · Wohnung 4</div>
+          <h3>Hof Brunnenstraße</h3>
+          <div class="verkauf-badge">Einzeln zu erwerben</div>
+          <div class="option-architect" style="margin-top:.6rem;">Raumkonzept <span>Nora Witzigmann</span></div>
+        </div>
+        <div class="option-card-body">
+          <div class="option-facts">
+            <div class="option-fact">
+              <div class="option-fact-val">ca. 132 m²</div>
+              <div class="option-fact-label">Wohnfläche</div>
+            </div>
+            <div class="option-fact">
+              <div class="option-fact-val">2</div>
+              <div class="option-fact-label">Dachterrassen</div>
+            </div>
+            <div class="option-fact">
+              <div class="option-fact-val">Hof</div>
+              <div class="option-fact-label">Ausrichtung</div>
+            </div>
+            <div class="option-fact">
+              <div class="option-fact-val">M 1:75</div>
+              <div class="option-fact-label">Grundrissmaßstab</div>
+            </div>
+          </div>
+          <ul class="option-highlights">
+            <li>Masterbedroom + Masterbad + Ankleide</li>
+            <li>Büro / Gästezimmer</li>
+            <li>Küche/Bar · Wohnen + Essen</li>
+            <li>2 Dachterrassen · Duschbad · Diele</li>
+            <li>Privater Aufzugszugang · Abstellkammer</li>
+          </ul>
           <div class="grundriss-frame">
             <span class="grundriss-label">Grundriss · Whg. 4 · Hof</span>
             <div class="grundriss-trigger" data-src="fotos/penthouse/grundriss-we2.png" data-caption="Grundriss · Penthouse Whg. 4 · Hof · Nora Witzigmann">
@@ -374,15 +442,17 @@ footer a:hover { color: rgba(255,255,255,.8); }
         </div>
       </div>
 
-      <!-- Option B: Gesamtpenthouse -->
-      <div class="option-card">
-        <div class="option-card-header">
-          <div class="option-no">Option B</div>
-          <h3>Gesamtpenthouse 242 m²</h3>
-          <div class="option-architect">Raumkonzept <span>Studio Fabian Freytag</span></div>
-        </div>
-        <div class="option-card-body">
-          <div class="option-facts">
+    </div>
+
+    <!-- Alternative: Zusammenlegung -->
+    <div class="alternative-wrap fi">
+      <div class="alternative-header">
+        <span class="alternative-eyebrow">Alternative</span>
+        <h3><strong>Zusammenlegung</strong> zum Gesamtpenthouse · 242 m² · Studio Fabian Freytag</h3>
+      </div>
+      <div class="alternative-body">
+        <div class="alternative-info">
+          <div class="option-facts" style="margin-bottom:1.4rem;">
             <div class="option-fact">
               <div class="option-fact-val">242 m²</div>
               <div class="option-fact-label">Gesamtfläche</div>
@@ -404,21 +474,18 @@ footer a:hover { color: rgba(255,255,255,.8); }
             <li>Master Schlafzimmer 21,39 m² + Ankleide 10,19 m²</li>
             <li>Master Bad 22,32 m² · Gäste Bad 6,35 m²</li>
             <li>Loggia 7,52 m² · Terrassen 17,24 m² + 3,54 m²</li>
-            <li>Privater Aufzugszugang · Weinlager · Hauswirtschaft</li>
-            <li>Provisionsfrei direkt vom Projektentwickler</li>
+            <li>Weinlager · Hauswirtschaft · privater Aufzug</li>
           </ul>
-          <div class="grundriss-frame">
-            <span class="grundriss-label">Grundriss · Gesamtpenthouse · 242 m²</span>
-            <div class="grundriss-trigger" data-src="fotos/penthouse/grundriss-gesamt.png" data-caption="Grundriss · Gesamtpenthouse 242 m² · Studio Fabian Freytag">
-              <img src="fotos/penthouse/grundriss-gesamt.png" alt="Grundriss Gesamtpenthouse 242 m²" loading="lazy">
-              <span class="grundriss-zoom-hint">Vergrößern</span>
-            </div>
-            <p class="grundriss-note">Gesamtfläche 242,21 m² · Außenflächen: Loggia 7,52 m², Terrassen 17,24 m² + 3,54 m²</p>
+          <a class="detail-link" href="#kontakt">Anfrage zur Zusammenlegung &rarr;</a>
+        </div>
+        <div class="alternative-gr">
+          <div class="grundriss-trigger" data-src="fotos/penthouse/grundriss-gesamt.png" data-caption="Grundriss · Gesamtpenthouse 242 m² · Studio Fabian Freytag">
+            <img src="fotos/penthouse/grundriss-gesamt.png" alt="Grundriss Gesamtpenthouse 242 m²" loading="lazy">
+            <span class="grundriss-zoom-hint">Vergrößern</span>
           </div>
-          <a class="detail-link" href="#kontakt" style="margin-top:auto;padding-top:1.5rem;">Anfrage stellen &rarr;</a>
+          <p class="grundriss-note" style="margin-top:.6rem;">Raumkonzept Studio Fabian Freytag · Gesamtfläche 242,21 m²</p>
         </div>
       </div>
-
     </div>
 
     <!-- Lightbox -->
