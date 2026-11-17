@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brunneneck – Zwei Penthouses in Berlin Mitte</title>
+<meta name="description" content="Brunneneck: zwei luxuriöse Penthouses im Dachgeschossausbau in Berlin Mitte, Rosenthaler Vorstadt. Interior vom Studio Fabian Freytag. Provisionsfrei direkt vom Projektentwickler.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark:  #1e1b18;
+  --gold:  #b5924a;
+  --warm:  #f9f7f4;
+  --white: #ffffff;
+  --muted: rgba(30,27,24,.48);
+  --rule:  rgba(30,27,24,.1);
+  --g:     clamp(1.5rem, 5vw, 4rem);
+  --max:   1240px;
+  --ease:  cubic-bezier(.22,.61,.36,1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Mulish', sans-serif; color: var(--dark); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1,h2,h3 { font-weight: 300; line-height: 1.1; letter-spacing: -.02em; }
+
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--g); }
+
+/* NAV */
+nav.site {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+  transition: background .4s var(--ease), border-color .4s;
+}
+nav.site.scrolled {
+  background: rgba(30,27,24,.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  font-size: .78rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
+  color: #fff;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: .72rem; font-weight: 400; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.75); transition: color .25s;
+}
+.nav-links a:hover { color: #fff; }
+@media (max-width: 700px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero {
+  position: relative; height: 100svh; min-height: 600px;
+  display: flex; align-items: flex-end; color: #fff; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.05); animation: zoom 18s ease-out forwards;
+}
+@keyframes zoom { to { transform: scale(1); } }
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(30,27,24,.35) 0%, rgba(30,27,24,.1) 45%, rgba(30,27,24,.75) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2; width: 100%;
+  padding-bottom: clamp(3rem, 9vh, 6rem);
+}
+.eyebrow {
+  font-size: .68rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 1.2rem;
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 6.5vw, 5.5rem); font-weight: 300; max-width: 18ch;
+}
+.hero .sub {
+  margin-top: 1.4rem; font-size: clamp(1rem, 1.5vw, 1.2rem); font-weight: 300;
+  color: rgba(255,255,255,.8); max-width: 48ch;
+}
+.hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap; }
+
+/* BUTTONS */
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-family: 'Mulish'; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  padding: .9rem 1.8rem; cursor: pointer; border: 1px solid transparent; transition: .22s;
+}
+.btn-gold { background: var(--gold); color: #fff; }
+.btn-gold:hover { background: #9e7d3a; }
+.btn-outline { background: transparent; border-color: rgba(255,255,255,.5); color: #fff; }
+.btn-outline:hover { background: rgba(255,255,255,.1); }
+.btn-dark { background: var(--dark); color: #fff; }
+.btn-dark:hover { background: #111; }
+
+/* SECTIONS */
+section { padding-block: clamp(4rem, 9vw, 7.5rem); }
+.warm-bg { background: var(--warm); }
+
+/* INTRO */
+.intro-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: center;
+}
+.intro-img { overflow: hidden; aspect-ratio: 4/5; }
+.intro-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.intro-grid:hover .intro-img img { transform: scale(1.03); }
+.intro-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+.intro-text p { margin-top: 1.4rem; color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
+.detail-link {
+  display: inline-flex; align-items: center; gap: .6rem; margin-top: 2rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  border-bottom: 1px solid var(--gold); color: var(--gold); padding-bottom: .3rem;
+  transition: gap .25s;
+}
+.detail-link:hover { gap: 1rem; }
+
+/* PENTHOUSE CARDS */
+.ph-cards { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
+.ph-card { position: relative; overflow: hidden; }
+.ph-card-img { aspect-ratio: 3/4; overflow: hidden; }
+.ph-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.ph-card:hover .ph-card-img img { transform: scale(1.04); }
+.ph-card-body { padding: 1.6rem 0; border-bottom: 1px solid var(--rule); }
+.ph-card-no { font-size: .65rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; }
+.ph-card-body h3 { font-size: clamp(1.3rem, 2.4vw, 1.9rem); }
+.ph-card-body p { color: var(--muted); margin-top: .8rem; font-size: .95rem; }
+
+/* PENTHOUSE DETAIL SPLIT */
+.ph-split {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(3rem, 6vw, 6rem); align-items: center;
+}
+.ph-split.flip .ph-split-img { order: 2; }
+.ph-split-img { overflow: hidden; aspect-ratio: 3/4; }
+.ph-split-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.ph-split:hover .ph-split-img img { transform: scale(1.03); }
+.ph-no { font-size: .65rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .9rem; }
+.ph-split-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
+.ph-split-text p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
+
+.highlights { margin-top: 1.8rem; list-style: none; }
+.highlights li {
+  display: flex; align-items: baseline; gap: .8rem;
+  padding: .7rem 0; border-bottom: 1px solid var(--rule);
+  font-size: .93rem; color: var(--dark);
+}
+.highlights li::before { content: '+'; color: var(--gold); font-weight: 600; flex-shrink: 0; }
+
+/* GALLERY */
+.gallery {
+  display: flex; gap: .8rem; overflow-x: auto; overflow-y: hidden;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: .5rem;
+}
+.gallery::-webkit-scrollbar { display: none; }
+.gallery img {
+  height: clamp(200px, 32vw, 400px); width: auto; flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* LOCATION */
+.lage-grid {
+  display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 6vw, 6rem); align-items: center;
+}
+.lage-img { overflow: hidden; aspect-ratio: 3/4; }
+.lage-img img { width: 100%; height: 100%; object-fit: cover; }
+.lage-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
+.lage-text p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
+
+/* DEVELOPER QUOTE */
+.dev-section { background: var(--dark); color: #fff; text-align: center; }
+.dev-section .eyebrow { color: rgba(255,255,255,.45); }
+.dev-section blockquote {
+  font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.35;
+  max-width: 46ch; margin: 1.4rem auto 0;
+}
+.dev-section p { color: rgba(255,255,255,.55); margin-top: 1.4rem; max-width: 46ch; margin-inline: auto; }
+.dev-link {
+  display: inline-flex; align-items: center; gap: .6rem; margin-top: 2.2rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: .3rem;
+  transition: gap .25s;
+}
+.dev-link:hover { gap: 1rem; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(3rem, 7vw, 6rem); align-items: start; }
+.contact-info h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
+address { font-style: normal; margin-top: 2rem; color: var(--muted); line-height: 2; }
+address strong { color: var(--dark); font-weight: 600; font-size: .65rem; letter-spacing: .24em; text-transform: uppercase; display: block; margin-top: 1.4rem; }
+address strong:first-child { margin-top: 0; }
+address a:hover { color: var(--gold); }
+
+.form-wrap { background: var(--white); padding: 2.5rem; }
+.warm-bg .form-wrap { background: #fff; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.form-field { margin-bottom: 1.2rem; }
+.form-field label {
+  display: block; font-size: .65rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: .5rem;
+}
+.form-field input, .form-field textarea {
+  width: 100%; padding: .75rem 0; border: 0; border-bottom: 1px solid var(--rule);
+  background: transparent; font-family: 'Mulish'; font-size: .97rem; color: var(--dark);
+  transition: border-color .2s;
+}
+.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); }
+.form-field textarea { min-height: 110px; resize: vertical; }
+.chk-wrap { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: 1.4rem; font-size: .85rem; color: var(--muted); }
+.chk-wrap input { flex-shrink: 0; margin-top: .2rem; accent-color: var(--gold); }
+
+/* FOOTER */
+footer {
+  background: var(--dark); color: rgba(255,255,255,.45);
+  padding: 1.6rem var(--g); font-size: .78rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+footer a:hover { color: rgba(255,255,255,.8); }
+
+/* FADE IN */
+.fi { opacity: 0; transform: translateY(20px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.fi.in { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .intro-grid, .ph-split, .ph-split.flip, .lage-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .ph-split.flip .ph-split-img { order: 0; }
+  .ph-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site" id="sitenav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="#start">Brunneneck</a>
+    <ul class="nav-links">
+      <li><a href="#penthouses">Penthouses</a></li>
+      <li><a href="#lage">Lage</a></li>
+      <li><a href="#entwickler">Projektentwickler</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="start">
+  <div class="hero-bg">
+    <img src="Startseite - Brunnen-Eck_files/BRU_Header-1600x768.jpg" alt="Brunneneck – Penthouses in Berlin Mitte" fetchpriority="high">
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Berlin Mitte · Rosenthaler Vorstadt</span>
+    <h1>Ganz oben<br>in Berlin Mitte.</h1>
+    <p class="sub">Zwei Penthouses im Dachgeschossausbau. Interior vom Studio Fabian Freytag. Provisionsfrei direkt vom Projektentwickler.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#penthouses">Penthouses entdecken &rarr;</a>
+      <a class="btn btn-outline" href="#kontakt">Besichtigung anfragen</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="intro-grid fi">
+      <div class="intro-img">
+        <img src="fotos/we30/foto03.jpg" alt="Brunneneck – Wohnzimmer" loading="lazy">
+      </div>
+      <div class="intro-text">
+        <span class="eyebrow">Modernität mit Klasse</span>
+        <h2>Exklusives Wohnen über den Dächern Berlins.</h2>
+        <p>Die beiden Wohnungen befinden sich in zwei aneinander anschließenden, sorgfältig sanierten Gebäuden. Durch den Dachgeschossausbau entstehen luxuriöse Wohnräume mit privatem Fahrstuhlzugang.</p>
+        <p>Das Innenraumkonzept beider Penthouses wurde vom Berliner Studio Fabian Freytag entworfen und spiegelt die zeitgenössische Vielfalt Berlins wider.</p>
+        <a class="detail-link" href="#penthouses">Beide Penthouses ansehen &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="warm-bg" id="penthouses">
+  <div class="wrap">
+    <div class="ph-cards fi">
+      <div class="ph-card">
+        <div class="ph-card-img">
+          <img src="fotos/we30/foto05.jpg" alt="Wohnung 30 – Brunneneck" loading="lazy">
+        </div>
+        <div class="ph-card-body">
+          <div class="ph-card-no">Wohnung 30 · Brunnenstr. 146 · 4. OG</div>
+          <h3>97 m² – Erstbezug, 3 Zimmer, 2 Bäder</h3>
+          <p>Eichenparkett, Walk-in-Ankleide, flexibler Grundriss. Provisionsfrei, 649.000 €.</p>
+          <a class="detail-link" href="wohnung-30.html">Details ansehen &rarr;</a>
+        </div>
+      </div>
+      <div class="ph-card">
+        <div class="ph-card-img">
+          <img src="fotos/we32/foto03.jpg" alt="Wohnung 32 – Brunneneck" loading="lazy">
+        </div>
+        <div class="ph-card-body">
+          <div class="ph-card-no">Wohnung 32 · Rheinsberger Str. 9 · 4. OG</div>
+          <h3>118 m² – Erstbezug, 4,5 Zimmer, Fischgrätparkett</h3>
+          <p>Offener Wohnbereich über 52 m², Altbau-Kassettentüren, barrierefrei. Provisionsfrei, 879.000 €.</p>
+          <a class="detail-link" href="wohnung-32.html">Details ansehen &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="ph-split fi">
+      <div class="ph-split-img">
+        <img src="fotos/we30/foto07.jpg" alt="Wohnung 30" loading="lazy">
+      </div>
+      <div class="ph-split-text">
+        <div class="ph-no">Wohnung 30 · Brunnenstr. 146 · 4. OG</div>
+        <h2>97 m² – Erstbezug nach Sanierung.</h2>
+        <p>Im 4. Obergeschoss des Altbauensembles erwartet Sie eine ca. 97 m² große Wohnung, erstmals bezogen. Klare Linien, Eichenparkett, warme Naturtöne. Flexibler Grundriss als Loft oder Familienwohnung.</p>
+        <ul class="highlights">
+          <li>Erstbezug nach hochwertiger Sanierung</li>
+          <li>Eichenparkett von Bauwerk, Fliesen von Florim</li>
+          <li>2 Bäder: Bad en suite + Gäste-WC</li>
+          <li>Walk-in-Ankleide (4,60 m²)</li>
+          <li>Separate Küche mit Fenster</li>
+          <li>Personenaufzug, Kellerabteil</li>
+          <li>Provisionsfrei · 649.000 €</li>
+        </ul>
+        <a class="detail-link" href="wohnung-30.html" style="margin-top:2rem">Detailseite öffnen &rarr;</a>
+      </div>
+    </div>
+
+    <div class="gallery fi">
+      <img src="fotos/we30/foto02.jpg" alt="Wohnung 30" loading="lazy">
+      <img src="fotos/we30/foto04.jpg" alt="Wohnung 30" loading="lazy">
+      <img src="fotos/we30/foto06.jpg" alt="Wohnung 30" loading="lazy">
+      <img src="fotos/we30/foto08.jpg" alt="Wohnung 30" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="warm-bg">
+  <div class="wrap">
+    <div class="ph-split flip fi">
+      <div class="ph-split-img">
+        <img src="fotos/we32/foto05.jpg" alt="Wohnung 32" loading="lazy">
+      </div>
+      <div class="ph-split-text">
+        <div class="ph-no">Wohnung 32 · Rheinsberger Str. 9 · 4. OG</div>
+        <h2>118 m² – Fischgrätparkett, offener Wohnbereich.</h2>
+        <p>4,5 Zimmer, erstmals bezogen nach hochwertiger Sanierung. Fischgrätparkett, originale Kassettentüren, Rundbogenfenster – Gründerzeit-Charakter mit modernem Wohnkomfort.</p>
+        <ul class="highlights">
+          <li>Erstbezug nach hochwertiger Sanierung</li>
+          <li>Fischgrät-Echtholzparkett von Bauwerk</li>
+          <li>Offener Wohn-/Essbereich über 52 m²</li>
+          <li>Barrierefreier Zugang – Aufzug direkt auf die Etage</li>
+          <li>Bad mit Badewanne + bodengleicher Regendusche</li>
+          <li>Provisionsfrei · 879.000 €</li>
+        </ul>
+        <a class="detail-link" href="wohnung-32.html" style="margin-top:2rem">Detailseite öffnen &rarr;</a>
+      </div>
+    </div>
+
+    <div class="gallery fi">
+      <img src="fotos/we32/foto02.jpg" alt="Wohnung 32" loading="lazy">
+      <img src="fotos/we32/foto04.jpg" alt="Wohnung 32" loading="lazy">
+      <img src="fotos/we32/foto06.jpg" alt="Wohnung 32" loading="lazy">
+      <img src="fotos/we32/foto07.jpg" alt="Wohnung 32" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="lage">
+  <div class="wrap">
+    <div class="lage-grid fi">
+      <div class="lage-img">
+        <img src="Startseite - Brunnen-Eck_files/BRU_Visus_Berlin_Location-680x841.jpg" alt="Lage des Brunneneck in Berlin Mitte" loading="lazy">
+      </div>
+      <div class="lage-text">
+        <span class="eyebrow">Die Lage</span>
+        <h2>Am Brunneneck, im Herzen Berlins.</h2>
+        <p>Ein zentraler Kiez mit vielen Einflüssen – belebt und entspannt zugleich. Das Brunneneck liegt im Herzen der Rosenthaler Vorstadt und verbindet die lebendige Dynamik des Stadtzentrums mit der Ruhe des Kiezlebens.</p>
+        <p style="margin-top:1rem;">Direkt angebunden an das Berliner S- und U-Bahn-Netz, in unmittelbarer Nähe zu Parks, Restaurants und dem kulturellen Leben der Hauptstadt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dev-section" id="entwickler">
+  <div class="wrap" style="text-align:center;">
+    <span class="eyebrow">Der Projektentwickler</span>
+    <blockquote>Ein inhabergeführtes Unternehmen mit Tradition und Bewusstsein für städtisches Wohnen.</blockquote>
+    <p>Die Tiedemann Gruppe begegnet den Bedürfnissen ihrer Erwerber angemessen – im Sinne der Seele gewachsener Quartiere.</p>
+    <a class="dev-link" href="https://www.tiedemann-gruppe.de" target="_blank" rel="noopener">Zur Tiedemann Gruppe &rarr;</a>
+  </div>
+</section>
+
+<section class="warm-bg" id="kontakt">
+  <div class="wrap">
+    <div class="contact-grid fi">
+      <div class="contact-info">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Besichtigung vereinbaren.</h2>
+        <address>
+          <strong>Projektentwickler</strong>
+          Tiedemann Gruppe<br>
+          Große Hamburger Str. 32<br>
+          10115 Berlin
+          <strong>Telefon</strong>
+          <a href="tel:+4930208480216">030 / 20 84 80 216</a>
+          <strong>E-Mail</strong>
+          <a href="mailto:kontakt@tiedemann-gruppe.de">kontakt@tiedemann-gruppe.de</a>
+        </address>
+      </div>
+      <div>
+        <div class="form-wrap">
+          <form action="#" method="post">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="tel">Telefon</label>
+                <input type="tel" id="tel" name="telefon" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="msg">Ihre Nachricht</label>
+              <textarea id="msg" name="nachricht" required></textarea>
+            </div>
+            <div class="chk-wrap">
+              <input type="checkbox" id="dsgvo" required>
+              <label for="dsgvo" style="font-size:.85rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);">Ich akzeptiere die Datenschutzerklärung.</label>
+            </div>
+            <button class="btn btn-dark" type="submit">Anfrage senden &rarr;</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="yr"></span> Brunneneck · Ein Projekt der Tiedemann Gruppe</span>
+  <a href="#">Impressum &amp; Datenschutz</a>
+</footer>
+
+<script>
+  const nav = document.getElementById('sitenav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold: .1});
+    document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.fi').forEach(el => el.classList.add('in'));
+  }
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
