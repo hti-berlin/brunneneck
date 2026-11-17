@@ -46,23 +46,54 @@ nav.site.scrolled {
 .nav-links a:hover { color: #fff; }
 @media (max-width: 700px) { .nav-links { display: none; } }
 
-/* HERO */
+/* HERO SLIDER */
 .hero {
   position: relative; height: 100svh; min-height: 600px;
   display: flex; align-items: flex-end; color: #fff; overflow: hidden;
 }
-.hero-bg { position: absolute; inset: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); animation: zoom 16s ease-out forwards; }
-@keyframes zoom { to { transform: scale(1); } }
-.hero-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(30,27,24,.15) 0%, rgba(30,27,24,.05) 35%, rgba(30,27,24,.78) 100%);
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
+  position: absolute; inset: 0; opacity: 0;
+  transition: opacity 1.2s cubic-bezier(.4,0,.2,1);
 }
-.hero-content { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(3rem, 9vh, 6rem); }
+.hero-slide.active { opacity: 1; }
+.hero-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 8s ease-out; }
+.hero-slide.active img { transform: scale(1); }
+.hero-slide::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(30,27,24,.1) 0%, rgba(30,27,24,.04) 35%, rgba(30,27,24,.82) 100%);
+}
+/* slider dots */
+.hero-dots {
+  position: absolute; bottom: clamp(1.5rem,4vh,2.5rem); right: var(--g);
+  z-index: 10; display: flex; gap: .6rem; align-items: center;
+}
+.hero-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,.35); border: none; cursor: pointer; padding: 0;
+  transition: background .3s, transform .3s;
+}
+.hero-dot.active { background: #fff; transform: scale(1.4); }
+.hero-content { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(4rem, 10vh, 7rem); }
 .eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1.2rem; }
 .hero h1 { font-size: clamp(2.8rem, 6.5vw, 5.5rem); font-weight: 300; max-width: 18ch; }
 .hero .sub { margin-top: 1.4rem; font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300; color: rgba(255,255,255,.8); max-width: 48ch; }
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap; }
+
+/* PROZESS STEPS */
+.prozess { background: var(--dark); color: #fff; padding-block: clamp(3.5rem,7vw,6rem); }
+.prozess-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+.prozess-step { padding: 2rem clamp(1.5rem,3vw,2.5rem); border-right: 1px solid rgba(255,255,255,.08); position: relative; }
+.prozess-step:last-child { border-right: none; }
+.prozess-num { font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 1.2rem; opacity: .6; }
+.prozess-step h3 { font-size: clamp(1.3rem,2vw,1.7rem); font-weight: 300; line-height: 1.15; }
+.prozess-step p { margin-top: .9rem; font-size: .92rem; color: rgba(255,255,255,.55); line-height: 1.7; }
+.prozess-arrow { display: none; }
+@media (max-width: 700px) {
+  .prozess-inner { grid-template-columns: 1fr; }
+  .prozess-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .prozess-step:last-child { border-bottom: none; }
+}
 
 /* BUTTONS */
 .btn { display: inline-flex; align-items: center; gap: .6rem; font-family: 'Mulish'; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; padding: .9rem 1.8rem; cursor: pointer; border: 1px solid transparent; transition: .22s; }
@@ -208,11 +239,26 @@ footer a:hover { color: rgba(255,255,255,.8); }
   </div>
 </nav>
 
-<!-- HERO: Rohbau Dachgeschoss -->
+<!-- HERO SLIDER -->
 <section class="hero" id="start">
-  <div class="hero-bg">
-    <img src="fotos/penthouse/rohbau-hero.jpg" alt="Dachgeschoss Brunneneck im Rohbauzustand" fetchpriority="high">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active">
+      <img src="fotos/penthouse/rohbau-hero.jpg" alt="Dachgeschoss im Rohbauzustand – Terrassentüren und Holzdachstuhl" fetchpriority="high">
+    </div>
+    <div class="hero-slide">
+      <img src="fotos/penthouse/rohbau-romeike-1.jpg" alt="Rohbau – Dachstuhl und Ziegelwände" loading="lazy">
+    </div>
+    <div class="hero-slide">
+      <img src="fotos/penthouse/ausblick-sued.jpg" alt="Ausblick über die Dächer Berlin Mitte" loading="lazy">
+    </div>
+    <div class="hero-slide">
+      <img src="fotos/penthouse/ausblick-fernseh.jpg" alt="Ausblick mit Fernsehturm" loading="lazy">
+    </div>
+    <div class="hero-slide">
+      <img src="fotos/penthouse/rohbau-romeike-3.jpg" alt="Blick aus dem Rohbau – Fernsehturm im Fenster" loading="lazy">
+    </div>
   </div>
+  <div class="hero-dots" id="heroDots"></div>
   <div class="wrap hero-content">
     <span class="eyebrow">Rheinsberger Straße 9 · Berlin Mitte · Dachgeschoss</span>
     <h1>Rohbau.<br>Jetzt nach<br>Ihren Wünschen.</h1>
@@ -224,13 +270,36 @@ footer a:hover { color: rgba(255,255,255,.8); }
   </div>
 </section>
 
+<!-- PROZESS: Rohbau → Idee → Einzug -->
+<div class="prozess">
+  <div class="wrap">
+    <div class="prozess-inner">
+      <div class="prozess-step">
+        <div class="prozess-num">01</div>
+        <h3>Rohbau jetzt</h3>
+        <p>Das Dachgeschoss ist fertig strukturiert – Dachstuhl, Ziegelwände, Fensteröffnungen. Der Rohbau steht. Alles dahinter ist noch offen.</p>
+      </div>
+      <div class="prozess-step">
+        <div class="prozess-num">02</div>
+        <h3>Ihre Idee –<br>unser Konzept</h3>
+        <p>Bringen Sie Ihre eigene Vorstellung mit oder entwickeln Sie das bestehende Konzept von Studio Fabian Freytag weiter. Wir planen und bauen gemeinsam mit Ihnen.</p>
+      </div>
+      <div class="prozess-step">
+        <div class="prozess-num">03</div>
+        <h3>In 6 Monaten<br>einziehen</h3>
+        <p>Nach Ihrer Entscheidung beginnt der Ausbau. Innerhalb von rund sechs Monaten entsteht Ihr neues Zuhause – fertig bezugsbereit, genau nach Ihren Wünschen.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- IHRE MÖGLICHKEITEN -->
 <section id="moeglichkeiten">
   <div class="wrap">
     <div class="section-header fi">
       <span class="eyebrow">Ihre Möglichkeiten</span>
-      <h2>Zwei Optionen. Eine Entscheidung.</h2>
-      <p>Das Dachgeschoss über beide Gebäude kann als zwei unabhängige Wohnungen oder als ein zusammengeführtes Gesamtpenthouse erworben werden. Beide Varianten können individuell nach Ihren Wünschen ausgebaut werden.</p>
+      <h2>Zwei Einheiten.<br>Oder ein großes Ganzes.</h2>
+      <p>Das Dachgeschoss über beide Gebäude steht zum Ausbau bereit. Sie wählen: zwei eigenständige Penthouses mit je eigenem Zugang und Terrasse – oder ein zusammengeführtes Gesamtpenthouse von 242 m² auf einer Ebene. Beide Varianten sind individuell realisierbar.</p>
     </div>
 
     <div class="moeglichkeiten-grid fi">
@@ -475,10 +544,40 @@ footer a:hover { color: rgba(255,255,255,.8); }
 </footer>
 
 <script>
+// Nav scroll
 const nav = document.getElementById('sitenav');
 window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+// Fade-in
 const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.08 });
 document.querySelectorAll('.fi').forEach(el => observer.observe(el));
+
+// Hero slider
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dotsWrap = document.getElementById('heroDots');
+  let current = 0, timer;
+
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    btn.setAttribute('aria-label', 'Bild ' + (i + 1));
+    btn.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(btn);
+  });
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dotsWrap.children[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsWrap.children[current].classList.add('active');
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 6000);
+  }
+
+  timer = setInterval(() => goTo(current + 1), 6000);
+})();
 </script>
 </body>
 </html>
