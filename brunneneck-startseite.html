@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brunneneck – Zwei Penthouses in Berlin Mitte</title>
-<meta name="description" content="Brunneneck: zwei luxuriöse Penthouses im Dachgeschossausbau in Berlin Mitte, Rosenthaler Vorstadt. Interior vom Studio Fabian Freytag. Provisionsfrei direkt vom Projektentwickler.">
+<title>Brunneneck – Penthouses Rheinsberger Straße, Berlin Mitte</title>
+<meta name="description" content="Brunneneck: Exklusive Penthouses im Dachgeschossausbau, Rheinsberger Straße, Berlin Mitte. Als Gesamtpenthouse oder zwei Einzelwohnungen. Provisionsfrei direkt vom Projektentwickler.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
@@ -60,9 +60,7 @@ nav.site.scrolled {
   position: relative; height: 100svh; min-height: 600px;
   display: flex; align-items: flex-end; color: #fff; overflow: hidden;
 }
-.hero-bg {
-  position: absolute; inset: 0;
-}
+.hero-bg { position: absolute; inset: 0; }
 .hero-bg img {
   width: 100%; height: 100%; object-fit: cover;
   transform: scale(1.05); animation: zoom 18s ease-out forwards;
@@ -70,7 +68,7 @@ nav.site.scrolled {
 @keyframes zoom { to { transform: scale(1); } }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(30,27,24,.35) 0%, rgba(30,27,24,.1) 45%, rgba(30,27,24,.75) 100%);
+  background: linear-gradient(to bottom, rgba(30,27,24,.2) 0%, rgba(30,27,24,.05) 40%, rgba(30,27,24,.72) 100%);
 }
 .hero-content {
   position: relative; z-index: 2; width: 100%;
@@ -105,6 +103,16 @@ nav.site.scrolled {
 /* SECTIONS */
 section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 .warm-bg { background: var(--warm); }
+.dark-bg { background: var(--dark); }
+
+/* DETAIL LINK */
+.detail-link {
+  display: inline-flex; align-items: center; gap: .6rem; margin-top: 2rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  border-bottom: 1px solid var(--gold); color: var(--gold); padding-bottom: .3rem;
+  transition: gap .25s;
+}
+.detail-link:hover { gap: 1rem; }
 
 /* INTRO */
 .intro-grid {
@@ -115,33 +123,34 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 .intro-grid:hover .intro-img img { transform: scale(1.03); }
 .intro-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
 .intro-text p { margin-top: 1.4rem; color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
-.detail-link {
-  display: inline-flex; align-items: center; gap: .6rem; margin-top: 2rem;
+
+/* SECTION HEADER */
+.section-header { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.section-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+.section-header p { margin-top: 1.2rem; color: var(--muted); font-size: 1.05rem; max-width: 60ch; line-height: 1.75; }
+
+/* VARIANT TABS */
+.variant-tabs {
+  display: flex; gap: 0; border-bottom: 2px solid var(--rule); margin-bottom: 3rem;
+}
+.variant-tab {
   font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
-  border-bottom: 1px solid var(--gold); color: var(--gold); padding-bottom: .3rem;
-  transition: gap .25s;
+  padding: .9rem 2rem; cursor: pointer; border: none; background: none;
+  color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -2px;
+  transition: color .2s, border-color .2s; font-family: 'Mulish';
 }
-.detail-link:hover { gap: 1rem; }
+.variant-tab.active { color: var(--dark); border-bottom-color: var(--gold); }
+.variant-panel { display: none; }
+.variant-panel.active { display: block; }
 
-/* PENTHOUSE CARDS */
-.ph-cards { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
-.ph-card { position: relative; overflow: hidden; }
-.ph-card-img { aspect-ratio: 3/4; overflow: hidden; }
-.ph-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
-.ph-card:hover .ph-card-img img { transform: scale(1.04); }
-.ph-card-body { padding: 1.6rem 0; border-bottom: 1px solid var(--rule); }
-.ph-card-no { font-size: .65rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; }
-.ph-card-body h3 { font-size: clamp(1.3rem, 2.4vw, 1.9rem); }
-.ph-card-body p { color: var(--muted); margin-top: .8rem; font-size: .95rem; }
-
-/* PENTHOUSE DETAIL SPLIT */
+/* PENTHOUSE SPLIT */
 .ph-split {
-  display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(3rem, 6vw, 6rem); align-items: center;
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(3rem, 6vw, 6rem); align-items: start;
 }
-.ph-split.flip .ph-split-img { order: 2; }
-.ph-split-img { overflow: hidden; aspect-ratio: 3/4; }
-.ph-split-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
-.ph-split:hover .ph-split-img img { transform: scale(1.03); }
+.ph-split.flip { grid-template-columns: .9fr 1.1fr; }
+.ph-split-img { overflow: hidden; }
+.ph-split-img img { width: 100%; height: auto; transition: transform 1s var(--ease); }
+.ph-split:hover .ph-split-img img { transform: scale(1.02); }
 .ph-no { font-size: .65rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .9rem; }
 .ph-split-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
 .ph-split-text p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
@@ -154,18 +163,68 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 }
 .highlights li::before { content: '+'; color: var(--gold); font-weight: 600; flex-shrink: 0; }
 
+/* GRUNDRISS FRAME */
+.grundriss-frame {
+  background: var(--warm); padding: 2rem 2rem 1.5rem;
+  border: 1px solid var(--rule);
+}
+.grundriss-label {
+  font-size: .62rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 1.2rem;
+}
+.grundriss-frame img { width: 100%; height: auto; display: block; }
+.grundriss-note {
+  font-size: .78rem; color: var(--muted); margin-top: 1rem; text-align: center;
+}
+
+/* TWO-UNIT GRID */
+.two-units { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: 2rem; }
+.unit-card { }
+.unit-card-header { padding: 1.4rem 0; border-bottom: 1px solid var(--rule); margin-bottom: 1.4rem; }
+.unit-card-no { font-size: .62rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
+.unit-card-header h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 300; }
+.unit-card-header p { margin-top: .6rem; color: var(--muted); font-size: .92rem; }
+
 /* GALLERY */
 .gallery {
   display: flex; gap: .8rem; overflow-x: auto; overflow-y: hidden;
   scrollbar-width: none; -webkit-overflow-scrolling: touch;
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
   padding-bottom: .5rem;
 }
 .gallery::-webkit-scrollbar { display: none; }
 .gallery img {
-  height: clamp(200px, 32vw, 400px); width: auto; flex-shrink: 0;
+  height: clamp(200px, 32vw, 420px); width: auto; flex-shrink: 0;
   object-fit: cover;
 }
+
+/* VERKAUFT SECTION */
+.verkauft-section { padding-block: clamp(3rem, 6vw, 5rem); }
+.verkauft-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2.5rem 3rem; border: 1px solid var(--rule);
+}
+.verkauft-badge {
+  display: inline-block;
+  font-size: .62rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
+  background: var(--dark); color: rgba(255,255,255,.55);
+  padding: .4rem .9rem; margin-bottom: .9rem;
+}
+.verkauft-inner h3 { font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 300; }
+.verkauft-inner p { margin-top: .5rem; color: var(--muted); font-size: .92rem; max-width: 44ch; }
+
+/* BESTANDSWOHNUNGEN */
+.bw-cards { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: 2.5rem; }
+.bw-card {
+  display: grid; grid-template-columns: 100px 1fr; gap: 1.4rem; align-items: center;
+  padding: 1.6rem; border: 1px solid var(--rule);
+}
+.bw-card-img { overflow: hidden; aspect-ratio: 1; }
+.bw-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.bw-card-no { font-size: .62rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+.bw-card h3 { font-size: 1.1rem; font-weight: 400; }
+.bw-card p { margin-top: .4rem; color: var(--muted); font-size: .88rem; }
 
 /* LOCATION */
 .lage-grid {
@@ -176,7 +235,7 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 .lage-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
 .lage-text p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
 
-/* DEVELOPER QUOTE */
+/* DEVELOPER */
 .dev-section { background: var(--dark); color: #fff; text-align: center; }
 .dev-section .eyebrow { color: rgba(255,255,255,.45); }
 .dev-section blockquote {
@@ -199,7 +258,6 @@ address { font-style: normal; margin-top: 2rem; color: var(--muted); line-height
 address strong { color: var(--dark); font-weight: 600; font-size: .65rem; letter-spacing: .24em; text-transform: uppercase; display: block; margin-top: 1.4rem; }
 address strong:first-child { margin-top: 0; }
 address a:hover { color: var(--gold); }
-
 .form-wrap { background: var(--white); padding: 2.5rem; }
 .warm-bg .form-wrap { background: #fff; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
@@ -235,8 +293,12 @@ footer a:hover { color: rgba(255,255,255,.8); }
   .intro-grid, .ph-split, .ph-split.flip, .lage-grid, .contact-grid {
     grid-template-columns: 1fr;
   }
-  .ph-split.flip .ph-split-img { order: 0; }
-  .ph-cards { grid-template-columns: 1fr; }
+  .two-units, .bw-cards { grid-template-columns: 1fr; }
+  .verkauft-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 540px) {
+  .bw-card { grid-template-columns: 1fr; }
+  .bw-card-img { display: none; }
 }
 </style>
 </head>
@@ -254,14 +316,15 @@ footer a:hover { color: rgba(255,255,255,.8); }
   </div>
 </nav>
 
+<!-- HERO: Dachterrasse mit Fernsehturm -->
 <section class="hero" id="start">
   <div class="hero-bg">
-    <img src="Startseite - Brunnen-Eck_files/BRU_Header-1600x768.jpg" alt="Brunneneck – Penthouses in Berlin Mitte" fetchpriority="high">
+    <img src="fotos/penthouse/terrasse.jpg" alt="Dachterrasse Brunneneck – Blick auf den Fernsehturm Berlin" fetchpriority="high">
   </div>
   <div class="wrap hero-content">
-    <span class="eyebrow">Berlin Mitte · Rosenthaler Vorstadt</span>
-    <h1>Ganz oben<br>in Berlin Mitte.</h1>
-    <p class="sub">Zwei Penthouses im Dachgeschossausbau. Interior vom Studio Fabian Freytag. Provisionsfrei direkt vom Projektentwickler.</p>
+    <span class="eyebrow">Berlin Mitte · Rheinsberger Straße</span>
+    <h1>Penthouse.<br>Über den Dächern<br>Berlins.</h1>
+    <p class="sub">Dachgeschossausbau im Brunneneck. Exklusiver Neubau über zwei Gebäude – als großzügiges Gesamtpenthouse oder zwei unabhängige Einheiten. Interior vom Studio Fabian Freytag.</p>
     <div class="hero-cta">
       <a class="btn btn-gold" href="#penthouses">Penthouses entdecken &rarr;</a>
       <a class="btn btn-outline" href="#kontakt">Besichtigung anfragen</a>
@@ -269,116 +332,170 @@ footer a:hover { color: rgba(255,255,255,.8); }
   </div>
 </section>
 
+<!-- INTRO -->
 <section>
   <div class="wrap">
     <div class="intro-grid fi">
       <div class="intro-img">
-        <img src="fotos/we30/foto03.jpg" alt="Brunneneck – Wohnzimmer" loading="lazy">
+        <img src="fotos/penthouse/esszimmer.jpg" alt="Brunneneck – Esszimmer mit Dachfenstern" loading="lazy">
       </div>
       <div class="intro-text">
-        <span class="eyebrow">Modernität mit Klasse</span>
-        <h2>Exklusives Wohnen über den Dächern Berlins.</h2>
-        <p>Die beiden Wohnungen befinden sich in zwei aneinander anschließenden, sorgfältig sanierten Gebäuden. Durch den Dachgeschossausbau entstehen luxuriöse Wohnräume mit privatem Fahrstuhlzugang.</p>
-        <p>Das Innenraumkonzept beider Penthouses wurde vom Berliner Studio Fabian Freytag entworfen und spiegelt die zeitgenössische Vielfalt Berlins wider.</p>
-        <a class="detail-link" href="#penthouses">Beide Penthouses ansehen &rarr;</a>
+        <span class="eyebrow">Dachgeschossausbau</span>
+        <h2>Einmalig über zwei Gebäude.</h2>
+        <p>Im Dachgeschoss zweier sorgfältig sanierter Gründerzeitgebäude entsteht ein außergewöhnliches Penthouse mit privatem Aufzugszugang, großzügigen Dachterrassen und einem Raumgefühl, das in Berlin Mitte seinesgleichen sucht.</p>
+        <p style="margin-top:1rem;">Das Innenraumkonzept wurde vom renommierten Berliner Studio Fabian Freytag entworfen und verbindet zeitgenössische Eleganz mit dem Charakter des gewachsenen Quartiers.</p>
+        <a class="detail-link" href="#penthouses">Grundrisse & Details &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PENTHOUSES RHEINSBERGER STR. – HAUPTANGEBOT -->
 <section class="warm-bg" id="penthouses">
   <div class="wrap">
-    <div class="ph-cards fi">
-      <div class="ph-card">
-        <div class="ph-card-img">
-          <img src="fotos/we30/foto05.jpg" alt="Wohnung 30 – Brunneneck" loading="lazy">
+    <div class="section-header fi">
+      <span class="eyebrow">Penthouse · Rheinsberger Straße 9 · 5. OG</span>
+      <h2>Zwei Optionen. Eine Adresse.</h2>
+      <p>Das Penthouse über die Gebäude Rheinsberger Straße 9 lässt sich als großzügiges Gesamtpenthouse oder als zwei unabhängige Dachgeschosswohnungen erwerben – flexibel, je nach Lebensentwurf.</p>
+    </div>
+
+    <div class="variant-tabs fi">
+      <button class="variant-tab active" onclick="switchTab('gesamt', this)">Gesamtpenthouse · 242 m²</button>
+      <button class="variant-tab" onclick="switchTab('einzeln', this)">Zwei Einzelwohnungen</button>
+    </div>
+
+    <!-- VARIANTE A: ZUSAMMENGEFÜHRT -->
+    <div class="variant-panel active" id="panel-gesamt">
+      <div class="ph-split">
+        <div class="ph-split-img">
+          <div class="grundriss-frame">
+            <span class="grundriss-label">Grundriss · Gesamtpenthouse · mit Möblierung</span>
+            <img src="fotos/penthouse/grundriss-gesamt.png" alt="Grundriss Gesamtpenthouse Brunneneck Rheinsberger Straße" loading="lazy">
+            <p class="grundriss-note">Gesamtfläche 242,21 m² · Außenflächen: Loggia 7,52 m², Terrassen 17,24 m² + 3,54 m²</p>
+          </div>
         </div>
-        <div class="ph-card-body">
-          <div class="ph-card-no">Wohnung 30 · Brunnenstr. 146 · 4. OG</div>
-          <h3>97 m² – Erstbezug, 3 Zimmer, 2 Bäder</h3>
-          <p>Eichenparkett, Walk-in-Ankleide, flexibler Grundriss. Provisionsfrei, 649.000 €.</p>
-          <a class="detail-link" href="wohnung-30.html">Details ansehen &rarr;</a>
+        <div class="ph-split-text">
+          <div class="ph-no">Option A · Als Gesamtpenthouse</div>
+          <h2>242 m² – Raum ohne Kompromisse.</h2>
+          <p>Über die gesamte Dachgeschossebene beider Gebäude erstreckt sich ein weitläufiges Penthouse mit eigenem Fahrstuhlzugang, Fitnesszimmer, mehreren Dachterrassen und einem Raumgefühl, das in dieser Form in Berlin kaum zu finden ist.</p>
+          <ul class="highlights">
+            <li>Wohn- / Essbereich 71,76 m²</li>
+            <li>Fitnesszimmer 34,65 m²</li>
+            <li>Master Schlafzimmer 21,39 m²</li>
+            <li>Gästezimmer 16,20 m² + Arbeitszimmer 20,99 m²</li>
+            <li>Master Badezimmer 22,32 m² + Gäste Bad 6,35 m²</li>
+            <li>Ankleide 10,19 m² · Weinlager · Hauswirtschaft</li>
+            <li>Dachterrassen 17,24 m² + 3,54 m² · Loggia 7,52 m²</li>
+            <li>Privater Aufzugszugang · Provisionsfrei</li>
+          </ul>
+          <a class="btn btn-gold" href="#kontakt" style="margin-top:2rem;display:inline-flex;">Anfrage stellen &rarr;</a>
         </div>
       </div>
-      <div class="ph-card">
-        <div class="ph-card-img">
-          <img src="fotos/we32/foto03.jpg" alt="Wohnung 32 – Brunneneck" loading="lazy">
+    </div>
+
+    <!-- VARIANTE B: ZWEI EINZELNE -->
+    <div class="variant-panel" id="panel-einzeln">
+      <p class="fi" style="color:var(--muted);font-size:1.02rem;max-width:60ch;margin-bottom:2.5rem;line-height:1.75;">Das Penthouse kann auch als zwei eigenständige Dachgeschosswohnungen erworben werden – jede mit privatem Aufzugszugang, eigener Dachterrasse und vollständigem Raumkonzept von Studio Fabian Freytag.</p>
+      <div class="two-units fi">
+        <div class="unit-card">
+          <div class="unit-card-header">
+            <div class="unit-card-no">Wohnung 1 · Hof</div>
+            <h3>Penthouse Hof · Rheinsberger Str. 9</h3>
+            <p>Masterbedroom, Küche/Bar, offener Wohn-/Essbereich, 2 Dachterrassen.</p>
+          </div>
+          <div class="grundriss-frame">
+            <span class="grundriss-label">Grundriss · Wohnung 1 · Hof</span>
+            <img src="fotos/penthouse/grundriss-we1.png" alt="Grundriss Penthouse Hof" loading="lazy">
+          </div>
+          <a class="detail-link" href="#kontakt">Anfrage &rarr;</a>
         </div>
-        <div class="ph-card-body">
-          <div class="ph-card-no">Wohnung 32 · Rheinsberger Str. 9 · 4. OG</div>
-          <h3>118 m² – Erstbezug, 4,5 Zimmer, Fischgrätparkett</h3>
-          <p>Offener Wohnbereich über 52 m², Altbau-Kassettentüren, barrierefrei. Provisionsfrei, 879.000 €.</p>
-          <a class="detail-link" href="wohnung-32.html">Details ansehen &rarr;</a>
+        <div class="unit-card">
+          <div class="unit-card-header">
+            <div class="unit-card-no">Wohnung 2 · Ecke</div>
+            <h3>Penthouse Ecke · Rheinsberger Str. 9</h3>
+            <p>Mastersuite, Küche + Essen, offener Wohnbereich, Dachterrasse an der Ecke.</p>
+          </div>
+          <div class="grundriss-frame">
+            <span class="grundriss-label">Grundriss · Wohnung 2 · Ecke</span>
+            <img src="fotos/penthouse/grundriss-we2.png" alt="Grundriss Penthouse Ecke" loading="lazy">
+          </div>
+          <a class="detail-link" href="#kontakt">Anfrage &rarr;</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- VISUALISIERUNGEN GALERIE -->
 <section>
   <div class="wrap">
-    <div class="ph-split fi">
-      <div class="ph-split-img">
-        <img src="fotos/we30/foto07.jpg" alt="Wohnung 30" loading="lazy">
-      </div>
-      <div class="ph-split-text">
-        <div class="ph-no">Wohnung 30 · Brunnenstr. 146 · 4. OG</div>
-        <h2>97 m² – Erstbezug nach Sanierung.</h2>
-        <p>Im 4. Obergeschoss des Altbauensembles erwartet Sie eine ca. 97 m² große Wohnung, erstmals bezogen. Klare Linien, Eichenparkett, warme Naturtöne. Flexibler Grundriss als Loft oder Familienwohnung.</p>
-        <ul class="highlights">
-          <li>Erstbezug nach hochwertiger Sanierung</li>
-          <li>Eichenparkett von Bauwerk, Fliesen von Florim</li>
-          <li>2 Bäder: Bad en suite + Gäste-WC</li>
-          <li>Walk-in-Ankleide (4,60 m²)</li>
-          <li>Separate Küche mit Fenster</li>
-          <li>Personenaufzug, Kellerabteil</li>
-          <li>Provisionsfrei · 649.000 €</li>
-        </ul>
-        <a class="detail-link" href="wohnung-30.html" style="margin-top:2rem">Detailseite öffnen &rarr;</a>
-      </div>
-    </div>
-
+    <span class="eyebrow fi">Einblicke</span>
+    <h2 class="fi" style="font-size:clamp(2rem,3.5vw,3rem);max-width:20ch;">Das Penthouse in Bildern.</h2>
     <div class="gallery fi">
-      <img src="fotos/we30/foto02.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto04.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto06.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto08.jpg" alt="Wohnung 30" loading="lazy">
+      <img src="fotos/penthouse/wohnzimmer1.jpg" alt="Wohnzimmer mit Dachfenstern und Holzwandverkleidung" loading="lazy">
+      <img src="fotos/penthouse/schlafzimmer.jpg" alt="Schlafzimmer mit Dachflächenfenstern und Holzwand" loading="lazy">
+      <img src="fotos/penthouse/wohnzimmer2.jpg" alt="Wohnzimmer mit Galerie und grüner Akzentwand" loading="lazy">
+      <img src="fotos/penthouse/esszimmer.jpg" alt="Esszimmer mit blauem Tisch und Dachfenstern" loading="lazy">
+      <img src="fotos/penthouse/terrasse.jpg" alt="Dachterrasse mit Fernsehturm-Ausblick" loading="lazy">
     </div>
   </div>
 </section>
 
-<section class="warm-bg">
+<!-- PENTHOUSE BRUNNENSTRASSE: VERKAUFT -->
+<section class="warm-bg verkauft-section">
   <div class="wrap">
-    <div class="ph-split flip fi">
-      <div class="ph-split-img">
-        <img src="fotos/we32/foto05.jpg" alt="Wohnung 32" loading="lazy">
+    <div class="verkauft-inner fi">
+      <div>
+        <span class="verkauft-badge">Verkauft</span>
+        <h3>Penthouse Brunnenstraße 146</h3>
+        <p>Das Penthouse in der Brunnenstraße 146 ist bereits vermittelt.</p>
       </div>
-      <div class="ph-split-text">
-        <div class="ph-no">Wohnung 32 · Rheinsberger Str. 9 · 4. OG</div>
-        <h2>118 m² – Fischgrätparkett, offener Wohnbereich.</h2>
-        <p>4,5 Zimmer, erstmals bezogen nach hochwertiger Sanierung. Fischgrätparkett, originale Kassettentüren, Rundbogenfenster – Gründerzeit-Charakter mit modernem Wohnkomfort.</p>
-        <ul class="highlights">
-          <li>Erstbezug nach hochwertiger Sanierung</li>
-          <li>Fischgrät-Echtholzparkett von Bauwerk</li>
-          <li>Offener Wohn-/Essbereich über 52 m²</li>
-          <li>Barrierefreier Zugang – Aufzug direkt auf die Etage</li>
-          <li>Bad mit Badewanne + bodengleicher Regendusche</li>
-          <li>Provisionsfrei · 879.000 €</li>
-        </ul>
-        <a class="detail-link" href="wohnung-32.html" style="margin-top:2rem">Detailseite öffnen &rarr;</a>
+      <div style="color:var(--muted);font-size:.88rem;line-height:1.75;max-width:34ch;">
+        Für aktuelle Verfügbarkeiten wenden Sie sich direkt an uns. Die Penthouses in der Rheinsberger Straße sind noch verfügbar.
+        <br><br>
+        <a href="#kontakt" style="color:var(--gold);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:.2rem;">Kontakt aufnehmen &rarr;</a>
       </div>
-    </div>
-
-    <div class="gallery fi">
-      <img src="fotos/we32/foto02.jpg" alt="Wohnung 32" loading="lazy">
-      <img src="fotos/we32/foto04.jpg" alt="Wohnung 32" loading="lazy">
-      <img src="fotos/we32/foto06.jpg" alt="Wohnung 32" loading="lazy">
-      <img src="fotos/we32/foto07.jpg" alt="Wohnung 32" loading="lazy">
     </div>
   </div>
 </section>
 
-<section id="lage">
+<!-- BESTANDSWOHNUNGEN (kurz) -->
+<section>
+  <div class="wrap">
+    <div class="section-header fi">
+      <span class="eyebrow">Weitere Einheiten</span>
+      <h2>Wohnungen im Brunneneck.</h2>
+      <p>Im Brunneneck stehen auch zwei modernisierte Bestandswohnungen zum Kauf – Erstbezug nach hochwertiger Sanierung, ebenfalls provisionsfrei.</p>
+    </div>
+    <div class="bw-cards fi">
+      <div class="bw-card">
+        <div class="bw-card-img">
+          <img src="fotos/we30/foto05.jpg" alt="Wohnung 30" loading="lazy">
+        </div>
+        <div>
+          <div class="bw-card-no">WE 30 · Brunnenstr. 146 · 4. OG</div>
+          <h3>97 m² · 3 Zimmer · 649.000 €</h3>
+          <p>Eichenparkett, 2 Bäder, Walk-in-Ankleide. Erstbezug nach Sanierung.</p>
+          <a class="detail-link" href="wohnung-30.html" style="margin-top:1rem;font-size:.65rem;">Detailseite &rarr;</a>
+        </div>
+      </div>
+      <div class="bw-card">
+        <div class="bw-card-img">
+          <img src="fotos/we32/foto03.jpg" alt="Wohnung 32" loading="lazy">
+        </div>
+        <div>
+          <div class="bw-card-no">WE 32 · Rheinsberger Str. 9 · 4. OG</div>
+          <h3>118 m² · 4,5 Zimmer · 879.000 €</h3>
+          <p>Fischgrätparkett, offener Wohnbereich 52 m², Altbau-Kassettentüren.</p>
+          <a class="detail-link" href="wohnung-32.html" style="margin-top:1rem;font-size:.65rem;">Detailseite &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAGE -->
+<section class="warm-bg" id="lage">
   <div class="wrap">
     <div class="lage-grid fi">
       <div class="lage-img">
@@ -394,6 +511,7 @@ footer a:hover { color: rgba(255,255,255,.8); }
   </div>
 </section>
 
+<!-- DEVELOPER -->
 <section class="dev-section" id="entwickler">
   <div class="wrap" style="text-align:center;">
     <span class="eyebrow">Der Projektentwickler</span>
@@ -403,6 +521,7 @@ footer a:hover { color: rgba(255,255,255,.8); }
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="warm-bg" id="kontakt">
   <div class="wrap">
     <div class="contact-grid fi">
@@ -454,25 +573,33 @@ footer a:hover { color: rgba(255,255,255,.8); }
 </section>
 
 <footer>
-  <span>© <span id="yr"></span> Brunneneck · Ein Projekt der Tiedemann Gruppe</span>
-  <a href="#">Impressum &amp; Datenschutz</a>
+  <span>© 2025 Tiedemann Gruppe · Brunneneck Berlin</span>
+  <span>
+    <a href="#">Impressum</a> &ensp;·&ensp;
+    <a href="#">Datenschutz</a>
+  </span>
 </footer>
 
 <script>
-  const nav = document.getElementById('sitenav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
-  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+// Nav scroll
+const nav = document.getElementById('sitenav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
 
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold: .1});
-    document.querySelectorAll('.fi').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.fi').forEach(el => el.classList.add('in'));
-  }
+// Fade in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fi').forEach(el => observer.observe(el));
 
-  document.getElementById('yr').textContent = new Date().getFullYear();
+// Variant tabs
+function switchTab(id, btn) {
+  document.querySelectorAll('.variant-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.variant-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
 </script>
 </body>
 </html>
