@@ -153,6 +153,10 @@ section { padding-block: clamp(6rem, 12vw, 10rem); }
 .lead b { font-weight: 600; color: var(--ink); }
 .plan { background: #fff; border: 1px solid var(--rule); padding: clamp(1rem, 2.5vw, 2rem); position: relative; cursor: zoom-in; }
 .plan img { width: 100%; height: auto; }
+.plan-vars { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.plan-vars button { font: inherit; font-size: var(--fs-small); font-weight: 600; padding: .6rem 1rem; min-height: 40px; border: 1px solid var(--rule); background: transparent; color: var(--ink); cursor: pointer; border-radius: 0; transition: background .2s, color .2s, border-color .2s; }
+.plan-vars button:hover { border-color: var(--navy); }
+.plan-vars button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
 .plan-meta { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: var(--fs-small); color: var(--muted); margin-top: .9rem; }
 .plan-zoom { position: absolute; top: 1rem; right: 1rem; width: 2.6rem; height: 2.6rem; border-radius: 0; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 1.1rem; opacity: .85; transition: opacity .2s, transform .2s; }
 .plan:hover .plan-zoom { opacity: 1; transform: scale(1.08); }
@@ -374,11 +378,12 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
       </div>
     </div>
     <div class="r">
-      <div class="plan" data-lb="Startseite - Brunnen-Eck_files/BRU_Grundriss_small_newRS-680x378.jpg" data-plan data-cap="Grundriss Wohnung 30" role="button" tabindex="0" aria-label="Grundriss Wohnung 30 vergrößern">
-        <img src="Startseite - Brunnen-Eck_files/BRU_Grundriss_small_newRS-680x378.jpg" alt="Grundriss Wohnung 30" width="680" height="378" loading="lazy">
+      <div class="plan" id="plan-we30" data-lb="fotos/grundrisse/we30-variante-a.png" data-plan data-cap="Grundriss Wohnung 30 · Variante Loft" role="button" tabindex="0" aria-label="Grundriss Wohnung 30 vergrößern">
+        <img src="fotos/grundrisse/we30-variante-a.png" alt="Grundriss Wohnung 30 mit Raumflächen, Variante Loft" loading="lazy">
         <span class="plan-zoom" aria-hidden="true">＋</span>
       </div>
-      <div class="plan-meta"><span>Grundriss · Wohnung 30</span><span>ca. 97,11 m² · 4. OG</span></div>
+      <div class="plan-meta"><span>Grundriss · Wohnung 30 · Variante Loft</span><span>ca. 97,11 m² · 4. OG</span></div>
+        <div class="plan-vars" role="group" aria-label="Grundriss-Varianten" data-for="plan-we30"><button type="button" aria-pressed="true" data-src="fotos/grundrisse/we30-variante-a.png" data-cap="Grundriss Wohnung 30 · Variante Loft" data-meta="Grundriss · Wohnung 30 · Variante Loft">Variante Loft</button><button type="button" aria-pressed="false" data-src="fotos/grundrisse/we30-variante-b.png" data-cap="Grundriss Wohnung 30 · Variante Familie" data-meta="Grundriss · Wohnung 30 · Variante Familie">Variante Familie</button></div>
     </div>
   </div>
 </section>
@@ -553,6 +558,19 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
     }
   });
 })();
+
+// Grundriss-Varianten
+document.querySelectorAll('.plan-vars').forEach(group => {
+  const plan = document.getElementById(group.dataset.for);
+  const img = plan.querySelector('img');
+  const meta = group.parentElement.querySelector('.plan-meta span');
+  group.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    group.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    img.src = b.dataset.src; img.alt = b.dataset.cap;
+    plan.dataset.lb = b.dataset.src; plan.dataset.cap = b.dataset.cap;
+    if (meta && b.dataset.meta) meta.textContent = b.dataset.meta;
+  }));
+});
 </script>
 </body>
 </html>

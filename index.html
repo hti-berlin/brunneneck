@@ -163,6 +163,10 @@ section { padding-block: clamp(6rem, 12vw, 10rem); }
 .unit .actions { margin-top: 2rem; display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
 .plan { background: #fff; border: 1px solid var(--rule); padding: clamp(1rem, 2.5vw, 2rem); position: relative; cursor: zoom-in; }
 .plan img { width: 100%; height: auto; }
+.plan-vars { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.plan-vars button { font: inherit; font-size: var(--fs-small); font-weight: 600; padding: .6rem 1rem; min-height: 40px; border: 1px solid var(--rule); background: transparent; color: var(--ink); cursor: pointer; border-radius: 0; transition: background .2s, color .2s, border-color .2s; }
+.plan-vars button:hover { border-color: var(--navy); }
+.plan-vars button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
 .plan-meta { display: flex; justify-content: space-between; gap: 1rem; font-size: var(--fs-small); color: var(--muted); margin-top: .9rem; }
 .plan-zoom { position: absolute; top: 1rem; right: 1rem; width: 2.6rem; height: 2.6rem; border-radius: 0; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 1.1rem; opacity: .85; transition: opacity .2s, transform .2s; }
 .plan:hover .plan-zoom { opacity: 1; transform: scale(1.08); }
@@ -436,11 +440,12 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
         </div>
       </div>
       <div>
-        <div class="plan" data-lb="fotos/penthouse/grundriss-we1.png" data-cap="Grundriss Penthouse Wohnung 3 · Ecke · Raumkonzept Nora Witzigmann" role="button" tabindex="0" aria-label="Grundriss Wohnung 3 vergrößern">
-          <img src="fotos/penthouse/grundriss-we1.png" alt="Grundriss Penthouse Wohnung 3, Ecke" loading="lazy">
+        <div class="plan" id="plan-w3" data-lb="fotos/grundrisse/penthouse-whg3.png" data-cap="Grundriss Penthouse Wohnung 3 · Ecke · Variante Mastersuite" role="button" tabindex="0" aria-label="Grundriss Wohnung 3 vergrößern">
+          <img src="fotos/grundrisse/penthouse-whg3.png" alt="Grundriss Penthouse Wohnung 3, Ecke, Variante Mastersuite" loading="lazy">
           <span class="plan-zoom" aria-hidden="true">＋</span>
         </div>
-        <div class="plan-meta"><span>Grundriss · Wohnung 3 · Ecke</span><span>M 1:75 · Konzeptplanung</span></div>
+        <div class="plan-meta"><span>Grundriss · Wohnung 3 · Ecke · Mastersuite</span><span>Konzeptplanung</span></div>
+        <div class="plan-vars" role="group" aria-label="Grundriss-Varianten" data-for="plan-w3"><button type="button" aria-pressed="true" data-src="fotos/grundrisse/penthouse-whg3.png" data-cap="Grundriss Penthouse Wohnung 3 · Ecke · Variante Mastersuite" data-meta="Grundriss · Wohnung 3 · Ecke · Mastersuite">Mastersuite</button><button type="button" aria-pressed="false" data-src="fotos/grundrisse/penthouse-whg3-variante.png" data-cap="Grundriss Penthouse Wohnung 3 · Ecke · Variante 2 Schlafzimmer" data-meta="Grundriss · Wohnung 3 · Ecke · 2 Schlafzimmer">2 Schlafzimmer</button></div>
       </div>
     </div>
 
@@ -467,11 +472,12 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
         </div>
       </div>
       <div>
-        <div class="plan" data-lb="fotos/penthouse/grundriss-we2.png" data-cap="Grundriss Penthouse Wohnung 4 · Hof · Raumkonzept Nora Witzigmann" role="button" tabindex="0" aria-label="Grundriss Wohnung 4 vergrößern">
-          <img src="fotos/penthouse/grundriss-we2.png" alt="Grundriss Penthouse Wohnung 4, Hof" loading="lazy">
+        <div class="plan" id="plan-w4" data-lb="fotos/grundrisse/penthouse-whg4.png" data-cap="Grundriss Penthouse Wohnung 4 · Hof · Variante A" role="button" tabindex="0" aria-label="Grundriss Wohnung 4 vergrößern">
+          <img src="fotos/grundrisse/penthouse-whg4.png" alt="Grundriss Penthouse Wohnung 4, Hof, Variante A" loading="lazy">
           <span class="plan-zoom" aria-hidden="true">＋</span>
         </div>
-        <div class="plan-meta"><span>Grundriss · Wohnung 4 · Hof</span><span>M 1:75 · Konzeptplanung</span></div>
+        <div class="plan-meta"><span>Grundriss · Wohnung 4 · Hof · Variante A</span><span>Konzeptplanung</span></div>
+        <div class="plan-vars" role="group" aria-label="Grundriss-Varianten" data-for="plan-w4"><button type="button" aria-pressed="true" data-src="fotos/grundrisse/penthouse-whg4.png" data-cap="Grundriss Penthouse Wohnung 4 · Hof · Variante A" data-meta="Grundriss · Wohnung 4 · Hof · Variante A">Variante A</button><button type="button" aria-pressed="false" data-src="fotos/grundrisse/penthouse-whg4-variante.png" data-cap="Grundriss Penthouse Wohnung 4 · Hof · Variante B" data-meta="Grundriss · Wohnung 4 · Hof · Variante B">Variante B</button></div>
       </div>
     </div>
 
@@ -498,8 +504,8 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
         </div>
       </div>
       <div>
-        <div class="plan" data-lb="fotos/penthouse/grundriss-gesamt.png" data-cap="Grundriss Gesamtpenthouse 242 m² · Raumkonzept Studio Fabian Freytag" role="button" tabindex="0" aria-label="Grundriss Gesamtpenthouse vergrößern">
-          <img src="fotos/penthouse/grundriss-gesamt.png" alt="Grundriss Gesamtpenthouse 242 m²" loading="lazy">
+        <div class="plan" data-lb="fotos/grundrisse/penthouse-gesamt.png" data-cap="Grundriss Gesamtpenthouse 242 m² · Raumkonzept Studio Fabian Freytag" role="button" tabindex="0" aria-label="Grundriss Gesamtpenthouse vergrößern">
+          <img src="fotos/grundrisse/penthouse-gesamt.png" alt="Grundriss Gesamtpenthouse 242 m²" loading="lazy">
           <span class="plan-zoom" aria-hidden="true">＋</span>
         </div>
         <div class="plan-meta"><span>Grundriss · Gesamtpenthouse</span><span>Gesamtfläche 242,21 m² · Konzeptplanung</span></div>
@@ -786,6 +792,19 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
   lb.addEventListener('click', e => { if (e.target === lb || e.target === lb.firstElementChild.nextElementSibling) close(); });
   addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
+
+// Grundriss-Varianten
+document.querySelectorAll('.plan-vars').forEach(group => {
+  const plan = document.getElementById(group.dataset.for);
+  const img = plan.querySelector('img');
+  const meta = group.parentElement.querySelector('.plan-meta span');
+  group.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    group.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    img.src = b.dataset.src; img.alt = b.dataset.cap;
+    plan.dataset.lb = b.dataset.src; plan.dataset.cap = b.dataset.cap;
+    if (meta && b.dataset.meta) meta.textContent = b.dataset.meta;
+  }));
+});
 </script>
 </body>
 </html>
