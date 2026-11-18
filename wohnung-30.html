@@ -5,353 +5,551 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wohnung 30 – 3-Zimmer-Altbau, Erstbezug · Brunneneck Berlin Mitte</title>
 <meta name="description" content="Wohnung 30 am Brunneneck: ca. 97 m², 3 Zimmer, 2 Bäder, Erstbezug nach Sanierung, Eichenparkett, Walk-in-Ankleide. 649.000 € – provisionsfrei direkt vom Bauträger.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#1b1916">
 <style>
 :root {
-  --dark:  #1e1b18;
-  --gold:  #b5924a;
-  --warm:  #f9f7f4;
-  --white: #ffffff;
-  --muted: rgba(30,27,24,.48);
-  --rule:  rgba(30,27,24,.1);
-  --g:     clamp(1.5rem, 5vw, 4rem);
-  --max:   1240px;
-  --ease:  cubic-bezier(.22,.61,.36,1);
+  --ink:      #1b1916;
+  --ink-2:    #2a2622;
+  --paper:    #f3efe8;
+  --paper-2:  #e9e3d8;
+  --white:    #fbf9f5;
+  --brick:    #a24f2e;
+  --brick-dk: #86401f;
+  --timber:   #c8a77a;
+  --muted:    rgba(27,25,22,.62);
+  --rule:     rgba(27,25,22,.14);
+  --rule-inv: rgba(251,249,245,.14);
+  --g:   clamp(1.25rem, 5vw, 4.5rem);
+  --max: 1320px;
+  --sans:  'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  /* Typo-Skala nach Tiedemann Design System: display 40/1.05 · h1 28/1.2 · h2 20/1.3 · body 15/1.6 · small 13/1.5 · label 11/600/.14em */
+  --fs-display: clamp(40px, 4.4vw, 64px);
+  --fs-h1: clamp(28px, 2.9vw, 40px);
+  --fs-h2: 20px;
+  --fs-body: 15px;
+  --fs-lead: 17px;
+  --fs-small: 13px;
+  --fs-label: 11px;
+  --fs-button: 14px;
+  --ease:  cubic-bezier(.2,.7,.2,1);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Mulish', sans-serif; color: var(--dark); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { font-family: var(--sans); font-weight: 400; color: var(--ink); background: var(--white); font-size: var(--fs-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-h1,h2,h3 { font-weight: 300; line-height: 1.1; letter-spacing: -.02em; }
+button { font: inherit; color: inherit; }
+/* Titel = Wortpaar: zurücktretendes Wort Light 300, tragendes Wort (em) SemiBold 600 */
+h1, h2, h3 { font-family: var(--sans); font-weight: 300; line-height: 1.2; letter-spacing: 0; }
+h2 { font-size: var(--fs-h1); }
+h3 { font-size: var(--fs-h2); line-height: 1.3; }
+h1 em, h2 em, h3 em { font-style: normal; font-weight: 600; }
 .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--g); }
+.label { display: inline-flex; align-items: center; gap: .7rem; font-size: var(--fs-label); font-weight: 600; line-height: 1.4; letter-spacing: .14em; text-transform: uppercase; color: var(--brick); }
+.label::before { content: ''; width: 1.6rem; height: 1px; background: currentColor; flex-shrink: 0; }
+.lead { font-size: var(--fs-lead); font-weight: 400; color: var(--muted); max-width: 62ch; line-height: 1.6; }
+.lead + .lead { margin-top: 1rem; }
+section { padding-block: clamp(5rem, 11vw, 9rem); }
+.paper { background: var(--paper); }
+.dark  { background: var(--ink); color: var(--white); }
+.dark .lead { color: rgba(251,249,245,.72); }
+.dark .label { color: var(--timber); }
+.caption { font-size: var(--fs-small); line-height: 1.5; color: var(--muted); margin-top: .8rem; }
+
+/* Buttons & links */
+.btn { display: inline-flex; align-items: center; gap: .8rem; font-size: var(--fs-button); font-weight: 600; line-height: 1; letter-spacing: 0; padding: 1rem 1.6rem; border: 1px solid transparent; cursor: pointer; transition: background .25s, color .25s, border-color .25s; border-radius: 0; }
+.btn .arr { transition: transform .25s var(--ease); }
+.btn:hover .arr { transform: translateX(4px); }
+.btn-brick { background: var(--brick); color: #fff; }
+.btn-brick:hover { background: var(--brick-dk); }
+.btn-ghost { border-color: rgba(255,255,255,.45); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,.12); }
+.btn-ink { background: var(--ink); color: var(--white); }
+.btn-ink:hover { background: var(--brick); }
+.tlink { display: inline-flex; align-items: center; gap: .6rem; font-size: var(--fs-button); font-weight: 600; border-bottom: 1px solid currentColor; padding-bottom: .2rem; transition: gap .25s var(--ease), color .2s; }
+.tlink:hover { gap: 1rem; color: var(--brick); }
 
 /* NAV */
-nav.site {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 80;
-  transition: background .4s var(--ease), border-color .4s;
-}
-nav.site.scrolled {
-  background: rgba(30,27,24,.95);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.nav-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 72px;
-}
-.nav-logo { font-size: .78rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #fff; }
-.nav-back {
-  font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
-  color: rgba(255,255,255,.65); display: flex; align-items: center; gap: .5rem;
-  transition: color .2s;
-}
-.nav-back:hover { color: #fff; }
+.nav { position: fixed; inset: 0 0 auto; z-index: 80; color: #fff; transition: background .35s, color .35s, box-shadow .35s; }
+.nav.solid { background: rgba(251,249,245,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: var(--ink); box-shadow: 0 1px 0 var(--rule); }
+.nav-in { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.logo { font-size: 1.35rem; font-weight: 300; white-space: nowrap; }
+.logo b { font-weight: 600; }
+.logo small { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; opacity: .6; margin-left: .6rem; vertical-align: middle; }
+.nav ul { display: flex; gap: 2.2rem; list-style: none; font-size: var(--fs-button); }
+.nav ul a { opacity: .8; transition: opacity .2s; white-space: nowrap; }
+.nav ul a:hover { opacity: 1; }
+.nav .btn { padding: .65rem 1.2rem; font-size: var(--fs-small); }
+.nav:not(.solid) .btn { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); }
+@media (max-width: 1080px) { .nav ul { display: none; } }
+@media (max-width: 900px) { .logo small { display: none; } }
 
 /* HERO */
-.hero {
-  position: relative; height: 100svh; min-height: 600px;
-  display: flex; align-items: flex-end; color: #fff; overflow: hidden;
+.hero { position: relative; min-height: 100svh; display: grid; align-items: end; color: #fff; overflow: hidden; padding: 0; }
+.hero-media { position: absolute; inset: 0; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; animation: heroZoom 9s linear both; }
+@keyframes heroZoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,18,15,.55) 0%, rgba(20,18,15,.15) 55%, rgba(20,18,15,0) 100%), linear-gradient(180deg, rgba(20,18,15,.5) 0%, rgba(20,18,15,.1) 25%, rgba(20,18,15,.25) 55%, rgba(20,18,15,.88) 100%); pointer-events: none; }
+.hero-body { position: relative; z-index: 2; padding-top: 140px; }
+.hero .label { color: rgba(255,255,255,.8); }
+.hero h1 { font-size: var(--fs-display); line-height: 1.05; margin-top: 1.4rem; max-width: 18ch; }
+.hero h1 em { color: var(--timber); }
+.hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+.hero-row p { max-width: 52ch; color: rgba(255,255,255,.88); font-size: var(--fs-lead); }
+.hero-cta { display: flex; gap: .8rem; flex-wrap: wrap; }
+.hero-facts { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vh, 4rem); border-top: 1px solid rgba(255,255,255,.22); display: grid; grid-template-columns: repeat(4, 1fr); }
+.hero-facts > div { padding: 1.3rem 1.5rem 1.6rem 0; min-width: 0; }
+.hero-facts b { display: block; font-weight: 300; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; }
+.hero-facts span { display: block; font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-top: .5rem; }
+@media (max-width: 760px) {
+  .hero-facts { grid-template-columns: 1fr 1fr; }
+  .hero-facts > div:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.14); }
 }
-.hero-bg { position: absolute; inset: 0; }
-.hero-bg img {
-  width: 100%; height: 100%; object-fit: cover;
-  transform: scale(1.05); animation: zoom 18s ease-out forwards;
-}
-@keyframes zoom { to { transform: scale(1); } }
-.hero-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(30,27,24,.3) 0%, rgba(30,27,24,.05) 40%, rgba(30,27,24,.8) 100%);
-}
-.hero-content { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(3rem, 9vh, 6rem); }
-.eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1.2rem; }
-.hero h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 300; max-width: 20ch; }
-.hero .sub { margin-top: 1.4rem; font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300; color: rgba(255,255,255,.8); max-width: 48ch; }
-.hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap; }
 
-/* BUTTONS */
-.btn {
-  display: inline-flex; align-items: center; gap: .6rem;
-  font-family: 'Mulish'; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
-  padding: .9rem 1.8rem; cursor: pointer; border: 1px solid transparent; transition: .22s;
-}
-.btn-gold { background: var(--gold); color: #fff; }
-.btn-gold:hover { background: #9e7d3a; }
-.btn-outline { background: transparent; border-color: rgba(255,255,255,.5); color: #fff; }
-.btn-outline:hover { background: rgba(255,255,255,.1); }
-.btn-dark { background: var(--dark); color: #fff; }
-.btn-dark:hover { background: #111; }
+/* INTRO */
+.intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: center; }
+.intro h2 { margin-top: 1.2rem; max-width: 20ch; }
+.intro .lead:first-of-type { margin-top: 1.6rem; }
+.intro-img { aspect-ratio: 4/5; overflow: hidden; background: var(--paper-2); cursor: zoom-in; }
+.intro-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.intro-img:hover img { transform: scale(1.03); }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2.5rem; border-top: 1px solid var(--rule); }
+.kpis div { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); min-width: 0; }
+.kpis div:nth-child(odd) { padding-right: 1rem; border-right: 1px solid var(--rule); }
+.kpis div:nth-child(even) { padding-left: 1.2rem; }
+.kpis b { display: block; font-weight: 300; font-size: var(--fs-h1); line-height: 1.2; }
+.kpis span { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 860px) { .intro { grid-template-columns: 1fr; } .intro-img { aspect-ratio: 4/3; order: -1; } }
 
-section { padding-block: clamp(4rem, 9vw, 7.5rem); }
-.warm-bg { background: var(--warm); }
+/* GALLERY RAIL */
+.view { padding-bottom: 0; }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.sec-head h2 { margin-top: 1.2rem; max-width: 18ch; }
+.rail { display: flex; gap: clamp(.6rem, 1.2vw, 1rem); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: clamp(2.5rem, 5vw, 4rem) var(--g) clamp(5rem, 11vw, 9rem); }
+.rail::-webkit-scrollbar { display: none; }
+.rail figure { flex: 0 0 auto; scroll-snap-align: start; height: clamp(280px, 56vh, 600px); max-width: calc(100vw - 2 * var(--g)); overflow: hidden; cursor: zoom-in; background: var(--paper-2); }
+.rail figure:focus-visible { outline-offset: -3px; }
+.rail img { height: 100%; width: auto; max-width: none; object-fit: cover; transition: transform 1.2s var(--ease); }
+.rail figure:hover img { transform: scale(1.03); }
+.rail-ctrl { display: flex; gap: .5rem; }
+.rail-ctrl button { width: 3rem; height: 3rem; border-radius: 0; border: 1px solid var(--rule); background: none; cursor: pointer; font-size: 1rem; transition: background .2s, color .2s; }
+.rail-ctrl button:hover { background: var(--ink); color: var(--white); }
 
-/* FACTS BAR */
-.facts-bar {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-}
-.fact {
-  padding: 1.6rem var(--g); border-right: 1px solid var(--rule);
-}
-.fact:last-child { border-right: 0; }
-.fact dt { font-size: .6rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
-.fact dd { font-size: 1rem; }
-@media (max-width: 700px) { .facts-bar { grid-template-columns: 1fr 1fr; } .fact { border-bottom: 1px solid var(--rule); } }
-
-/* SPLIT */
-.split { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
-.split.flip .split-img { order: 2; }
-.split-img { overflow: hidden; aspect-ratio: 3/4; }
-.split-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
-.split:hover .split-img img { transform: scale(1.03); }
-.split-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
-.split-text p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
-@media (max-width: 860px) { .split, .split.flip { grid-template-columns: 1fr; } .split.flip .split-img { order: 0; } }
-
-/* HIGHLIGHTS */
-.highlights { margin-top: 1.8rem; list-style: none; }
-.highlights li { display: flex; align-items: baseline; gap: .8rem; padding: .7rem 0; border-bottom: 1px solid var(--rule); font-size: .93rem; }
-.highlights li::before { content: '+'; color: var(--gold); font-weight: 600; flex-shrink: 0; }
-
-/* GALLERY */
-.gallery {
-  display: flex; gap: .8rem; overflow-x: auto; overflow-y: hidden;
-  scrollbar-width: none; -webkit-overflow-scrolling: touch;
-  padding-bottom: .5rem;
-}
-.gallery::-webkit-scrollbar { display: none; }
-.gallery img { height: clamp(220px, 34vw, 420px); width: auto; flex-shrink: 0; object-fit: cover; }
+/* AUSSTATTUNG */
+.equip { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
+.equip h2 { margin-top: 1.2rem; max-width: 16ch; }
+.equip .lead { margin-top: 1.4rem; }
+.feat { list-style: none; columns: 2; column-gap: clamp(1.5rem, 4vw, 3rem); }
+.feat li { break-inside: avoid; padding: .75rem 0 .75rem 1.6rem; position: relative; font-size: var(--fs-body); border-bottom: 1px dashed var(--rule); }
+.feat li::before { content: ''; position: absolute; left: 0; top: 1.3rem; width: .55rem; height: 1px; background: var(--brick); }
+@media (max-width: 860px) { .equip { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .feat { columns: 1; } }
 
 /* GRUNDRISS */
-.grundriss-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
-.grundriss-meta h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
-.grundriss-meta p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
-.grundriss-img img { width: 100%; }
-@media (max-width: 860px) { .grundriss-grid { grid-template-columns: 1fr; } }
+.plan-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+.plan-grid h2 { margin-top: 1.2rem; max-width: 16ch; }
+.plan-grid .lead { margin-top: 1.4rem; }
+.lead b { font-weight: 600; color: var(--ink); }
+.plan { background: #fff; border: 1px solid var(--rule); padding: clamp(1rem, 2.5vw, 2rem); position: relative; cursor: zoom-in; }
+.plan img { width: 100%; height: auto; }
+.plan-meta { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: var(--fs-small); color: var(--muted); margin-top: .9rem; }
+.plan-zoom { position: absolute; top: 1rem; right: 1rem; width: 2.6rem; height: 2.6rem; border-radius: 0; background: var(--ink); color: #fff; display: grid; place-items: center; font-size: 1.1rem; opacity: .85; transition: opacity .2s, transform .2s; }
+.plan:hover .plan-zoom { opacity: 1; transform: scale(1.08); }
+@media (max-width: 900px) { .plan-grid { grid-template-columns: 1fr; } }
 
-.detail-link {
-  display: inline-flex; align-items: center; gap: .6rem; margin-top: 2rem;
-  font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
-  border-bottom: 1px solid var(--gold); color: var(--gold); padding-bottom: .3rem;
-  transition: gap .25s;
-}
-.detail-link:hover { gap: 1rem; }
+/* LAGE */
+.loc { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; padding: 0; }
+.loc-img { overflow: hidden; }
+.loc-img img { width: 100%; height: 100%; object-fit: cover; }
+.loc-text { padding: clamp(4rem, 9vw, 8rem) var(--g); display: flex; flex-direction: column; justify-content: center; }
+.loc-text h2 { margin-top: 1.2rem; }
+.loc-text .lead:first-of-type { margin-top: 1.6rem; }
+.addr { margin-top: 2.5rem; padding-top: 1.4rem; border-top: 1px solid var(--rule-inv); font-size: var(--fs-small); color: rgba(251,249,245,.75); }
+@media (max-width: 860px) { .loc { grid-template-columns: 1fr; } .loc-img { aspect-ratio: 4/5; max-height: 70vh; } }
+
+/* WEITERE WOHNUNGEN */
+.others { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2vw, 1.6rem); }
+.other { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--rule); transition: border-color .2s; }
+.other:hover { border-color: var(--brick); }
+.other-img { aspect-ratio: 3/2; overflow: hidden; background: var(--paper-2); }
+.other-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.other:hover .other-img img { transform: scale(1.03); }
+.other-body { padding: clamp(1.3rem, 2.5vw, 2rem); display: flex; flex-direction: column; flex: 1; }
+.other h3 { margin-top: 1rem; font-size: var(--fs-h1); line-height: 1.2; }
+.other p { margin-top: .6rem; color: var(--muted); font-size: var(--fs-small); }
+.other .tlink { margin-top: auto; padding-top: 1.4rem; align-self: flex-start; border-bottom: 0; }
+.other .tlink span { border-bottom: 1px solid currentColor; padding-bottom: .2rem; }
+@media (max-width: 760px) { .others { grid-template-columns: 1fr; } }
 
 /* CONTACT */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(3rem, 7vw, 6rem); align-items: start; }
-.contact-info h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
-address { font-style: normal; margin-top: 2rem; color: var(--muted); line-height: 2; }
-address strong { color: var(--dark); font-weight: 600; font-size: .65rem; letter-spacing: .24em; text-transform: uppercase; display: block; margin-top: 1.4rem; }
-address strong:first-child { margin-top: 0; }
-address a:hover { color: var(--gold); }
-.form-wrap { background: var(--white); padding: 2.5rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-.form-field { margin-bottom: 1.2rem; }
-.form-field label { display: block; font-size: .65rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
-.form-field input, .form-field textarea { width: 100%; padding: .75rem 0; border: 0; border-bottom: 1px solid var(--rule); background: transparent; font-family: 'Mulish'; font-size: .97rem; color: var(--dark); transition: border-color .2s; }
-.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); }
-.form-field textarea { min-height: 110px; resize: vertical; }
-.chk-wrap { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: 1.4rem; font-size: .85rem; color: var(--muted); }
-.chk-wrap input { flex-shrink: 0; margin-top: .2rem; accent-color: var(--gold); }
-@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
+.contact h2 { margin-top: 1.2rem; }
+.contact .lead { margin-top: 1.4rem; }
+.cards { margin-top: 2.5rem; display: grid; gap: .6rem; }
+.cards a, .cards div { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; background: var(--white); border: 1px solid var(--rule); transition: border-color .2s; }
+.cards a:hover { border-color: var(--brick); }
+.cards span { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
+.cards b { font-weight: 400; font-size: var(--fs-body); text-align: right; min-width: 0; overflow-wrap: anywhere; }
+.terms { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: var(--fs-small); color: var(--muted); }
+form { background: var(--white); padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--rule); }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.f { margin-bottom: 1.5rem; }
+.f > label, .f .f-label { display: block; font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .45rem; }
+.f input, .f textarea { width: 100%; font: inherit; font-size: var(--fs-body); color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--rule); padding: .6rem 0; border-radius: 0; transition: border-color .2s; }
+.f input:focus, .f textarea:focus { outline: none; border-color: var(--brick); }
+.f textarea { min-height: 120px; resize: vertical; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; border: 0; }
+.chips label { position: relative; margin: 0; font-size: var(--fs-small); color: var(--ink); }
+.chips input { position: absolute; opacity: 0; pointer-events: none; }
+.chips span { display: inline-block; padding: .55rem 1rem; border: 1px solid var(--rule); border-radius: 0; cursor: pointer; transition: .2s; }
+.chips input:checked + span { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.chips input:focus-visible + span { outline: 2px solid var(--brick); outline-offset: 2px; }
+.consent { display: flex; gap: .8rem; align-items: flex-start; font-size: var(--fs-small); color: var(--muted); margin-bottom: 1.6rem; }
+.consent input { margin-top: .25rem; accent-color: var(--brick); }
+@media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .f-row { grid-template-columns: 1fr; gap: 0; } }
 
-footer {
-  background: var(--dark); color: rgba(255,255,255,.45);
-  padding: 1.6rem var(--g); font-size: .78rem;
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+/* FOOTER */
+footer { background: var(--ink); color: rgba(251,249,245,.66); font-size: var(--fs-small); }
+.foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 2rem; border-top: 1px solid var(--rule-inv); }
+.foot a:hover { color: var(--white); }
+.foot-big { font-weight: 300; font-size: clamp(40px, 9vw, 120px); line-height: 1.05; color: var(--white); padding-block: clamp(3rem, 7vw, 5rem) 2rem; }
+.foot-big b { font-weight: 600; }
+
+/* LIGHTBOX */
+.lb { position: fixed; inset: 0; z-index: 200; background: rgba(15,13,11,.95); display: grid; place-items: center; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s, visibility 0s .3s; padding: 4.5rem 1rem 2rem; }
+.lb.open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .3s; }
+.lb-stage { max-width: 100%; }
+.lb img { max-width: min(94vw, 1400px); max-height: 78svh; object-fit: contain; margin-inline: auto; }
+.lb img.plan-img { background: #fff; }
+.lb p { color: rgba(255,255,255,.7); font-size: var(--fs-small); text-align: center; margin-top: 1rem; }
+.lb-btn { position: absolute; width: 3rem; height: 3rem; border-radius: 0; border: 1px solid rgba(255,255,255,.3); background: rgba(15,13,11,.5); color: #fff; font-size: 1.2rem; cursor: pointer; transition: background .2s; }
+.lb-btn:hover { background: rgba(255,255,255,.14); }
+.lb-x { top: 1.2rem; right: 1.2rem; font-size: 1.4rem; }
+.lb-prev { left: 1.2rem; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 1.2rem; top: 50%; transform: translateY(-50%); }
+.lb-count { position: absolute; top: 1.2rem; left: 1.2rem; height: 3rem; display: flex; align-items: center; color: rgba(255,255,255,.7); font-size: var(--fs-small); }
+.lb.single .lb-prev, .lb.single .lb-next, .lb.single .lb-count { display: none; }
+@media (max-width: 700px) { .lb-prev, .lb-next { top: auto; bottom: 1rem; transform: none; } .lb { padding-bottom: 5rem; } }
+
+/* Reveal */
+.r { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.r.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .r { opacity: 1; transform: none; transition: none; }
+  .hero-media img { animation: none; }
+  .rail img, .intro-img img, .other-img img { transition: none; }
 }
-footer a:hover { color: rgba(255,255,255,.8); }
-
-.fi { opacity: 0; transform: translateY(20px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
-.fi.in { opacity: 1; transform: none; }
+:focus-visible { outline: 2px solid var(--brick); outline-offset: 3px; }
 </style>
 </head>
 <body>
 
-<nav class="site" id="sitenav">
-  <div class="wrap nav-inner">
-    <a class="nav-logo" href="brunneneck-startseite.html">Brunneneck</a>
-    <a class="nav-back" href="brunneneck-startseite.html">&larr; Zur Übersicht</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html">Brunnen<b>eck</b><small>Wohnung 30</small></a>
+    <ul>
+      <li><a href="index.html">Übersicht</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#ausstattung">Ausstattung</a></li>
+      <li><a href="#grundriss">Grundriss</a></li>
+      <li><a href="#lage">Lage</a></li>
+      <li><a href="index.html#einheiten">Penthouses</a></li>
+    </ul>
+    <a class="btn btn-brick" href="#kontakt">Besichtigung <span class="arr">→</span></a>
   </div>
-</nav>
+</header>
 
+<main>
+
+<!-- HERO -->
 <section class="hero" id="start">
-  <div class="hero-bg">
-    <img src="fotos/we30/foto01.jpg" alt="Wohnung 30 – Brunneneck Berlin Mitte" fetchpriority="high">
+  <div class="hero-media">
+    <img src="fotos/we30/foto01.jpg" alt="Wohnung 30 – Brunneneck Berlin Mitte" width="1920" height="1280" fetchpriority="high">
   </div>
-  <div class="wrap hero-content">
-    <span class="eyebrow">Wohnung 30 · Brunnenstrasse 146 · 4. OG · Berlin Mitte</span>
-    <h1>Erstbezug nach Sanierung. 97 m² im Altbauensemble.</h1>
-    <p class="sub">3 Zimmer, 2 Bäder, Walk-in-Ankleide, Eichenparkett – flexibel als Loft oder Familienwohnung. Provisionsfrei direkt vom Bauträger.</p>
-    <div class="hero-cta">
-      <a class="btn btn-gold" href="#kontakt">Besichtigung anfragen &rarr;</a>
-      <a class="btn btn-outline" href="#details">Details ansehen</a>
+  <div class="wrap hero-body">
+    <span class="label">Brunneneck · Wohnung 30</span>
+    <h1>Erstbezug nach Sanierung. <em>97 m² im Altbauensemble.</em></h1>
+    <div class="hero-row">
+      <p>Brunnenstraße 146 · 4. OG · Berlin Mitte. 3 Zimmer, 2 Bäder, Walk-in-Ankleide, Eichenparkett – flexibel als Loft oder Familienwohnung. Provisionsfrei direkt vom Bauträger.</p>
+      <div class="hero-cta">
+        <a class="btn btn-brick" href="#kontakt">Besichtigung anfragen <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#details">Details ansehen</a>
+      </div>
+    </div>
+    <div class="hero-facts">
+      <div><b>649.000 €</b><span>Kaufpreis</span></div>
+      <div><b>ca. 97,11 m²</b><span>Wohnfläche</span></div>
+      <div><b>3 Zimmer</b><span>2 Schlafzimmer</span></div>
+      <div><b>4. Nov. 2026</b><span>Bezug ab</span></div>
     </div>
   </div>
 </section>
 
-<div class="facts-bar">
-  <dl class="fact"><dt>Kaufpreis</dt><dd>649.000 €</dd></dl>
-  <dl class="fact"><dt>Wohnfläche</dt><dd>ca. 97,11 m²</dd></dl>
-  <dl class="fact"><dt>Zimmer</dt><dd>3 Zi. · 2 Schlafzimmer</dd></dl>
-  <dl class="fact"><dt>Bezug</dt><dd>Ab 4. November 2026</dd></dl>
-</div>
-
+<!-- INTRO -->
 <section id="details">
-  <div class="wrap">
-    <div class="split fi">
-      <div class="split-img">
-        <img src="fotos/we30/foto03.jpg" alt="Wohnzimmer" loading="lazy">
+  <div class="wrap intro">
+    <div class="r">
+      <span class="label">4. Obergeschoss · Baujahr 1905</span>
+      <h2>Klare Linien, warme Materialien, <em>flexibler Grundriss.</em></h2>
+      <p class="lead">Im 4. Obergeschoss des Altbauensembles „Brunneneck“ erwartet Sie eine ca. 97 m² große Wohnung, die nach hochwertiger Sanierung erstmals bezogen wird. Eichenparkett, warme Naturtöne und ein durchdachtes Lichtkonzept schaffen eine ruhige, moderne Wohnatmosphäre.</p>
+      <p class="lead">Der Grundriss lässt sich flexibel nutzen: als offene Loft-Wohnung mit großzügiger Wohnlandschaft oder als Familienwohnung mit separatem zweitem Zimmer.</p>
+      <div class="kpis">
+        <div><b>649.000 €</b><span>Kaufpreis</span></div>
+        <div><b>6.683 €/m²</b><span>Preis pro m²</span></div>
+        <div><b>251,12 €</b><span>Hausgeld mtl.</span></div>
+        <div><b>Provisionsfrei</b><span>Direkt vom Bauträger</span></div>
       </div>
-      <div class="split-text">
-        <span class="eyebrow">Wohnung 30 · 4. Obergeschoss · Baujahr 1905</span>
-        <h2>Klare Linien, warme Materialien, flexibler Grundriss.</h2>
-        <p>Im 4. Obergeschoss des Altbauensembles „Brunneneck" erwartet Sie eine ca. 97 m² große Wohnung, die nach hochwertiger Sanierung erstmals bezogen wird. Eichenparkett, warme Naturtöne und ein durchdachtes Lichtkonzept schaffen eine ruhige, moderne Wohnatmosphäre.</p>
-        <p style="margin-top:1rem;color:var(--muted);font-size:1.02rem;line-height:1.75">Der Grundriss lässt sich flexibel nutzen: als offene Loft-Wohnung mit großzügiger Wohnlandschaft oder als Familienwohnung mit separatem zweitem Zimmer.</p>
-        <ul class="highlights">
-          <li>Erstbezug nach hochwertiger Sanierung</li>
-          <li>Eichenparkett von Bauwerk, Fliesen von Florim</li>
-          <li>Grohe-Armaturen in „Hard Graphite"</li>
-          <li>2 Bäder: Bad en suite + Gäste-WC</li>
-          <li>Walk-in-Ankleide (4,60 m²)</li>
-          <li>Separate Küche mit Fenster (9,49 m²)</li>
-          <li>Lichtkonzept mit Deckenspots</li>
-          <li>Personenaufzug, Kellerabteil</li>
-          <li>Provisionsfrei direkt vom Bauträger</li>
-        </ul>
-      </div>
+    </div>
+    <div class="intro-img r" data-lb="fotos/we30/foto06.jpg" data-cap="Wohnung 30 · Raum mit bodentiefem Fenster" role="button" tabindex="0" aria-label="Foto vergrößern: Raum mit bodentiefem Fenster">
+      <img src="fotos/we30/foto06.jpg" alt="Wohnung 30: Raum mit bodentiefem Fenster" width="800" height="1200" loading="lazy">
     </div>
   </div>
 </section>
 
-<section class="warm-bg" style="padding-block:0 clamp(4rem,9vw,7.5rem);">
-  <div class="wrap" style="padding-top:clamp(4rem,9vw,7.5rem);">
-    <span class="eyebrow fi">Einblicke</span>
-    <div class="gallery fi" style="margin-top:1.4rem;">
-      <img src="fotos/we30/foto02.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto03.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto04.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto05.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto06.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto07.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto08.jpg" alt="Wohnung 30" loading="lazy">
-      <img src="fotos/we30/foto09.jpg" alt="Wohnung 30" loading="lazy">
+<!-- GALERIE -->
+<section class="paper view" id="galerie">
+  <div class="wrap sec-head r" style="margin-bottom:0;">
+    <div>
+      <span class="label">Einblicke</span>
+      <h2>Einblicke in <em>Wohnung 30.</em></h2>
+    </div>
+    <div class="rail-ctrl">
+      <button type="button" id="railPrev" aria-label="Zurück">←</button>
+      <button type="button" id="railNext" aria-label="Weiter">→</button>
+    </div>
+  </div>
+  <div class="rail" id="rail">
+    <figure data-lb="fotos/we30/foto01.jpg" data-group="g" data-cap="Wohnung 30 · Blick durch eine Wandöffnung in den Wohnraum, Eichenparkett" role="button" tabindex="0" aria-label="Foto 1 von 9 vergrößern"><img src="fotos/we30/foto01.jpg" alt="Wohnung 30: Blick durch eine Wandöffnung in den Wohnraum, Eichenparkett" width="1920" height="1280" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto02.jpg" data-group="g" data-cap="Wohnung 30 · Flur mit Eichenparkett und Deckenspots" role="button" tabindex="0" aria-label="Foto 2 von 9 vergrößern"><img src="fotos/we30/foto02.jpg" alt="Wohnung 30: Flur mit Eichenparkett und Deckenspots" width="800" height="1200" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto03.jpg" data-group="g" data-cap="Wohnung 30 · Waschtisch mit beleuchtetem Rundspiegel" role="button" tabindex="0" aria-label="Foto 3 von 9 vergrößern"><img src="fotos/we30/foto03.jpg" alt="Wohnung 30: Waschtisch mit beleuchtetem Rundspiegel" width="800" height="1200" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto04.jpg" data-group="g" data-cap="Wohnung 30 · Raum mit Wandöffnung und Fenster" role="button" tabindex="0" aria-label="Foto 4 von 9 vergrößern"><img src="fotos/we30/foto04.jpg" alt="Wohnung 30: Raum mit Wandöffnung und Fenster" width="1200" height="800" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto05.jpg" data-group="g" data-cap="Wohnung 30 · Waschtisch mit beleuchtetem Rundspiegel" role="button" tabindex="0" aria-label="Foto 5 von 9 vergrößern"><img src="fotos/we30/foto05.jpg" alt="Wohnung 30: Waschtisch mit beleuchtetem Rundspiegel" width="800" height="1200" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto06.jpg" data-group="g" data-cap="Wohnung 30 · Raum mit bodentiefem Fenster" role="button" tabindex="0" aria-label="Foto 6 von 9 vergrößern"><img src="fotos/we30/foto06.jpg" alt="Wohnung 30: Raum mit bodentiefem Fenster" width="800" height="1200" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto07.jpg" data-group="g" data-cap="Wohnung 30 · Diele mit Garderobe" role="button" tabindex="0" aria-label="Foto 7 von 9 vergrößern"><img src="fotos/we30/foto07.jpg" alt="Wohnung 30: Diele mit Garderobe" width="800" height="1200" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto08.jpg" data-group="g" data-cap="Wohnung 30 · Waschtisch mit beleuchtetem Rundspiegel" role="button" tabindex="0" aria-label="Foto 8 von 9 vergrößern"><img src="fotos/we30/foto08.jpg" alt="Wohnung 30: Waschtisch mit beleuchtetem Rundspiegel" width="800" height="1200" loading="lazy"></figure>
+    <figure data-lb="fotos/we30/foto09.jpg" data-group="g" data-cap="Wohnung 30 · Wohnraum mit Eichenparkett" role="button" tabindex="0" aria-label="Foto 9 von 9 vergrößern"><img src="fotos/we30/foto09.jpg" alt="Wohnung 30: Wohnraum mit Eichenparkett" width="800" height="1200" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- AUSSTATTUNG -->
+<section id="ausstattung">
+  <div class="wrap equip">
+    <div class="r">
+      <span class="label">Ausstattung</span>
+      <h2>Ausstattung und <em>Highlights.</em></h2>
+      <p class="lead">Erstbezug nach Sanierung im 4. Obergeschoss, erreichbar per Personenaufzug.</p>
+    </div>
+    <ul class="feat r">
+      <li>Erstbezug nach hochwertiger Sanierung</li>
+      <li>Eichenparkett von Bauwerk, Fliesen von Florim</li>
+      <li>Grohe-Armaturen in „Hard Graphite“</li>
+      <li>2 Bäder: Bad en suite + Gäste-WC</li>
+      <li>Walk-in-Ankleide (4,60 m²)</li>
+      <li>Separate Küche mit Fenster (9,49 m²)</li>
+      <li>Lichtkonzept mit Deckenspots</li>
+      <li>Personenaufzug, Kellerabteil</li>
+      <li>Provisionsfrei direkt vom Bauträger</li>
+    </ul>
+  </div>
+</section>
+
+<!-- GRUNDRISS -->
+<section class="paper" id="grundriss">
+  <div class="wrap plan-grid">
+    <div class="r">
+      <span class="label">Grundriss</span>
+      <h2>Zwei Varianten, <em>ein Zuhause.</em></h2>
+      <p class="lead"><b>Variante „Loft“:</b> Wohnzimmer (23,57 m²) und Essbereich (19,57 m²) gehen offen ineinander über – eine großzügige Wohnlandschaft zum Kochen, Essen und Empfangen.</p>
+      <p class="lead"><b>Variante „Familie“:</b> Der zweite Raum erhält eine eigene Tür und wird zum vollwertigen Kinder-, Gäste- oder Arbeitszimmer (ca. 19,6 m²).</p>
+      <div class="kpis">
+        <div><b>23,57 m²</b><span>Wohnzimmer</span></div>
+        <div><b>19,62 m²</b><span>Schlafzimmer</span></div>
+        <div><b>9,49 m²</b><span>Küche</span></div>
+        <div><b>4,60 m²</b><span>Walk-in-Ankleide</span></div>
+      </div>
+    </div>
+    <div class="r">
+      <div class="plan" data-lb="Startseite - Brunnen-Eck_files/BRU_Grundriss_small_newRS-680x378.jpg" data-plan data-cap="Grundriss Wohnung 30" role="button" tabindex="0" aria-label="Grundriss Wohnung 30 vergrößern">
+        <img src="Startseite - Brunnen-Eck_files/BRU_Grundriss_small_newRS-680x378.jpg" alt="Grundriss Wohnung 30" width="680" height="378" loading="lazy">
+        <span class="plan-zoom" aria-hidden="true">＋</span>
+      </div>
+      <div class="plan-meta"><span>Grundriss · Wohnung 30</span><span>ca. 97,11 m² · 4. OG</span></div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="grundriss-grid fi">
-      <div class="grundriss-meta">
-        <span class="eyebrow">Grundriss</span>
-        <h2>Zwei Varianten, ein Zuhause.</h2>
-        <p><strong style="font-weight:600">Variante „Loft":</strong> Wohnzimmer (23,57 m²) und Essbereich (19,57 m²) gehen offen ineinander über – eine großzügige Wohnlandschaft zum Kochen, Essen und Empfangen.</p>
-        <p style="margin-top:.9rem"><strong style="font-weight:600">Variante „Familie":</strong> Der zweite Raum erhält eine eigene Tür und wird zum vollwertigen Kinder-, Gäste- oder Arbeitszimmer (ca. 19,6 m²).</p>
-        <dl style="margin-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.5rem;font-size:.9rem">
-          <div><dt style="font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Wohnzimmer</dt><dd style="margin-top:.2rem">23,57 m²</dd></div>
-          <div><dt style="font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Schlafzimmer</dt><dd style="margin-top:.2rem">19,62 m²</dd></div>
-          <div><dt style="font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Küche</dt><dd style="margin-top:.2rem">9,49 m²</dd></div>
-          <div><dt style="font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Walk-in-Ankleide</dt><dd style="margin-top:.2rem">4,60 m²</dd></div>
-        </dl>
-      </div>
-      <div class="grundriss-img">
-        <img src="Startseite - Brunnen-Eck_files/BRU_Grundriss_small_newRS-680x378.jpg" alt="Grundriss Wohnung 30" loading="lazy">
-      </div>
-    </div>
+<!-- LAGE -->
+<section class="dark loc" id="lage">
+  <div class="loc-img"><img src="Startseite - Brunnen-Eck_files/BRU_Visus_Berlin_Location-680x841.jpg" alt="Lage Brunneneck Berlin Mitte" width="680" height="841" loading="lazy"></div>
+  <div class="loc-text r">
+    <span class="label">Die Lage</span>
+    <h2>Mitten im Kiez, <em>direkt an der U8.</em></h2>
+    <p class="lead">Das Brunneneck liegt an der Ecke Brunnenstraße / Rheinsberger Straße – zwischen Mauerpark, Arkonaplatz und Rosenthaler Platz. Cafés, Restaurants, Galerien und Wochenmärkte sind fußläufig erreichbar.</p>
+    <p class="lead">Die U8-Station Bernauer Straße liegt direkt gegenüber dem Hauseingang. Der S-Bahn-Ring ist in wenigen Minuten erreicht.</p>
+    <p class="addr">Wohnung 30 · Brunnenstraße 146 · 4. OG · Berlin Mitte</p>
   </div>
 </section>
 
-<section id="lage">
+<!-- WEITERE WOHNUNGEN -->
+<section id="weitere">
   <div class="wrap">
-    <div class="split flip fi">
-      <div class="split-img">
-        <img src="Startseite - Brunnen-Eck_files/BRU_Visus_Berlin_Location-680x841.jpg" alt="Lage Brunneneck Berlin Mitte" loading="lazy">
-      </div>
-      <div class="split-text">
-        <span class="eyebrow">Die Lage</span>
-        <h2>Mitten im Kiez, direkt an der U8.</h2>
-        <p>Das Brunneneck liegt an der Ecke Brunnenstraße / Rheinsberger Straße – zwischen Mauerpark, Arkonaplatz und Rosenthaler Platz. Cafés, Restaurants, Galerien und Wochenmärkte sind fußläufig erreichbar.</p>
-        <p style="margin-top:1rem;color:var(--muted);font-size:1.02rem;line-height:1.75">Die U8-Station Bernauer Straße liegt direkt gegenüber dem Hauseingang. Der S-Bahn-Ring ist in wenigen Minuten erreicht.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="warm-bg" id="kontakt">
-  <div class="wrap">
-    <div class="contact-grid fi">
-      <div class="contact-info">
-        <span class="eyebrow">Kontakt</span>
-        <h2>Besichtigung für Wohnung 30.</h2>
-        <address>
-          <strong>Ansprechpartnerin</strong>
-          Rebecca Prossek<br>
-          Tiedemann Projekt GmbH<br>
-          Große Hamburger Str. 32<br>
-          10115 Berlin
-          <strong>Telefon</strong>
-          <a href="tel:+4930208480216">030 / 20 84 80 216</a>
-          <strong>E-Mail</strong>
-          <a href="mailto:kontakt@tiedemann-gruppe.de">kontakt@tiedemann-gruppe.de</a>
-        </address>
-        <p style="margin-top:1.4rem;font-size:.88rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1.2rem">
-          Kaufpreis 649.000 € · 6.683 €/m² · Hausgeld 251,12 €/mtl.<br>
-          Provisionsfrei · Bezugsfrei ab 4. November 2026
-        </p>
-      </div>
+    <div class="sec-head r">
       <div>
-        <div class="form-wrap">
-          <form action="#" method="post">
-            <input type="hidden" name="wohnung" value="Wohnung 30 – Penthouse Rheinsberger Straße">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" autocomplete="name" required>
-              </div>
-              <div class="form-field">
-                <label for="tel">Telefon</label>
-                <input type="tel" id="tel" name="telefon" autocomplete="tel">
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="email">E-Mail</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="form-field">
-              <label for="msg">Ihre Nachricht</label>
-              <textarea id="msg" name="nachricht" placeholder="Ich interessiere mich für Wohnung 30 (Brunnenstrasse 146, 4. OG) …" required></textarea>
-            </div>
-            <div class="chk-wrap">
-              <input type="checkbox" id="dsgvo" required>
-              <label for="dsgvo" style="font-size:.85rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);">Ich akzeptiere die Datenschutzerklärung.</label>
-            </div>
-            <button class="btn btn-dark" type="submit">Anfrage senden &rarr;</button>
-          </form>
-        </div>
+        <span class="label">Weitere Wohnungen im Brunneneck</span>
+        <h2>Weitere <em>Einheiten.</em></h2>
       </div>
+    </div>
+    <div class="others r">
+      <a class="other" href="wohnung-32.html">
+        <div class="other-img"><img src="fotos/we32/foto01.jpg" alt="Wohnung 32 – Brunneneck Berlin Mitte" width="1920" height="1280" loading="lazy"></div>
+        <div class="other-body">
+          <span class="label">Wohnung 32 · 4. OG</span>
+          <h3>4,5 Zimmer <em>auf ca.&nbsp;118&nbsp;m²</em></h3>
+          <p>2 Bäder · Fischgrätparkett · offener Wohn-/Essbereich · 879.000 €</p>
+          <span class="tlink"><span>Wohnung 32 ansehen</span> →</span>
+        </div>
+      </a>
+      <a class="other" href="index.html#einheiten">
+        <div class="other-img"><img src="fotos/penthouse/rohbau-hero.jpg" alt="Dachgeschoss im Rohbau – Holzdachstuhl, Ziegelwände und bodentiefe Fenster" loading="lazy"></div>
+        <div class="other-body">
+          <span class="label">Dachgeschoss · Rheinsberger Straße 9</span>
+          <h3>Penthouses <em>im Rohbau</em></h3>
+          <p>Zwei Penthouses mit ca. 110 m² und ca. 132 m², einzeln oder zusammengelegt 242 m² – ausgebaut nach Ihren Vorstellungen</p>
+          <span class="tlink"><span>Penthouses ansehen</span> →</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
+
+<!-- KONTAKT -->
+<section class="paper" id="kontakt">
+  <div class="wrap contact">
+    <div class="r">
+      <span class="label">Kontakt</span>
+      <h2>Besichtigung für <em>Wohnung 30.</em></h2>
+      <p class="lead">Ihre Ansprechpartnerin ist Rebecca Prossek, Tiedemann Projekt GmbH.</p>
+      <div class="cards">
+        <a href="tel:+4930208480216"><span>Telefon</span><b>030 / 20 84 80 216</b></a>
+        <a href="mailto:kontakt@tiedemann-gruppe.de"><span>E-Mail</span><b>kontakt@tiedemann-gruppe.de</b></a>
+        <div><span>Büro</span><b>Tiedemann Projekt GmbH<br>Große Hamburger Str. 32, 10115 Berlin</b></div>
+      </div>
+      <p class="terms">Kaufpreis 649.000 € · 6.683 €/m² · Hausgeld 251,12 €/mtl.<br>Provisionsfrei · Bezugsfrei ab 4. November 2026</p>
+    </div>
+    <form class="r" action="#" method="post">
+      <fieldset class="f" style="border:0;">
+        <legend class="f-label">Ich interessiere mich für</legend>
+        <div class="chips">
+          <label><input type="radio" name="interesse" value="Wohnung 30 · Brunnenstraße 146, 4. OG" checked><span>Wohnung 30</span></label>
+          <label><input type="radio" name="interesse" value="Wohnung 32 · Rheinsberger Str. 9, 4. OG"><span>Wohnung 32</span></label>
+          <label><input type="radio" name="interesse" value="Penthouses Dachgeschoss"><span>Penthouses</span></label>
+          <label><input type="radio" name="interesse" value="Allgemeine Beratung"><span>Beratung</span></label>
+        </div>
+      </fieldset>
+      <div class="f-row">
+        <div class="f"><label for="name">Name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+        <div class="f"><label for="tel">Telefon</label><input type="tel" id="tel" name="telefon" autocomplete="tel"></div>
+      </div>
+      <div class="f"><label for="email">E-Mail</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="f"><label for="msg">Ihre Nachricht</label><textarea id="msg" name="nachricht" placeholder="Ich interessiere mich für Wohnung 30 (Brunnenstraße 146, 4. OG) …" required></textarea></div>
+      <label class="consent"><input type="checkbox" required> Ich akzeptiere die Datenschutzerklärung.</label>
+      <button class="btn btn-brick" type="submit">Anfrage senden <span class="arr">→</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
 
 <footer>
-  <span>© <span id="yr"></span> Brunneneck · Ein Projekt der Tiedemann Gruppe</span>
-  <a href="brunneneck-startseite.html">&larr; Zurück zur Übersicht</a>
+  <div class="wrap">
+    <div class="foot-big">Brunnen<b>eck</b></div>
+    <div class="foot">
+      <span>© 2026 Brunneneck · Ein Projekt der Tiedemann Gruppe</span>
+      <span><a href="index.html">← Zurück zur Übersicht</a> &ensp;·&ensp; <a href="#">Impressum</a> &ensp;·&ensp; <a href="#">Datenschutz</a></span>
+    </div>
+  </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <span class="lb-count" id="lbCount" aria-live="polite"></span>
+  <button class="lb-btn lb-x" id="lbX" type="button" aria-label="Schließen">×</button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Vorheriges Bild">←</button>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Nächstes Bild">→</button>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" src="" alt=""><p id="lbCap"></p></div>
+</div>
+
 <script>
-  const nav = document.getElementById('sitenav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
-  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Nav
+  const nav = document.getElementById('nav');
+  const hero = document.getElementById('start');
+  const setNav = () => nav.classList.toggle('solid', scrollY > hero.offsetHeight - 80);
+  addEventListener('scroll', setNav, { passive: true }); setNav();
+
+  // Reveal
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold: .1});
-    document.querySelectorAll('.fi').forEach(el => io.observe(el));
-  } else { document.querySelectorAll('.fi').forEach(el => el.classList.add('in')); }
-  document.getElementById('yr').textContent = new Date().getFullYear();
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.r').forEach(el => io.observe(el));
+  } else document.querySelectorAll('.r').forEach(el => el.classList.add('in'));
+
+  // Gallery rail
+  const rail = document.getElementById('rail');
+  const step = () => rail.clientWidth * .7;
+  const beh = reduce ? 'auto' : 'smooth';
+  document.getElementById('railPrev').onclick = () => rail.scrollBy({ left: -step(), behavior: beh });
+  document.getElementById('railNext').onclick = () => rail.scrollBy({ left: step(), behavior: beh });
+
+  // Lightbox (Galerie mit Pfeiltasten, Einzelbilder ohne)
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), lbCount = document.getElementById('lbCount');
+  const lbX = document.getElementById('lbX'), lbPrev = document.getElementById('lbPrev'), lbNext = document.getElementById('lbNext');
+  let last, group = [], idx = 0;
+  function render() {
+    const el = group[idx];
+    lbImg.src = el.dataset.lb; lbImg.alt = el.dataset.cap || '';
+    lbImg.classList.toggle('plan-img', el.hasAttribute('data-plan'));
+    lbCap.textContent = el.dataset.cap || '';
+    lbCount.textContent = group.length > 1 ? String(idx + 1).padStart(2, '0') + ' / ' + String(group.length).padStart(2, '0') : '';
+  }
+  function open(el) {
+    last = el;
+    group = el.dataset.group ? [...document.querySelectorAll('[data-group="' + el.dataset.group + '"]')] : [el];
+    idx = group.indexOf(el);
+    lb.classList.toggle('single', group.length < 2);
+    render();
+    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+    lbX.focus();
+  }
+  function go(d) { if (group.length < 2) return; idx = (idx + d + group.length) % group.length; render(); }
+  function close() {
+    if (!lb.classList.contains('open')) return;
+    lb.classList.remove('open'); document.body.style.overflow = '';
+    if (last) last.focus();
+  }
+  document.querySelectorAll('[data-lb]').forEach(el => {
+    el.addEventListener('click', () => open(el));
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); } });
+  });
+  lbX.onclick = close;
+  lbPrev.onclick = () => go(-1);
+  lbNext.onclick = () => go(1);
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'lbStage') close(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') go(1);
+    else if (e.key === 'ArrowLeft') go(-1);
+    else if (e.key === 'Tab') {
+      const f = [lbX, lbPrev, lbNext].filter(b => b.offsetParent !== null);
+      const i = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+})();
 </script>
 </body>
 </html>
