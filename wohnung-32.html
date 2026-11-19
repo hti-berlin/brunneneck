@@ -118,6 +118,7 @@ section { padding-block: clamp(6rem, 12vw, 10rem); }
 .kpis div { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); min-width: 0; }
 .kpis div:nth-child(odd) { padding-right: 1rem; border-right: 1px solid var(--rule); }
 .kpis div:nth-child(even) { padding-left: 1.2rem; }
+.kpis div:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
 .kpis b { display: block; font-weight: 300; font-size: var(--fs-h1); line-height: 1.2; }
 .kpis span { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 @media (max-width: 860px) { .intro { grid-template-columns: 1fr; } .intro-img { aspect-ratio: 4/3; order: -1; } }
@@ -327,12 +328,11 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
       <div class="kpis">
         <div><b>879.000 €</b><span>Kaufpreis</span></div>
         <div><b>7.449 €/m²</b><span>Preis pro m²</span></div>
-        <div><b>352,89 €</b><span>Hausgeld mtl.</span></div>
         <div><b>Provisionsfrei</b><span>Direkt vom Bauträger</span></div>
       </div>
     </div>
-    <div class="intro-img r" data-lb="fotos/we32/neu-02.jpg" data-cap="Wohnung 32 · Kassettentür und Fischgrätparkett" role="button" tabindex="0" aria-label="Foto vergrößern: Kassettentür und Fischgrätparkett">
-      <img src="fotos/we32/neu-02.jpg" alt="Wohnung 32: Kassettentür und Fischgrätparkett" width="1333" height="2000" loading="lazy">
+    <div class="intro-img r" data-lb="fotos/we32/diele.jpg" data-cap="Wohnung 32 · Diele mit Kassettentür, Stuhl und Fischgrätparkett" role="button" tabindex="0" aria-label="Foto vergrößern: Diele mit Kassettentür">
+      <img src="fotos/we32/diele.jpg" alt="Wohnung 32: Diele mit Kassettentür, Stuhl und Fischgrätparkett" width="1333" height="2000" loading="lazy">
     </div>
   </div>
 </section>
@@ -350,14 +350,13 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
     </div>
   </div>
   <div class="rail" id="rail">
-    <figure data-lb="fotos/we32/neu-08.jpg" data-group="g" data-cap="Wohnung 32 · Durchgang in den Wohnbereich mit Fischgrätparkett" role="button" tabindex="0" aria-label="Foto 1 von 8 vergrößern"><img src="fotos/we32/neu-08.jpg" alt="Wohnung 32: Durchgang in den Wohnbereich mit Fischgrätparkett" width="2000" height="1334" loading="lazy"></figure>
-    <figure data-lb="fotos/we32/neu-07.jpg" data-group="g" data-cap="Wohnung 32 · Wohnraum mit Rundbogenfenstern" role="button" tabindex="0" aria-label="Foto 2 von 8 vergrößern"><img src="fotos/we32/neu-07.jpg" alt="Wohnung 32: Wohnraum mit Rundbogenfenstern" width="2000" height="1333" loading="lazy"></figure>
-    <figure data-lb="fotos/we32/neu-01.jpg" data-group="g" data-cap="Wohnung 32 · Blick durch die Diele in den hellen Wohnraum" role="button" tabindex="0" aria-label="Foto 3 von 8 vergrößern"><img src="fotos/we32/neu-01.jpg" alt="Wohnung 32: Blick durch die Diele in den hellen Wohnraum" width="2000" height="1334" loading="lazy"></figure>
-    <figure data-lb="fotos/we32/neu-02.jpg" data-group="g" data-cap="Wohnung 32 · Kassettentür und Fischgrätparkett" role="button" tabindex="0" aria-label="Foto 4 von 8 vergrößern"><img src="fotos/we32/neu-02.jpg" alt="Wohnung 32: Kassettentür und Fischgrätparkett" width="1333" height="2000" loading="lazy"></figure>
-    <figure data-lb="fotos/we32/neu-06.jpg" data-group="g" data-cap="Wohnung 32 · Diele mit Kassettentür und Stromschiene" role="button" tabindex="0" aria-label="Foto 5 von 8 vergrößern"><img src="fotos/we32/neu-06.jpg" alt="Wohnung 32: Diele mit Kassettentür und Stromschiene" width="1333" height="2000" loading="lazy"></figure>
-    <figure data-lb="fotos/we32/neu-03.jpg" data-group="g" data-cap="Wohnung 32 · Gäste-WC mit Rundspiegel" role="button" tabindex="0" aria-label="Foto 6 von 8 vergrößern"><img src="fotos/we32/neu-03.jpg" alt="Wohnung 32: Gäste-WC mit Rundspiegel" width="1333" height="2000" loading="lazy"></figure>
-    <figure data-lb="fotos/we32/neu-05.jpg" data-group="g" data-cap="Wohnung 32 · Bad mit Badewanne und Rundspiegel" role="button" tabindex="0" aria-label="Foto 7 von 8 vergrößern"><img src="fotos/we32/neu-05.jpg" alt="Wohnung 32: Bad mit Badewanne und Rundspiegel" width="1333" height="2000" loading="lazy"></figure>
-    <figure data-lb="fotos/we32/neu-04.jpg" data-group="g" data-cap="Wohnung 32 · Dusche mit Regenbrause" role="button" tabindex="0" aria-label="Foto 8 von 8 vergrößern"><img src="fotos/we32/neu-04.jpg" alt="Wohnung 32: Dusche mit Regenbrause" width="1333" height="2000" loading="lazy"></figure>
+    <figure data-lb="fotos/we32/neu-08.jpg" data-group="g" data-cap="Wohnung 32 · Durchgang in den Wohnbereich mit Fischgrätparkett" role="button" tabindex="0" aria-label="Foto 1 von 7 vergrößern"><img src="fotos/we32/neu-08.jpg" alt="Wohnung 32: Durchgang in den Wohnbereich mit Fischgrätparkett" width="2000" height="1334" loading="lazy"></figure>
+    <figure data-lb="fotos/we32/neu-07.jpg" data-group="g" data-cap="Wohnung 32 · Wohnraum mit Rundbogenfenstern" role="button" tabindex="0" aria-label="Foto 2 von 7 vergrößern"><img src="fotos/we32/neu-07.jpg" alt="Wohnung 32: Wohnraum mit Rundbogenfenstern" width="2000" height="1333" loading="lazy"></figure>
+    <figure data-lb="fotos/we32/neu-01.jpg" data-group="g" data-cap="Wohnung 32 · Blick durch die Diele in den hellen Wohnraum" role="button" tabindex="0" aria-label="Foto 3 von 7 vergrößern"><img src="fotos/we32/neu-01.jpg" alt="Wohnung 32: Blick durch die Diele in den hellen Wohnraum" width="2000" height="1334" loading="lazy"></figure>
+    <figure data-lb="fotos/we32/diele.jpg" data-group="g" data-cap="Wohnung 32 · Diele mit Kassettentür, Stuhl und Fischgrätparkett" role="button" tabindex="0" aria-label="Foto 4 von 7 vergrößern"><img src="fotos/we32/diele.jpg" alt="Wohnung 32: Diele mit Kassettentür, Stuhl und Fischgrätparkett" width="1333" height="2000" loading="lazy"></figure>
+    <figure data-lb="fotos/we32/neu-03.jpg" data-group="g" data-cap="Wohnung 32 · Gäste-WC mit Rundspiegel" role="button" tabindex="0" aria-label="Foto 5 von 7 vergrößern"><img src="fotos/we32/neu-03.jpg" alt="Wohnung 32: Gäste-WC mit Rundspiegel" width="1333" height="2000" loading="lazy"></figure>
+    <figure data-lb="fotos/we32/neu-05.jpg" data-group="g" data-cap="Wohnung 32 · Bad mit Badewanne und Rundspiegel" role="button" tabindex="0" aria-label="Foto 6 von 7 vergrößern"><img src="fotos/we32/neu-05.jpg" alt="Wohnung 32: Bad mit Badewanne und Rundspiegel" width="1333" height="2000" loading="lazy"></figure>
+    <figure data-lb="fotos/we32/neu-04.jpg" data-group="g" data-cap="Wohnung 32 · Dusche mit Regenbrause" role="button" tabindex="0" aria-label="Foto 7 von 7 vergrößern"><img src="fotos/we32/neu-04.jpg" alt="Wohnung 32: Dusche mit Regenbrause" width="1333" height="2000" loading="lazy"></figure>
   </div>
 </section>
 
@@ -467,7 +466,7 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
         <a href="mailto:kontakt@tiedemann-gruppe.de"><span>E-Mail</span><b>kontakt@tiedemann-gruppe.de</b></a>
         <div><span>Büro</span><b>Tiedemann Projekt GmbH<br>Große Hamburger Str. 32, 10115 Berlin</b></div>
       </div>
-      <p class="terms">Kaufpreis 879.000 € · 7.449 €/m² · Hausgeld 352,89 €/mtl.<br>Provisionsfrei · Bezugsfrei ab 27. November 2026</p>
+      <p class="terms">Kaufpreis 879.000 € · 7.449 €/m²<br>Provisionsfrei · Bezugsfrei ab 27. November 2026</p>
     </div>
     <form class="r" action="#" method="post">
       <fieldset class="f" style="border:0;">
