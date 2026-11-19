@@ -39,9 +39,16 @@ jobs:
               text = open(p, encoding='utf-8').read()
               for ref in re.findall(r'(?:src|href|data-lb|data-src|data-full)="([^"#?]+)', text):
                   ref = urllib.parse.unquote(ref)
+                  for live in ('https://brunneneckberlin.de/', 'https://www.brunneneckberlin.de/'):
+                      if ref.startswith(live):
+                          ref = ref[len(live):] or 'index.html'
+                          p_dir = ''
+                          break
+                  else:
+                      p_dir = os.path.dirname(p)
                   if ref.startswith(('http', 'mailto:', 'tel:', '/', 'data:')):
                       continue
-                  path = os.path.normpath(os.path.join(os.path.dirname(p), ref))
+                  path = os.path.normpath(os.path.join(p_dir, ref))
                   if os.path.isfile(path):
                       files.add(path)
           for f in sorted(files):
