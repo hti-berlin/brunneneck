@@ -118,6 +118,7 @@ section { padding-block: clamp(6rem, 12vw, 10rem); }
 .kpis div { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); min-width: 0; }
 .kpis div:nth-child(odd) { padding-right: 1rem; border-right: 1px solid var(--rule); }
 .kpis div:nth-child(even) { padding-left: 1.2rem; }
+.kpis div:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
 .kpis b { display: block; font-weight: 300; font-size: var(--fs-h1); line-height: 1.2; }
 .kpis span { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 @media (max-width: 860px) { .intro { grid-template-columns: 1fr; } .intro-img { aspect-ratio: 4/3; order: -1; } }
@@ -325,13 +326,12 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
   <div class="wrap intro">
     <div class="r">
       <span class="label">4. Obergeschoss · Baujahr 1905</span>
-      <h2>Klare Linien, warme Materialien, <em>flexibler Grundriss.</em></h2>
+      <h2>Erstbezug nach Sanierung. <em>97 m² Altbau in Mitte.</em></h2>
       <p class="lead">Im 4. Obergeschoss des Altbauensembles „Brunneneck“ erwartet Sie eine ca. 97 m² große Wohnung, die nach hochwertiger Sanierung erstmals bezogen wird. Eichenparkett, warme Naturtöne und ein durchdachtes Lichtkonzept schaffen eine ruhige, moderne Wohnatmosphäre.</p>
-      <p class="lead">Der Grundriss lässt sich flexibel nutzen: als offene Loft-Wohnung mit großzügiger Wohnlandschaft oder als Familienwohnung mit separatem zweitem Zimmer.</p>
+      <p class="lead">Geplant mit großzügigem Wohn- und Essbereich. Auf Wunsch bauen wir die Wohnung zur Familienwohnung mit separatem zweitem Zimmer um.</p>
       <div class="kpis">
         <div><b>649.000 €</b><span>Kaufpreis</span></div>
         <div><b>6.683 €/m²</b><span>Preis pro m²</span></div>
-        <div><b>251,12 €</b><span>Hausgeld mtl.</span></div>
         <div><b>Provisionsfrei</b><span>Direkt vom Bauträger</span></div>
       </div>
     </div>
