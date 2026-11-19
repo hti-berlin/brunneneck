@@ -4,746 +4,833 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brunneneck – Dachgeschoss Rheinsberger Straße, Berlin Mitte</title>
-<meta name="description" content="Dachgeschoss im Rohbau. Zwei Einheiten oder ein großes Gesamtpenthouse – nach Ihren Wünschen ausgebaut. Raumkonzept Studio Fabian Freytag. Provisionsfrei.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<meta name="description" content="Dachgeschoss im Rohbau. Zwei Penthouses einzeln oder ein großes Gesamtpenthouse – nach Ihren Wünschen ausgebaut. Raumkonzepte Nora Witzigmann und Studio Fabian Freytag. Provisionsfrei.">
+<meta name="theme-color" content="#fdfcf9">
 <style>
 :root {
-  --dark:  #1e1b18;
-  --gold:  #b5924a;
-  --warm:  #f9f7f4;
-  --white: #ffffff;
-  --muted: rgba(30,27,24,.48);
-  --rule:  rgba(30,27,24,.1);
-  --g:     clamp(1.5rem, 5vw, 4rem);
-  --max:   1240px;
-  --ease:  cubic-bezier(.22,.61,.36,1);
+  --ink:      #1b1916;
+  --ink-2:    #2a2622;
+  --paper:    #f8f4ee;
+  --paper-2:  #f0eae0;
+  --white:    #fdfcf9;
+  --brick:    #a8532f;
+  --brick-dk: #8e4426;
+  --timber:   #d4b285;
+  --sand:     #f4eee5;
+  --navy:     #24325d;
+  --muted:    rgba(27,25,22,.64);
+  --rule:     rgba(27,25,22,.1);
+  --rule-inv: rgba(251,249,245,.14);
+  --g:   clamp(1.25rem, 5vw, 4.5rem);
+  --max: 1320px;
+  --sans:  'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  /* Typo-Skala nach Tiedemann Design System: display 40/1.05 · h1 28/1.2 · h2 20/1.3 · body 15/1.6 · small 13/1.5 · label 11/600/.14em */
+  --fs-display: clamp(40px, 4.4vw, 64px);
+  --fs-h1: clamp(28px, 2.9vw, 40px);
+  --fs-h2: 20px;
+  --fs-body: 15px;
+  --fs-lead: 17px;
+  --fs-small: 13px;
+  --fs-label: 11px;
+  --fs-button: 14px;
+  --ease:  cubic-bezier(.2,.7,.2,1);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Mulish', sans-serif; color: var(--dark); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { font-family: var(--sans); font-weight: 400; color: var(--ink); background: var(--white); font-size: var(--fs-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-h1,h2,h3 { font-weight: 300; line-height: 1.1; letter-spacing: -.02em; }
-
+button { font: inherit; color: inherit; }
+/* Titel = Wortpaar: zurücktretendes Wort Light 300, tragendes Wort (em) SemiBold 600 */
+h1, h2, h3 { font-family: var(--sans); font-weight: 300; line-height: 1.2; letter-spacing: 0; }
+h2 { font-size: var(--fs-h1); }
+h3 { font-size: var(--fs-h2); line-height: 1.3; }
+h1 em, h2 em, h3 em, .intro-statement em, blockquote em { font-style: normal; font-weight: 600; }
 .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--g); }
+.label { display: inline-flex; align-items: center; gap: .7rem; font-size: var(--fs-label); font-weight: 600; line-height: 1.4; letter-spacing: .14em; text-transform: uppercase; color: var(--brick); }
+.label::before { content: ''; width: 1.6rem; height: 1px; background: currentColor; }
+.lead { font-size: var(--fs-lead); font-weight: 400; color: var(--muted); max-width: 62ch; line-height: 1.6; }
+section { padding-block: clamp(6rem, 12vw, 10rem); }
+.paper { background: var(--paper); }
+.sand  { background: var(--sand); }
+.caption { font-size: var(--fs-small); line-height: 1.5; color: var(--muted); margin-top: .8rem; }
+
+/* Buttons & links */
+.btn { display: inline-flex; align-items: center; gap: .8rem; font-size: var(--fs-button); font-weight: 600; line-height: 1; letter-spacing: 0; padding: 1rem 1.6rem; border: 1px solid transparent; cursor: pointer; transition: background .25s, color .25s, border-color .25s; border-radius: 0; }
+.btn .arr { transition: transform .25s var(--ease); }
+.btn:hover .arr { transform: translateX(4px); }
+.btn-brick { background: var(--brick); color: #fff; }
+.btn-brick:hover { background: var(--brick-dk); }
+.btn-ghost { border-color: rgba(255,255,255,.45); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,.12); }
+.btn-ink { background: var(--navy); color: #fff; }
+.btn-ink:hover { background: var(--brick); }
+.tlink { display: inline-flex; align-items: center; gap: .6rem; font-size: var(--fs-button); font-weight: 600; border-bottom: 1px solid currentColor; padding-bottom: .2rem; transition: gap .25s var(--ease), color .2s; }
+.tlink:hover { gap: 1rem; color: var(--brick); }
 
 /* NAV */
-nav.site {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 80;
-  transition: background .4s var(--ease), border-color .4s;
-}
-nav.site.scrolled {
-  background: rgba(30,27,24,.95);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-.nav-logo { font-size: .78rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #fff; }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a { font-size: .72rem; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.75); transition: color .25s; }
-.nav-links a:hover { color: #fff; }
-@media (max-width: 700px) { .nav-links { display: none; } }
+.nav { position: fixed; inset: 0 0 auto; z-index: 80; color: var(--ink); background: rgba(253,252,249,.97); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: box-shadow .35s; }
+.nav.solid { box-shadow: 0 1px 0 var(--rule), 0 8px 24px rgba(27,25,22,.04); }
+.nav-in { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.logo { display: inline-flex; align-items: center; gap: 1rem; white-space: nowrap; flex-shrink: 0; }
+.logo img { height: 13px; width: auto; }
+.logo small { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-left: 1rem; border-left: 1px solid var(--rule); line-height: 1.4; }
+.nav ul { display: flex; gap: 2.2rem; list-style: none; font-size: var(--fs-button); }
+.nav ul a { opacity: .78; transition: opacity .2s; white-space: nowrap; }
+.nav ul a:hover { opacity: 1; }
+.nav .btn { padding: .65rem 1.2rem; font-size: var(--fs-small); }
+@media (max-width: 520px) { .logo img { height: 11px; } .nav-in { gap: 1rem; } }
+@media (max-width: 1000px) { .nav ul { display: none; } }
+@media (max-width: 1240px) { .logo small { display: none; } }
 
-/* HERO SLIDER */
-.hero {
-  position: relative; height: 100svh; min-height: 600px;
-  display: flex; align-items: flex-end; color: #fff; overflow: hidden;
-}
-.hero-slides { position: absolute; inset: 0; }
-.hero-slide {
-  position: absolute; inset: 0; opacity: 0;
-  transition: opacity 1.2s cubic-bezier(.4,0,.2,1);
-}
-.hero-slide.active { opacity: 1; }
-.hero-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 8s ease-out; }
-.hero-slide.active img { transform: scale(1); }
-.hero-slide::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(30,27,24,.1) 0%, rgba(30,27,24,.04) 35%, rgba(30,27,24,.82) 100%);
-}
-/* slider dots */
-.hero-dots {
-  position: absolute; bottom: clamp(1.5rem,4vh,2.5rem); right: var(--g);
-  z-index: 10; display: flex; gap: .6rem; align-items: center;
-}
-.hero-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(255,255,255,.35); border: none; cursor: pointer; padding: 0;
-  transition: background .3s, transform .3s;
-}
-.hero-dot.active { background: #fff; transform: scale(1.4); }
-.hero-content { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(4rem, 10vh, 7rem); }
-.eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1.2rem; }
-.hero h1 { font-size: clamp(2.8rem, 6.5vw, 5.5rem); font-weight: 300; max-width: 18ch; }
-.hero .sub { margin-top: 1.4rem; font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300; color: rgba(255,255,255,.8); max-width: 48ch; }
-.hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap; }
-
-/* PROZESS STEPS */
-.prozess { background: var(--dark); color: #fff; padding-block: clamp(3.5rem,7vw,6rem); }
-.prozess-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
-.prozess-step { padding: 2rem clamp(1.5rem,3vw,2.5rem); border-right: 1px solid rgba(255,255,255,.08); position: relative; }
-.prozess-step:last-child { border-right: none; }
-.prozess-num { font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 1.2rem; opacity: .6; }
-.prozess-step h3 { font-size: clamp(1.3rem,2vw,1.7rem); font-weight: 300; line-height: 1.15; }
-.prozess-step p { margin-top: .9rem; font-size: .92rem; color: rgba(255,255,255,.55); line-height: 1.7; }
-.prozess-arrow { display: none; }
-@media (max-width: 700px) {
-  .prozess-inner { grid-template-columns: 1fr; }
-  .prozess-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
-  .prozess-step:last-child { border-bottom: none; }
+/* HERO */
+.hero { position: relative; min-height: 100svh; display: grid; align-items: end; color: #fff; overflow: hidden; padding: 0; }
+.hero-media { position: absolute; inset: 0; }
+.hero-media figure { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; }
+.hero-media figure.on { opacity: 1; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 9s linear; }
+.hero-media figure.on img { transform: scale(1); }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,18,15,.62) 0%, rgba(20,18,15,.4) 45%, rgba(20,18,15,0) 75%), linear-gradient(180deg, rgba(20,18,15,0) 0%, rgba(20,18,15,0) 20%, rgba(20,18,15,.46) 46%, rgba(20,18,15,.8) 100%); pointer-events: none; }
+.hero-body { position: relative; z-index: 2; padding-top: 140px; }
+.hero .label { color: #fff; }
+.hero h1 { font-size: var(--fs-display); line-height: 1.05; margin-top: 1.4rem; max-width: 24ch; }
+.hero h1 em { color: #f8eedd; }
+@media (max-width: 760px) { .hero::after { background: linear-gradient(180deg, rgba(20,18,15,0) 0%, rgba(20,18,15,.25) 8%, rgba(20,18,15,.6) 16%, rgba(20,18,15,.62) 60%, rgba(20,18,15,.84) 100%); } .hero h1 em { color: #fff; } }
+.hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+.hero-row p { max-width: 52ch; color: rgba(255,255,255,.94); font-size: var(--fs-lead); }
+.hero-cta { display: flex; gap: .8rem; flex-wrap: wrap; }
+.hero-facts { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vh, 4rem); border-top: 1px solid rgba(255,255,255,.22); display: grid; grid-template-columns: repeat(4, 1fr) auto; }
+.hero-facts > div { padding: 1.3rem 1.5rem 1.6rem 0; }
+.hero-facts b { display: block; font-weight: 300; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; white-space: nowrap; }
+.hero-facts span { display: block; font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.86); margin-top: .5rem; }
+.hero-ctrl { display: flex; align-items: center; gap: 1rem; font-size: var(--fs-small); color: rgba(255,255,255,.7); padding-right: 0 !important; }
+.hero-ctrl button { background: none; border: 1px solid rgba(255,255,255,.35); color: #fff; width: 2.4rem; height: 2.4rem; border-radius: 0; cursor: pointer; transition: background .2s; }
+.hero-ctrl button:hover { background: rgba(255,255,255,.15); }
+.hero-bar { height: 2px; background: rgba(255,255,255,.2); width: 4rem; overflow: hidden; }
+.hero-bar i { display: block; height: 100%; width: 100%; background: #fff; transform-origin: left; transform: scaleX(0); }
+.hero-bar i.run { animation: bar 6.5s linear forwards; }
+@keyframes bar { to { transform: scaleX(1); } }
+@media (max-width: 760px) {
+  .hero-facts { grid-template-columns: 1fr 1fr; }
+  .hero-facts > div:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.14); }
+  .hero-ctrl { display: none !important; }
 }
 
-/* BUTTONS */
-.btn { display: inline-flex; align-items: center; gap: .6rem; font-family: 'Mulish'; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; padding: .9rem 1.8rem; cursor: pointer; border: 1px solid transparent; transition: .22s; }
-.btn-gold { background: var(--gold); color: #fff; }
-.btn-gold:hover { background: #9e7d3a; }
-.btn-outline { background: transparent; border-color: rgba(255,255,255,.5); color: #fff; }
-.btn-outline:hover { background: rgba(255,255,255,.1); }
-.btn-dark { background: var(--dark); color: #fff; }
-.btn-dark:hover { background: #111; }
-
-/* SECTIONS */
-section { padding-block: clamp(4rem, 9vw, 7.5rem); }
-.warm-bg { background: var(--warm); }
-
-/* DETAIL LINK */
-.detail-link { display: inline-flex; align-items: center; gap: .6rem; margin-top: 2rem; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; border-bottom: 1px solid var(--gold); color: var(--gold); padding-bottom: .3rem; transition: gap .25s; }
-.detail-link:hover { gap: 1rem; }
-
-/* SECTION HEADER */
-.section-header { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
-.section-header h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
-.section-header p { margin-top: 1.2rem; color: var(--muted); font-size: 1.05rem; max-width: 60ch; line-height: 1.75; }
-
-/* ── IHRE MÖGLICHKEITEN ── */
-.we-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem);
-}
-/* "Zum Verkauf" badge in header */
-.verkauf-badge {
-  display: inline-block; margin-top: .8rem;
-  background: var(--gold); color: #fff;
-  font-size: .58rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
-  padding: .3rem .8rem;
-}
-.option-card { border: 1px solid var(--rule); overflow: hidden; display: flex; flex-direction: column; }
-.option-card-header { background: var(--dark); color: #fff; padding: 1.8rem 2rem; }
-.option-no { font-size: .62rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
-.option-card-header h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; }
-.option-architect { display: inline-flex; align-items: center; gap: .5rem; margin-top: .9rem; font-size: .65rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.12); padding: .35rem .8rem; }
-.option-architect span { color: rgba(255,255,255,.75); }
-.option-card-body { padding: 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; }
-/* Facts mini-grid */
-.option-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 1.5rem; border: 1px solid var(--rule); }
-.option-fact { padding: .9rem 1rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.option-fact:nth-child(2n) { border-right: none; }
-.option-fact:nth-last-child(-n+2) { border-bottom: none; }
-.option-fact-val { font-size: 1.4rem; font-weight: 300; color: var(--dark); line-height: 1; }
-.option-fact-label { font-size: .62rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: .3rem; }
-/* Alternative Zusammenlegung – volle Breite */
-.alternative-wrap {
-  margin-top: clamp(2.5rem,5vw,4rem);
-  border: 1px solid var(--rule);
-}
-.alternative-header {
-  display: flex; align-items: center; gap: 1.5rem; padding: 1.4rem 2rem;
-  background: var(--warm); border-bottom: 1px solid var(--rule);
-}
-.alternative-eyebrow { font-size: .62rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.alternative-header h3 { font-size: clamp(1.2rem,2vw,1.6rem); font-weight: 300; }
-.alternative-header h3 strong { font-weight: 600; }
-.alternative-body { display: grid; grid-template-columns: 1fr 1.6fr; gap: 0; }
-.alternative-info { padding: 2rem; border-right: 1px solid var(--rule); }
-.alternative-gr { padding: 1.5rem; }
+/* INTRO + PROCESS */
+.intro-statement { font-size: var(--fs-h1); font-weight: 300; line-height: 1.2; max-width: 26ch; }
+.intro-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: end; }
+.steps { margin-top: clamp(3.5rem, 7vw, 6rem); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.6rem); counter-reset: s; }
+.step { counter-increment: s; }
+.step-img { aspect-ratio: 4/5; overflow: hidden; background: var(--paper-2); }
+.step-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.step:hover .step-img img { transform: scale(1.04); }
+.step-head { display: flex; align-items: baseline; gap: 1rem; margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.step-head::before { content: '0' counter(s); font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; color: var(--brick); }
+.step h3 { font-size: var(--fs-h2); }
+.step p { margin-top: .7rem; color: var(--muted); font-size: var(--fs-body); max-width: 40ch; padding-left: 2.1rem; }
 @media (max-width: 860px) {
-  .we-grid { grid-template-columns: 1fr; }
-  .alternative-body { grid-template-columns: 1fr; }
-  .alternative-info { border-right: none; border-bottom: 1px solid var(--rule); }
+  .intro-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 2.5rem; }
+  .step-img { aspect-ratio: 16/10; }
 }
-.option-highlights { list-style: none; }
-.option-highlights li { display: flex; align-items: baseline; gap: .7rem; padding: .55rem 0; border-bottom: 1px solid var(--rule); font-size: .88rem; }
-.option-highlights li:last-child { border-bottom: none; }
-.option-highlights li::before { content: '+'; color: var(--gold); font-weight: 600; flex-shrink: 0; }
-/* Grundriss with lightbox trigger */
-.grundriss-frame { background: var(--warm); padding: 1.2rem 1.2rem .8rem; margin-top: 1.4rem; border: 1px solid var(--rule); position: relative; }
-.grundriss-label { font-size: .6rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: .8rem; }
-.grundriss-trigger { position: relative; cursor: zoom-in; display: block; }
-.grundriss-trigger img { width: 100%; height: auto; transition: opacity .2s; }
-.grundriss-trigger:hover img { opacity: .88; }
-.grundriss-zoom-hint { position: absolute; bottom: .6rem; right: .6rem; background: rgba(30,27,24,.65); color: #fff; font-size: .62rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; padding: .3rem .7rem; pointer-events: none; opacity: 0; transition: opacity .2s; }
-.grundriss-trigger:hover .grundriss-zoom-hint { opacity: 1; }
-.grundriss-note { font-size: .72rem; color: var(--muted); margin-top: .7rem; }
-/* Lightbox */
-.lb { position: fixed; inset: 0; z-index: 200; background: rgba(10,8,6,.92); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
-.lb.open { opacity: 1; pointer-events: all; }
-.lb-inner { position: relative; max-width: min(90vw, 1100px); max-height: 90svh; }
-.lb-inner img { max-width: 100%; max-height: 90svh; object-fit: contain; display: block; }
-.lb-close { position: absolute; top: -2.5rem; right: 0; background: none; border: none; color: rgba(255,255,255,.7); font-size: 1.8rem; cursor: pointer; line-height: 1; padding: .3rem; transition: color .2s; }
-.lb-close:hover { color: #fff; }
-.lb-caption { margin-top: .8rem; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.45); text-align: center; }
 
-/* ── KONZEPT ── */
-.konzept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
-.konzept-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
-.konzept-text p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
-.konzept-quote {
-  margin-top: 2rem; padding: 1.6rem 2rem;
-  border-left: 3px solid var(--gold);
-  font-size: 1.08rem; font-style: italic; font-weight: 300; color: var(--dark);
-  line-height: 1.65;
+/* OPTIONS / UNITS */
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.sec-head h2 { margin-top: 1.2rem; max-width: 14ch; }
+.tabs { display: flex; gap: .4rem; padding: .35rem; background: var(--paper-2); border-radius: 0; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex-shrink: 0; background: none; border: 0; padding: .75rem 1.3rem; border-radius: 0; font-size: var(--fs-button); font-weight: 600; cursor: pointer; color: var(--muted); transition: background .25s, color .25s; white-space: nowrap; }
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { background: var(--navy); color: #fff; }
+.tab small { font-weight: 400; margin-left: .35rem; }
+.unit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; animation: fade .5s var(--ease); }
+.unit[hidden] { display: none; }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.unit-tag { display: inline-block; font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: .4rem .8rem; border-radius: 0; background: rgba(168,83,47,.07); color: var(--brick-dk); }
+.unit-tag.alt { background: var(--navy); color: #fff; }
+.unit h3 { font-size: var(--fs-h1); line-height: 1.2; margin-top: 1.2rem; }
+.unit .by { font-size: var(--fs-small); color: var(--muted); margin-top: .6rem; }
+.unit .by b { color: var(--ink); font-weight: 600; }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2rem; border-top: 1px solid var(--rule); }
+.kpis div { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+.kpis div:nth-child(odd) { padding-right: 1rem; border-right: 1px solid var(--rule); }
+.kpis div:nth-child(even) { padding-left: 1.2rem; }
+.kpis b { display: block; font-weight: 300; font-size: var(--fs-h1); line-height: 1.2; }
+.kpis span { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.feat { list-style: none; margin-top: 1.8rem; }
+.feat li { padding: .6rem 0 .6rem 1.6rem; position: relative; font-size: var(--fs-body); border-bottom: 1px dashed var(--rule); }
+.feat li::before { content: ''; position: absolute; left: 0; top: 1.1rem; width: .55rem; height: 1px; background: var(--brick); }
+.unit .actions { margin-top: 2rem; display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
+.plan { background: #fff; border: 1px solid var(--rule); padding: clamp(1rem, 2.5vw, 2rem); position: relative; cursor: zoom-in; }
+.plan img { width: 100%; height: auto; }
+.plan-vars { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.plan-vars button { font: inherit; font-size: var(--fs-small); font-weight: 600; padding: .6rem 1rem; min-height: 40px; border: 1px solid var(--rule); background: transparent; color: var(--ink); cursor: pointer; border-radius: 0; transition: background .2s, color .2s, border-color .2s; }
+.plan-vars button:hover { border-color: var(--navy); }
+.plan-vars button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+.plan-meta { display: flex; justify-content: space-between; gap: 1rem; font-size: var(--fs-small); color: var(--muted); margin-top: .9rem; }
+.plan-zoom { position: absolute; top: 1rem; right: 1rem; width: 2.6rem; height: 2.6rem; border-radius: 0; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 1.1rem; opacity: .85; transition: opacity .2s, transform .2s; }
+.plan:hover .plan-zoom { opacity: 1; transform: scale(1.08); }
+.compare { margin-top: clamp(3rem, 6vw, 5rem); display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(27,25,22,.28); }
+.compare button { text-align: left; background: none; border: 0; border-right: 1px solid var(--rule); padding: 1.4rem 1.4rem 1.4rem 0; cursor: pointer; transition: background .2s; }
+.compare button + button { padding-left: 1.4rem; }
+.compare button:last-child { border-right: 0; }
+.compare button:hover { background: rgba(168,83,47,.04); }
+.compare button.on .c-name { color: var(--brick); }
+.c-name { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.c-size { font-weight: 300; font-size: var(--fs-h1); line-height: 1.2; margin-top: .4rem; }
+.c-sub { font-size: var(--fs-small); color: var(--muted); }
+@media (max-width: 900px) {
+  .unit { grid-template-columns: 1fr; }
+  .unit .plan { order: -1; }
+  .compare { grid-template-columns: 1fr; }
+  .compare button, .compare button + button { border-right: 0; border-bottom: 1px solid var(--rule); padding: 1.1rem 0; }
 }
-.visu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-.visu-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.rohbau-strip {
-  margin-top: clamp(2.5rem, 5vw, 4rem);
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .8rem;
-}
-.rohbau-strip img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
 
-/* ── DAS PROJEKT ── */
-.projekt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
-.facts { list-style: none; margin-top: 2rem; }
-.facts li {
-  display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem;
-  padding: 1.2rem 0; border-bottom: 1px solid var(--rule); align-items: start;
+/* VISION */
+.vision-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: end; }
+.vision-head p + p { margin-top: 1rem; }
+.mosaic { margin-top: clamp(3rem, 6vw, 5rem); display: grid; grid-template-columns: 1.6fr 1fr; grid-template-rows: auto auto; gap: clamp(.6rem, 1.2vw, 1rem); }
+.mosaic figure { overflow: hidden; cursor: zoom-in; position: relative; background: var(--paper-2); }
+.mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.mosaic figure:hover img { transform: scale(1.03); }
+.mosaic .big { grid-row: span 2; aspect-ratio: 16/11; }
+.mosaic .sm { aspect-ratio: 16/9.2; }
+.mosaic figcaption { position: absolute; left: 1rem; bottom: 1rem; font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; background: rgba(253,252,249,.9); color: var(--ink); backdrop-filter: blur(6px); padding: .35rem .7rem; border-radius: 0; }
+.quote { margin-top: clamp(4rem, 8vw, 7rem); display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start; max-width: 62rem; }
+.quote::before { content: '„'; font-size: 5rem; font-weight: 300; line-height: .6; color: var(--brick); }
+.quote blockquote { font-weight: 300; font-size: var(--fs-h1); line-height: 1.2; }
+.quote cite { display: block; font-style: normal; font-size: .8rem; color: var(--muted); margin-top: 1.2rem; letter-spacing: .06em; }
+@media (max-width: 860px) {
+  .vision-head { grid-template-columns: 1fr; }
+  .mosaic { grid-template-columns: 1fr 1fr; }
+  .mosaic .big { grid-column: span 2; grid-row: auto; }
+  .quote { grid-template-columns: 1fr; gap: 0; }
+  .quote::before { font-size: 4rem; margin-bottom: .4rem; }
 }
-.fact-num { font-size: 1.9rem; font-weight: 300; color: var(--gold); line-height: 1; }
-.fact-text strong { display: block; font-weight: 600; font-size: .78rem; letter-spacing: .08em; }
-.fact-text span { color: var(--muted); font-size: .88rem; }
-.bestand-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-.bestand-imgs img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
 
-/* GALLERY SCROLL */
-.gallery { display: flex; gap: .8rem; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: .5rem; margin-top: clamp(2rem, 4vw, 3rem); }
-.gallery::-webkit-scrollbar { display: none; }
-.gallery img { height: clamp(200px, 30vw, 400px); width: auto; flex-shrink: 0; object-fit: cover; }
+/* TODAY / ROHBAU */
+.today { display: grid; grid-template-columns: .8fr 1.2fr 1fr; gap: clamp(.6rem, 1.2vw, 1rem); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: end; }
+.today figure { overflow: hidden; }
+.today img { width: 100%; height: 100%; object-fit: cover; }
+.today .p { aspect-ratio: 2/3; }
+.today .l { aspect-ratio: 3/2; }
+.today-text { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: end; }
+@media (max-width: 860px) {
+  .today-text { grid-template-columns: 1fr; }
+  .today { grid-template-columns: 1fr 1fr; }
+  .today .l { grid-column: span 2; order: -1; }
+}
+
+/* VIEW GALLERY */
+.view { padding-bottom: 0; }
+.rail { display: flex; gap: clamp(.6rem, 1.2vw, 1rem); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: clamp(2.5rem, 5vw, 4rem) var(--g) clamp(6rem, 12vw, 10rem); }
+.rail::-webkit-scrollbar { display: none; }
+.rail figure { flex: 0 0 auto; scroll-snap-align: start; height: clamp(280px, 52vh, 560px); overflow: hidden; }
+.rail img { height: 100%; width: auto; object-fit: cover; }
+.rail-ctrl { display: flex; gap: .5rem; }
+.rail-ctrl button { width: 3rem; height: 3rem; border-radius: 0; border: 1px solid var(--rule); background: none; cursor: pointer; font-size: 1rem; transition: background .2s, color .2s; }
+.rail-ctrl button:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+/* HOUSE */
+.house { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
+.house-facts { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--rule); }
+.house-facts div { padding: 1.4rem 1.2rem 1.4rem 0; border-bottom: 1px solid var(--rule); }
+.house-facts div:nth-child(even) { padding-left: 1.2rem; border-left: 1px solid var(--rule); }
+.house-facts b { display: block; font-weight: 600; font-size: var(--fs-h2); line-height: 1.3; }
+.house-facts span { display: block; font-size: var(--fs-small); line-height: 1.5; color: var(--muted); margin-top: .4rem; }
+.house-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.6rem, 1.2vw, 1rem); }
+.house-imgs figure:first-child { grid-column: span 2; aspect-ratio: 3/2; }
+.house-imgs figure { overflow: hidden; aspect-ratio: 1; }
+.house-imgs img { width: 100%; height: 100%; object-fit: cover; }
+.more { margin-top: 2rem; padding: 1.6rem; background: var(--paper); display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.more p { font-size: var(--fs-body); }
+.more div { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+@media (max-width: 860px) { .house { grid-template-columns: 1fr; } }
 
 /* LOCATION */
-.lage-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
-.lage-img { overflow: hidden; aspect-ratio: 3/4; }
-.lage-img img { width: 100%; height: 100%; object-fit: cover; }
-.lage-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
-.lage-text p { margin-top: 1.2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.75; }
+.loc { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; padding: 0; }
+.loc-img { overflow: hidden; }
+.loc-img img { width: 100%; height: 100%; object-fit: cover; }
+.loc-text { padding: clamp(4rem, 9vw, 8rem) var(--g); display: flex; flex-direction: column; justify-content: center; }
+.loc-text h2 { margin-top: 1.2rem; }
+.loc-text .lead { margin-top: 1.6rem; }
+.loc-text .lead + .lead { margin-top: 1rem; }
+.addr { margin-top: 2.5rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); font-size: var(--fs-small); color: var(--muted); }
+@media (max-width: 860px) { .loc { grid-template-columns: 1fr; } .loc-img { aspect-ratio: 4/5; max-height: 70vh; } }
 
 /* DEVELOPER */
-.dev-section { background: var(--dark); color: #fff; text-align: center; }
-.dev-section .eyebrow { color: rgba(255,255,255,.45); }
-.dev-section blockquote { font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.35; max-width: 46ch; margin: 1.4rem auto 0; }
-.dev-section p { color: rgba(255,255,255,.55); margin-top: 1.4rem; max-width: 46ch; margin-inline: auto; }
-.dev-link { display: inline-flex; align-items: center; gap: .6rem; margin-top: 2.2rem; font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: .3rem; transition: gap .25s; }
-.dev-link:hover { gap: 1rem; }
+.dev { text-align: center; }
+.dev h2 { font-size: var(--fs-h1); max-width: 34ch; margin: 1.6rem auto 0; line-height: 1.2; }
+.dev .lead { margin: 1.4rem auto 0; }
+.dev .tlink { margin-top: 2rem; }
 
 /* CONTACT */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(3rem, 7vw, 6rem); align-items: start; }
-.contact-info h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
-address { font-style: normal; margin-top: 2rem; color: var(--muted); line-height: 2; }
-address strong { color: var(--dark); font-weight: 600; font-size: .65rem; letter-spacing: .24em; text-transform: uppercase; display: block; margin-top: 1.4rem; }
-address strong:first-child { margin-top: 0; }
-address a:hover { color: var(--gold); }
-.form-wrap { padding: 2.5rem; background: #fff; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-.form-field { margin-bottom: 1.2rem; }
-.form-field label { display: block; font-size: .65rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
-.form-field input, .form-field textarea { width: 100%; padding: .75rem 0; border: 0; border-bottom: 1px solid var(--rule); background: transparent; font-family: 'Mulish'; font-size: .97rem; color: var(--dark); transition: border-color .2s; }
-.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); }
-.form-field textarea { min-height: 110px; resize: vertical; }
-.chk-wrap { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: 1.4rem; font-size: .85rem; color: var(--muted); }
-.chk-wrap input { flex-shrink: 0; margin-top: .2rem; accent-color: var(--gold); }
+.contact { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
+.contact h2 { margin-top: 1.2rem; }
+.contact .lead { margin-top: 1.4rem; }
+.cards { margin-top: 2.5rem; display: grid; gap: .6rem; }
+.cards a, .cards div { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; background: var(--white); border: 1px solid var(--rule); transition: border-color .2s; }
+.cards a:hover { border-color: var(--brick); }
+.cards span { font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.cards b { font-weight: 400; font-size: var(--fs-body); text-align: right; }
+form { background: var(--white); padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--rule); }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.f { margin-bottom: 1.5rem; }
+.f label { display: block; font-size: var(--fs-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .45rem; }
+.f input, .f textarea, .f select { width: 100%; font: inherit; font-size: var(--fs-body); color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--rule); padding: .6rem 0; border-radius: 0; transition: border-color .2s; }
+.f select { appearance: none; -webkit-appearance: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231b1916' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right .2rem center; cursor: pointer; }
+.f input:focus, .f textarea:focus, .f select:focus { outline: none; border-color: var(--brick); }
+.f textarea { min-height: 120px; resize: vertical; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chips label { position: relative; margin: 0; text-transform: none; letter-spacing: 0; font-weight: 400; font-size: var(--fs-small); color: var(--ink); }
+.chips input { position: absolute; opacity: 0; pointer-events: none; }
+.chips span { display: inline-block; padding: .55rem 1rem; border: 1px solid var(--rule); border-radius: 0; cursor: pointer; transition: .2s; }
+.chips input:checked + span { background: var(--navy); color: #fff; border-color: var(--navy); }
+.chips input:focus-visible + span { outline: 2px solid var(--brick); outline-offset: 2px; }
+.consent { display: flex; gap: .8rem; align-items: flex-start; font-size: var(--fs-small); color: var(--muted); margin-bottom: 1.6rem; }
+.consent input { margin-top: .25rem; accent-color: var(--brick); }
+@media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .f-row { grid-template-columns: 1fr; gap: 0; } }
 
 /* FOOTER */
-footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 1.6rem var(--g); font-size: .78rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-footer a:hover { color: rgba(255,255,255,.8); }
+footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small); border-top: 1px solid var(--rule); }
+.foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 2rem; border-top: 1px solid var(--rule); }
+.foot a { transition: color .2s; }
+.foot a:hover { color: var(--brick); }
+.foot-big { padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2rem, 4vw, 3rem); }
+.foot-big img { height: 40px; width: auto; }
+@media (max-width: 520px) { .foot-big img { height: 32px; } }
 
-/* FADE IN */
-.fi { opacity: 0; transform: translateY(20px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
-.fi.in { opacity: 1; transform: none; }
+/* LIGHTBOX */
+.lb { position: fixed; inset: 0; z-index: 200; background: rgba(15,13,11,.94); display: grid; place-items: center; opacity: 0; pointer-events: none; transition: opacity .3s; padding: 4rem 1rem 2rem; }
+.lb.open { opacity: 1; pointer-events: auto; }
+.lb img { max-width: min(94vw, 1400px); max-height: 80svh; object-fit: contain; background: #fff; }
+.lb img.photo { background: none; }
+.lb p { color: rgba(255,255,255,.6); font-size: var(--fs-small); text-align: center; margin-top: 1rem; }
+.lb-x { position: absolute; top: 1.2rem; right: 1.2rem; width: 3rem; height: 3rem; border-radius: 0; border: 1px solid rgba(255,255,255,.3); background: none; color: #fff; font-size: 1.4rem; cursor: pointer; }
+.lb-x:hover { background: rgba(255,255,255,.12); }
 
-/* RESPONSIVE */
-@media (max-width: 860px) {
-  .moeglichkeiten-grid, .konzept-grid, .projekt-grid, .lage-grid, .contact-grid { grid-template-columns: 1fr; }
-  .rohbau-strip { grid-template-columns: 1fr 1fr; }
-  .rohbau-strip img:last-child { display: none; }
+/* Reveal */
+.r { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.r.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .r { opacity: 1; transform: none; transition: none; }
+  .hero-media img, .hero-media figure.on img { transform: none; transition: none; }
 }
-@media (max-width: 540px) {
-  .visu-grid, .bestand-imgs { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
+:focus-visible { outline: 2px solid var(--brick); outline-offset: 3px; }
+
+/* Heller Header: Foto frei, Text auf heller Fläche */
+.hero { min-height: 0; display: block; color: var(--ink); padding-top: 72px; background: var(--paper); }
+.hero::after { display: none; }
+.hero-media { position: relative; inset: auto; height: clamp(360px, 64svh, 760px); overflow: hidden; }
+.hero-body { position: relative; z-index: 2; background: var(--white); margin-top: clamp(-180px, -12vw, -64px); padding-top: clamp(2rem, 4vw, 3.5rem); padding-bottom: .5rem; }
+.hero .label { color: var(--brick); }
+.hero h1 { margin-top: 1.2rem; }
+.hero h1 em { color: var(--ink); }
+.hero-row p { color: var(--muted); }
+.hero .btn-ghost { border-color: rgba(27,25,22,.22); color: var(--ink); }
+.hero .btn-ghost:hover { background: rgba(27,25,22,.05); border-color: var(--navy); }
+.hero-facts { border-top: 1px solid var(--rule); }
+.hero-facts b { color: var(--ink); }
+.hero-facts span { color: var(--muted); }
+.hero-ctrl { color: var(--muted); }
+.hero-ctrl button { border-color: rgba(27,25,22,.22); color: var(--ink); }
+.hero-ctrl button:hover { background: rgba(27,25,22,.05); }
+.hero-bar { background: var(--rule); }
+.hero-bar i { background: var(--navy); }
+@media (max-width: 760px) {
+  .hero-media { height: clamp(260px, 46svh, 420px); }
+  .hero-body { margin-top: 0; }
+  .hero h1 em { color: var(--ink); }
+  .hero-facts > div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
 }
 </style>
 </head>
 <body>
 
-<nav class="site" id="sitenav">
-  <div class="wrap nav-inner">
-    <a class="nav-logo" href="#start">Brunneneck</a>
-    <ul class="nav-links">
-      <li><a href="#moeglichkeiten">Möglichkeiten</a></li>
-      <li><a href="#konzept">Konzept</a></li>
-      <li><a href="#projekt">Das Projekt</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#start"><img src="fotos/logo/brunnen-eck-wortmarke.png" alt="Brunnen-Eck" width="400" height="32"><small>Penthouses</small></a>
+    <ul>
+      <li><a href="#prozess">Der Weg</a></li>
+      <li><a href="#einheiten">Einheiten</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#haus">Das Haus</a></li>
+      <li><a href="#lage">Lage</a></li>
     </ul>
+    <a class="btn btn-brick" href="#kontakt">Besichtigung <span class="arr">→</span></a>
   </div>
-</nav>
+</header>
 
-<!-- HERO SLIDER -->
+<main>
+
+<!-- HERO -->
 <section class="hero" id="start">
-  <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active">
-      <img src="fotos/penthouse/rohbau-hero.jpg" alt="Dachgeschoss im Rohbauzustand – Terrassentüren und Holzdachstuhl" fetchpriority="high">
-    </div>
-    <div class="hero-slide">
-      <img src="fotos/penthouse/rohbau-romeike-1.jpg" alt="Rohbau – Dachstuhl und Ziegelwände" loading="lazy">
-    </div>
-    <div class="hero-slide">
-      <img src="fotos/penthouse/ausblick-sued.jpg" alt="Ausblick über die Dächer Berlin Mitte" loading="lazy">
-    </div>
-    <div class="hero-slide">
-      <img src="fotos/penthouse/ausblick-fernseh.jpg" alt="Ausblick mit Fernsehturm" loading="lazy">
-    </div>
-    <div class="hero-slide">
-      <img src="fotos/penthouse/rohbau-romeike-3.jpg" alt="Blick aus dem Rohbau – Fernsehturm im Fenster" loading="lazy">
-    </div>
+  <div class="hero-media" id="heroMedia">
+    <figure class="on"><img src="fotos/header/dg-fensterfront.jpg" alt="Dachgeschoss im Rohbau – Holzbalkendecke, Ziegelwände und bodentiefe Fenster" fetchpriority="high"></figure>
+    <figure><img src="fotos/header/dg-gaube.jpg" alt="Rohbau – große Dachgaube unter dem Holzdachstuhl" loading="lazy"></figure>
+    <figure><img src="fotos/header/dg-ausblick-mitte.jpg" alt="Blick aus dem Dachgeschoss über die Dächer von Berlin-Mitte" loading="lazy" style="object-position: 50% 62%;"></figure>
+    <figure><img src="fotos/header/dg-dachfenster.jpg" alt="Rohbau – Dachfenster in der Dachschräge" loading="lazy"></figure>
   </div>
-  <div class="hero-dots" id="heroDots"></div>
-  <div class="wrap hero-content">
-    <span class="eyebrow">Rheinsberger Straße 9 · Berlin Mitte · Dachgeschoss</span>
-    <h1>Rohbau.<br>Jetzt nach<br>Ihren Wünschen.</h1>
-    <p class="sub">Das Dachgeschoss im Brunneneck ist fertig strukturiert – und noch vollständig offen für Ihre Vorstellungen. Zwei Einheiten oder ein großes Penthouse: Sie entscheiden.</p>
-    <div class="hero-cta">
-      <a class="btn btn-gold" href="#moeglichkeiten">Möglichkeiten ansehen &rarr;</a>
-      <a class="btn btn-outline" href="#kontakt">Besichtigung anfragen</a>
-    </div>
-  </div>
-</section>
-
-<!-- PROZESS: Rohbau → Idee → Einzug -->
-<div class="prozess">
-  <div class="wrap">
-    <div class="prozess-inner">
-      <div class="prozess-step">
-        <div class="prozess-num">01</div>
-        <h3>Rohbau jetzt</h3>
-        <p>Das Dachgeschoss ist fertig strukturiert – Dachstuhl, Ziegelwände, Fensteröffnungen. Der Rohbau steht. Alles dahinter ist noch offen.</p>
-      </div>
-      <div class="prozess-step">
-        <div class="prozess-num">02</div>
-        <h3>Ihre Idee –<br>unser Konzept</h3>
-        <p>Bringen Sie Ihre eigene Vorstellung mit oder entwickeln Sie das bestehende Konzept von Studio Fabian Freytag weiter. Wir planen und bauen gemeinsam mit Ihnen.</p>
-      </div>
-      <div class="prozess-step">
-        <div class="prozess-num">03</div>
-        <h3>In 6 Monaten<br>einziehen</h3>
-        <p>Nach Ihrer Entscheidung beginnt der Ausbau. Innerhalb von rund sechs Monaten entsteht Ihr neues Zuhause – fertig bezugsbereit, genau nach Ihren Wünschen.</p>
+  <div class="wrap hero-body">
+    <span class="label">Rheinsberger Straße 9 · Dachgeschoss</span>
+    <h1>Der Rohbau steht. <em>Schlüsselfertig in Ihrer Handschrift.</em></h1>
+    <div class="hero-row">
+      <p>Das Dachgeschoss im Brunneneck ist das letzte offene Kapitel des Ensembles. Zwei Penthouses – einzeln oder zusammengelegt – ausgebaut nach Ihren Vorstellungen.</p>
+      <div class="hero-cta">
+        <a class="btn btn-brick" href="#einheiten">Einheiten ansehen <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#kontakt">Besichtigung anfragen</a>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- IHRE MÖGLICHKEITEN -->
-<section id="moeglichkeiten">
-  <div class="wrap">
-    <div class="section-header fi">
-      <span class="eyebrow">Ihre Möglichkeiten</span>
-      <h2>Zwei Penthouses –<br>einzeln zu erwerben.</h2>
-      <p>Beide Einheiten im Dachgeschoss stehen unabhängig voneinander zum Verkauf. Jede Wohnung hat eigenen Aufzugszugang, eigene Dachterrasse und wird individuell nach Ihren Wünschen ausgebaut. Raumkonzept: Nora Witzigmann.</p>
-    </div>
-
-    <!-- Die zwei einzelnen Wohnungen nebeneinander -->
-    <div class="we-grid fi">
-
-      <!-- Wohnung 3 · Ecke -->
-      <div class="option-card">
-        <div class="option-card-header">
-          <div class="option-no">Penthouse · Wohnung 3</div>
-          <h3>Ecke Rheinsberger Str.</h3>
-          <div class="verkauf-badge">Einzeln zu erwerben</div>
-          <div class="option-architect" style="margin-top:.6rem;">Raumkonzept <span>Nora Witzigmann</span></div>
-        </div>
-        <div class="option-card-body">
-          <div class="option-facts">
-            <div class="option-fact">
-              <div class="option-fact-val">ca. 110 m²</div>
-              <div class="option-fact-label">Wohnfläche</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">1</div>
-              <div class="option-fact-label">Dachterrasse</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">Ecke</div>
-              <div class="option-fact-label">Ausrichtung</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">M 1:75</div>
-              <div class="option-fact-label">Grundrissmaßstab</div>
-            </div>
-          </div>
-          <ul class="option-highlights">
-            <li>Mastersuite mit Ankleide</li>
-            <li>Masterbad</li>
-            <li>Küche + Essen · Wohnzimmer</li>
-            <li>Dachterrasse · Diele · WC</li>
-            <li>Privater Aufzugszugang</li>
-          </ul>
-          <div class="grundriss-frame">
-            <span class="grundriss-label">Grundriss · Whg. 3 · Ecke</span>
-            <div class="grundriss-trigger" data-src="fotos/penthouse/grundriss-we1.png" data-caption="Grundriss · Penthouse Whg. 3 · Ecke · Nora Witzigmann">
-              <img src="fotos/penthouse/grundriss-we1.png" alt="Grundriss Penthouse Whg. 3 Ecke" loading="lazy">
-              <span class="grundriss-zoom-hint">Vergrößern</span>
-            </div>
-          </div>
-          <a class="detail-link" href="#kontakt" style="margin-top:auto;padding-top:1.5rem;">Anfrage stellen &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Wohnung 4 · Hof -->
-      <div class="option-card">
-        <div class="option-card-header">
-          <div class="option-no">Penthouse · Wohnung 4</div>
-          <h3>Hof Brunnenstraße</h3>
-          <div class="verkauf-badge">Einzeln zu erwerben</div>
-          <div class="option-architect" style="margin-top:.6rem;">Raumkonzept <span>Nora Witzigmann</span></div>
-        </div>
-        <div class="option-card-body">
-          <div class="option-facts">
-            <div class="option-fact">
-              <div class="option-fact-val">ca. 132 m²</div>
-              <div class="option-fact-label">Wohnfläche</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">2</div>
-              <div class="option-fact-label">Dachterrassen</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">Hof</div>
-              <div class="option-fact-label">Ausrichtung</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">M 1:75</div>
-              <div class="option-fact-label">Grundrissmaßstab</div>
-            </div>
-          </div>
-          <ul class="option-highlights">
-            <li>Masterbedroom + Masterbad + Ankleide</li>
-            <li>Büro / Gästezimmer</li>
-            <li>Küche/Bar · Wohnen + Essen</li>
-            <li>2 Dachterrassen · Duschbad · Diele</li>
-            <li>Privater Aufzugszugang · Abstellkammer</li>
-          </ul>
-          <div class="grundriss-frame">
-            <span class="grundriss-label">Grundriss · Whg. 4 · Hof</span>
-            <div class="grundriss-trigger" data-src="fotos/penthouse/grundriss-we2.png" data-caption="Grundriss · Penthouse Whg. 4 · Hof · Nora Witzigmann">
-              <img src="fotos/penthouse/grundriss-we2.png" alt="Grundriss Penthouse Whg. 4 Hof" loading="lazy">
-              <span class="grundriss-zoom-hint">Vergrößern</span>
-            </div>
-          </div>
-          <a class="detail-link" href="#kontakt" style="margin-top:auto;padding-top:1.5rem;">Anfrage stellen &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Alternative: Zusammenlegung -->
-    <div class="alternative-wrap fi">
-      <div class="alternative-header">
-        <span class="alternative-eyebrow">Alternative</span>
-        <h3><strong>Zusammenlegung</strong> zum Gesamtpenthouse · 242 m² · Studio Fabian Freytag</h3>
-      </div>
-      <div class="alternative-body">
-        <div class="alternative-info">
-          <div class="option-facts" style="margin-bottom:1.4rem;">
-            <div class="option-fact">
-              <div class="option-fact-val">242 m²</div>
-              <div class="option-fact-label">Gesamtfläche</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">28 m²</div>
-              <div class="option-fact-label">Außenflächen</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">71 m²</div>
-              <div class="option-fact-label">Wohn-/Essbereich</div>
-            </div>
-            <div class="option-fact">
-              <div class="option-fact-val">35 m²</div>
-              <div class="option-fact-label">Fitnesszimmer</div>
-            </div>
-          </div>
-          <ul class="option-highlights">
-            <li>Master Schlafzimmer 21,39 m² + Ankleide 10,19 m²</li>
-            <li>Master Bad 22,32 m² · Gäste Bad 6,35 m²</li>
-            <li>Loggia 7,52 m² · Terrassen 17,24 m² + 3,54 m²</li>
-            <li>Weinlager · Hauswirtschaft · privater Aufzug</li>
-          </ul>
-          <a class="detail-link" href="#kontakt">Anfrage zur Zusammenlegung &rarr;</a>
-        </div>
-        <div class="alternative-gr">
-          <div class="grundriss-trigger" data-src="fotos/penthouse/grundriss-gesamt.png" data-caption="Grundriss · Gesamtpenthouse 242 m² · Studio Fabian Freytag">
-            <img src="fotos/penthouse/grundriss-gesamt.png" alt="Grundriss Gesamtpenthouse 242 m²" loading="lazy">
-            <span class="grundriss-zoom-hint">Vergrößern</span>
-          </div>
-          <p class="grundriss-note" style="margin-top:.6rem;">Raumkonzept Studio Fabian Freytag · Gesamtfläche 242,21 m²</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Lightbox -->
-    <div class="lb" id="lb" role="dialog" aria-modal="true">
-      <div class="lb-inner">
-        <button class="lb-close" id="lbClose" aria-label="Schließen">&times;</button>
-        <img id="lbImg" src="" alt="">
-        <p class="lb-caption" id="lbCaption"></p>
+    <div class="hero-facts">
+      <div><b>2</b><span>Penthouses</span></div>
+      <div><b>110 &amp; 132 m²</b><span>Einzeln erwerbbar</span></div>
+      <div><b>242 m²</b><span>Zusammengelegt</span></div>
+      <div><b>~ 6 Monate</b><span>Bis zum Einzug</span></div>
+      <div class="hero-ctrl" aria-label="Bildsteuerung">
+        <button type="button" id="heroPrev" aria-label="Vorheriges Bild">←</button>
+        <span id="heroCount">01 / 04</span>
+        <div class="hero-bar"><i id="heroBar"></i></div>
+        <button type="button" id="heroNext" aria-label="Nächstes Bild">→</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DAS KONZEPT -->
-<section class="warm-bg" id="konzept">
+<!-- INTRO / PROZESS -->
+<section id="prozess">
   <div class="wrap">
-    <div class="konzept-grid fi">
-      <div class="konzept-text">
-        <span class="eyebrow">Das Konzept</span>
-        <h2>Idee von Studio Fabian Freytag – realisiert nach Ihren Wünschen.</h2>
-        <p>Das Raumkonzept für das Dachgeschoss wurde vom renommierten Berliner Innenarchitekten Fabian Freytag entwickelt. Es zeigt das volle Potenzial der Fläche – als Inspirationsrahmen, nicht als Festlegung.</p>
-        <p style="margin-top:1rem;">Wir bauen nach Ihren Vorstellungen aus. Ob eigenes Raumkonzept, eigener Architekt oder die Weiterentwicklung der Freytag-Idee: Der Ausbau geschieht in enger Abstimmung mit Ihnen.</p>
-        <div class="konzept-quote">
-          „Jeder Raum entsteht zweimal – einmal im Entwurf, einmal im Leben der Menschen, die ihn bewohnen."
-        </div>
-        <a class="detail-link" href="#kontakt">Gespräch vereinbaren &rarr;</a>
-      </div>
+    <div class="intro-grid r">
       <div>
-        <div class="visu-grid">
-          <img src="fotos/penthouse/wohnzimmer1.jpg" alt="Visualisierung Wohnzimmer mit Dachfenstern" loading="lazy">
-          <img src="fotos/penthouse/esszimmer.jpg" alt="Visualisierung Esszimmer" loading="lazy">
-          <img src="fotos/penthouse/schlafzimmer.jpg" alt="Visualisierung Schlafzimmer" loading="lazy">
-          <img src="fotos/penthouse/wohnzimmer2.jpg" alt="Visualisierung Wohnzimmer Variante" loading="lazy">
-        </div>
-        <p style="margin-top:.8rem;font-size:.78rem;color:var(--muted);text-align:center;">Visualisierungen: Studio Fabian Freytag – Konzeptidee, kein Festangebot</p>
+        <span class="label">Der Weg zum Zuhause</span>
+        <p class="intro-statement" style="margin-top:1.4rem;">Selten bekommt man in Mitte ein Dachgeschoss, das man <em>noch selbst mitgestalten</em> kann.</p>
       </div>
+      <p class="lead">Dachstuhl, Ziegelwände und Fensteröffnungen stehen. Grundrisse, Materialien und Ausstattung sind noch offen. Bringen Sie Ihre eigene Vorstellung mit, entwickeln Sie die vorliegenden Raumkonzepte gemeinsam mit uns weiter oder entscheiden Sie sich für das Ausbaukonzept des Berliner Interior Designers Fabian Freytag. Provisionsfrei, direkt vom Projektentwickler.</p>
     </div>
-
-    <!-- Rohbau-Fotos als Referenz -->
-    <div class="rohbau-strip fi" style="margin-top:clamp(3rem,6vw,5rem);">
-      <img src="fotos/penthouse/rohbau-romeike-1.jpg" alt="Rohbauzustand Dachgeschoss – Dachstuhl und Ziegelwände" loading="lazy">
-      <img src="fotos/penthouse/rohbau-romeike-2.jpg" alt="Rohbauzustand – Dachschräge mit Velux-Fenster" loading="lazy">
-      <img src="fotos/penthouse/rohbau-romeike-3.jpg" alt="Blick aus dem Rohbau – Fernsehturm Berlin" loading="lazy">
+    <div class="steps">
+      <article class="step r">
+        <div class="step-img"><img src="fotos/dachgeschoss/rohbau-dachfenster.jpg" alt="Rohbau – Dachfenster in der Dachschräge" loading="lazy"></div>
+        <div class="step-head"><h3>Rohbau <em>heute</em></h3></div>
+        <p>Die Struktur ist fertig – Dachstuhl, Ziegelwände, Fensteröffnungen. Alles dahinter ist noch offen.</p>
+      </article>
+      <article class="step r">
+        <div class="step-img"><img src="fotos/penthouse/wohnzimmer2.jpg" alt="Visualisierung Wohnraum unter dem Dach" loading="lazy"></div>
+        <div class="step-head"><h3>Ihre <em>Planung</em></h3></div>
+        <p>Eigenes Konzept, eigener Architekt oder die Weiterentwicklung der vorliegenden Entwürfe – wir planen und bauen gemeinsam mit Ihnen.</p>
+      </article>
+      <article class="step r">
+        <div class="step-img"><img src="fotos/penthouse/einzug-bad.jpg" alt="Visualisierung Bad mit freistehender Badewanne und zwei Gemälden" width="512" height="640" loading="lazy"></div>
+        <div class="step-head"><h3>Der <em>Einzug</em></h3></div>
+        <p>Nach Ihrer Entscheidung beginnt der Ausbau. In rund sechs Monaten entsteht Ihr Zuhause – bezugsfertig, genau nach Ihren Wünschen.</p>
+      </article>
     </div>
-    <p style="margin-top:.8rem;font-size:.78rem;color:var(--muted);text-align:center;" class="fi">Der aktuelle Zustand: Dachgeschoss Rheinsberger Str. 9 im Rohbau – bereit für den individuellen Ausbau.</p>
   </div>
 </section>
 
-<!-- DAS PROJEKT -->
-<section id="projekt">
+<!-- EINHEITEN -->
+<section class="paper" id="einheiten">
   <div class="wrap">
-    <div class="projekt-grid fi">
+    <div class="sec-head r">
       <div>
-        <span class="eyebrow">Das Projekt</span>
-        <h2>Brunneneck – ein gewachsenes Ensemble.</h2>
-        <p style="margin-top:1.2rem;color:var(--muted);font-size:1.02rem;line-height:1.75;">Zwei sorgfältig sanierte Gründerzeitgebäude in der Rosenthaler Vorstadt. 35 Wohnungen, vollständig kernsaniert – mit dem Dachgeschoss als letztem, unfertigem Kapitel.</p>
-        <ul class="facts">
-          <li>
-            <span class="fact-num">35</span>
-            <div class="fact-text"><strong>Wohnungen</strong><span>Im sanierten Altbauensemble, teils bereits bezogen</span></div>
-          </li>
-          <li>
-            <span class="fact-num">↑</span>
-            <div class="fact-text"><strong>Fahrstuhl</strong><span>Personenaufzug bis ins Dachgeschoss, direkter Zugang</span></div>
-          </li>
-          <li>
-            <span class="fact-num">✦</span>
-            <div class="fact-text"><strong>Saniertes Treppenhaus</strong><span>Vollständig renoviert, originale Gestaltungsdetails erhalten</span></div>
-          </li>
-          <li>
-            <span class="fact-num">□</span>
-            <div class="fact-text"><strong>Neuer Hof</strong><span>Neu gestalteter Innenhof als gemeinschaftlicher Außenbereich</span></div>
-          </li>
+        <span class="label">Die Einheiten</span>
+        <h2>Zwei Penthouses. <em>Oder eines.</em></h2>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Einheiten">
+        <button class="tab" role="tab" id="t-w3" aria-controls="p-w3" aria-selected="true">Wohnung 3<small>Ecke</small></button>
+        <button class="tab" role="tab" id="t-w4" aria-controls="p-w4" aria-selected="false" tabindex="-1">Wohnung 4<small>Hof</small></button>
+        <button class="tab" role="tab" id="t-gp" aria-controls="p-gp" aria-selected="false" tabindex="-1">Gesamtpenthouse<small>Alternative</small></button>
+      </div>
+    </div>
+
+    <!-- Wohnung 3 -->
+    <div class="unit" role="tabpanel" id="p-w3" aria-labelledby="t-w3">
+      <div>
+        <span class="unit-tag">Einzeln zu erwerben</span>
+        <h3>Penthouse <em>Ecke Rheinsberger Straße</em></h3>
+        <p class="by">Raumkonzept <b>Nora Witzigmann</b></p>
+        <div class="kpis">
+          <div><b>ca. 110 m²</b><span>Wohnfläche</span></div>
+          <div><b>1</b><span>Dachterrasse</span></div>
+          <div><b>Ecke</b><span>Ausrichtung</span></div>
+          <div><b>Privat</b><span>Aufzugszugang</span></div>
+        </div>
+        <ul class="feat">
+          <li>Mastersuite mit Ankleide und Masterbad</li>
+          <li>Küche und Essen, separates Wohnzimmer</li>
+          <li>Dachterrasse, Diele, Gäste-WC</li>
+          <li>Direkter Zugang per Aufzug</li>
         </ul>
+        <div class="actions">
+          <a class="btn btn-ink" href="#kontakt" data-interest="w3">Wohnung 3 anfragen <span class="arr">→</span></a>
+        </div>
       </div>
       <div>
-        <div class="bestand-imgs">
-          <img src="fotos/penthouse/bestand-we32.jpg" alt="Fertige Bestandswohnung WE32 – Wohnbereich mit Rundbogen und Fischgrätparkett" loading="lazy">
-          <img src="fotos/penthouse/bestand-2.jpg" alt="Sanierte Bestandswohnung mit Kassettentür" loading="lazy">
+        <div class="plan" id="plan-w3" data-lb="fotos/grundrisse/penthouse-whg3.png?v=2" data-cap="Grundriss Penthouse Wohnung 3 · Ecke · Variante Mastersuite" role="button" tabindex="0" aria-label="Grundriss Wohnung 3 vergrößern">
+          <img src="fotos/grundrisse/penthouse-whg3.png?v=2" alt="Grundriss Penthouse Wohnung 3, Ecke, Variante Mastersuite" loading="lazy">
+          <span class="plan-zoom" aria-hidden="true">＋</span>
         </div>
-        <p style="margin-top:.8rem;font-size:.78rem;color:var(--muted);">Fertige Bestandswohnungen im Brunneneck – Referenz für Ausbauqualität und Materialstandard.</p>
-        <div style="margin-top:2rem;">
-          <p style="font-size:.78rem;color:var(--muted);margin-bottom:.8rem;">Weitere verfügbare Einheiten im Haus:</p>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-            <a href="wohnung-30.html" style="font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:.2rem;">WE 30 · 97 m² &rarr;</a>
-            <a href="wohnung-32.html" style="font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:.2rem;">WE 32 · 118 m² &rarr;</a>
-          </div>
+        <div class="plan-meta"><span>Grundriss · Wohnung 3 · Ecke · Mastersuite</span><span>Konzeptplanung</span></div>
+        <div class="plan-vars" role="group" aria-label="Grundriss-Varianten" data-for="plan-w3"><button type="button" aria-pressed="true" data-src="fotos/grundrisse/penthouse-whg3.png?v=2" data-cap="Grundriss Penthouse Wohnung 3 · Ecke · Variante Mastersuite" data-meta="Grundriss · Wohnung 3 · Ecke · Mastersuite">Mastersuite</button><button type="button" aria-pressed="false" data-src="fotos/grundrisse/penthouse-whg3-variante.png?v=2" data-cap="Grundriss Penthouse Wohnung 3 · Ecke · Variante 2 Schlafzimmer" data-meta="Grundriss · Wohnung 3 · Ecke · 2 Schlafzimmer">2 Schlafzimmer</button></div>
+      </div>
+    </div>
+
+    <!-- Wohnung 4 -->
+    <div class="unit" role="tabpanel" id="p-w4" aria-labelledby="t-w4" hidden>
+      <div>
+        <span class="unit-tag">Einzeln zu erwerben</span>
+        <h3>Penthouse <em>Hof Brunnenstraße</em></h3>
+        <p class="by">Raumkonzept <b>Nora Witzigmann</b></p>
+        <div class="kpis">
+          <div><b>ca. 132 m²</b><span>Wohnfläche</span></div>
+          <div><b>2</b><span>Dachterrassen</span></div>
+          <div><b>Hof</b><span>Ausrichtung</span></div>
+          <div><b>Privat</b><span>Aufzugszugang</span></div>
         </div>
+        <ul class="feat">
+          <li>Masterbedroom mit Masterbad und Ankleide</li>
+          <li>Büro oder Gästezimmer</li>
+          <li>Küche mit Bar, Wohnen und Essen</li>
+          <li>Zwei Dachterrassen, Duschbad, Diele, Abstellkammer</li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-ink" href="#kontakt" data-interest="w4">Wohnung 4 anfragen <span class="arr">→</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="plan" id="plan-w4" data-lb="fotos/grundrisse/penthouse-whg4.png?v=2" data-cap="Grundriss Penthouse Wohnung 4 · Hof · Variante A" role="button" tabindex="0" aria-label="Grundriss Wohnung 4 vergrößern">
+          <img src="fotos/grundrisse/penthouse-whg4.png?v=2" alt="Grundriss Penthouse Wohnung 4, Hof, Variante A" loading="lazy">
+          <span class="plan-zoom" aria-hidden="true">＋</span>
+        </div>
+        <div class="plan-meta"><span>Grundriss · Wohnung 4 · Hof · Variante A</span><span>Konzeptplanung</span></div>
+        <div class="plan-vars" role="group" aria-label="Grundriss-Varianten" data-for="plan-w4"><button type="button" aria-pressed="true" data-src="fotos/grundrisse/penthouse-whg4.png?v=2" data-cap="Grundriss Penthouse Wohnung 4 · Hof · Variante A" data-meta="Grundriss · Wohnung 4 · Hof · Variante A">Variante A</button><button type="button" aria-pressed="false" data-src="fotos/grundrisse/penthouse-whg4-variante.png?v=2" data-cap="Grundriss Penthouse Wohnung 4 · Hof · Variante B" data-meta="Grundriss · Wohnung 4 · Hof · Variante B">Variante B</button></div>
+      </div>
+    </div>
+
+    <!-- Gesamtpenthouse -->
+    <div class="unit" role="tabpanel" id="p-gp" aria-labelledby="t-gp" hidden>
+      <div>
+        <span class="unit-tag alt">Alternative · Zusammenlegung</span>
+        <h3>Gesamtpenthouse <em>über das ganze Dach</em></h3>
+        <p class="by">Raumkonzept <b>Studio Fabian Freytag</b></p>
+        <div class="kpis">
+          <div><b>242 m²</b><span>Gesamtfläche</span></div>
+          <div><b>28 m²</b><span>Außenflächen</span></div>
+          <div><b>71 m²</b><span>Wohnen &amp; Essen</span></div>
+          <div><b>35 m²</b><span>Fitnessraum</span></div>
+        </div>
+        <ul class="feat">
+          <li>Master-Schlafzimmer 21,39 m² mit Ankleide 10,19 m²</li>
+          <li>Master-Bad 22,32 m², Gäste-Bad 6,35 m²</li>
+          <li>Loggia 7,52 m², Terrassen 17,24 m² und 3,54 m²</li>
+          <li>Weinlager, Hauswirtschaft, privater Aufzug</li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-ink" href="#kontakt" data-interest="gp">Zusammenlegung anfragen <span class="arr">→</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="plan" data-lb="fotos/grundrisse/penthouse-gesamt.png?v=2" data-cap="Grundriss Gesamtpenthouse 242 m² · Raumkonzept Studio Fabian Freytag" role="button" tabindex="0" aria-label="Grundriss Gesamtpenthouse vergrößern">
+          <img src="fotos/grundrisse/penthouse-gesamt.png?v=2" alt="Grundriss Gesamtpenthouse 242 m²" loading="lazy">
+          <span class="plan-zoom" aria-hidden="true">＋</span>
+        </div>
+        <div class="plan-meta"><span>Grundriss · Gesamtpenthouse</span><span>Gesamtfläche 242,21 m² · Konzeptplanung</span></div>
+      </div>
+    </div>
+
+    <div class="compare r" aria-label="Schnellvergleich">
+      <button type="button" data-go="t-w3" class="on"><div class="c-name">Wohnung 3 · Ecke</div><div class="c-size">ca. 110 m²</div><div class="c-sub">1 Dachterrasse · einzeln</div></button>
+      <button type="button" data-go="t-w4"><div class="c-name">Wohnung 4 · Hof</div><div class="c-size">ca. 132 m²</div><div class="c-sub">2 Dachterrassen · einzeln</div></button>
+      <button type="button" data-go="t-gp"><div class="c-name">Gesamtpenthouse</div><div class="c-size">242 m²</div><div class="c-sub">28 m² Außenfläche · zusammengelegt</div></button>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="sand" id="vision">
+  <div class="wrap">
+    <div class="vision-head r">
+      <div>
+        <span class="label">Die Vision</span>
+        <h2 style="margin-top:1.2rem;">Ein Entwurf als <em>Ausgangspunkt</em> – nicht als Festlegung.</h2>
+      </div>
+      <div>
+        <p class="lead">Das Raumkonzept für das zusammengelegte Dachgeschoss stammt vom Berliner Innenarchitekten Fabian Freytag. Es zeigt das Potenzial der Fläche: Licht von oben, offene Sichtachsen, warme Materialien.</p>
+        <p class="lead">Ob eigenes Konzept, eigener Architekt oder die Weiterentwicklung dieser Idee – der Ausbau geschieht in enger Abstimmung mit Ihnen.</p>
+      </div>
+    </div>
+    <div class="mosaic r">
+      <figure class="big" data-lb="fotos/penthouse/wohnzimmer1.jpg" data-cap="Visualisierung Küche und Wohnen · Studio Fabian Freytag"><img src="fotos/penthouse/wohnzimmer1.jpg" alt="Visualisierung Küche mit Kochinsel unter Dachfenstern" loading="lazy"><figcaption>Küche &amp; Wohnen</figcaption></figure>
+      <figure class="sm" data-lb="fotos/penthouse/esszimmer.jpg" data-cap="Visualisierung Essbereich · Studio Fabian Freytag"><img src="fotos/penthouse/esszimmer.jpg" alt="Visualisierung Essbereich" loading="lazy"><figcaption>Essen</figcaption></figure>
+      <figure class="sm" data-lb="fotos/penthouse/schlafzimmer.jpg" data-cap="Visualisierung Schlafzimmer · Studio Fabian Freytag"><img src="fotos/penthouse/schlafzimmer.jpg" alt="Visualisierung Schlafzimmer" loading="lazy"><figcaption>Schlafen</figcaption></figure>
+    </div>
+    <p class="caption">Visualisierungen: Studio Fabian Freytag – Konzeptidee, kein Festangebot.</p>
+
+    <div class="quote r">
+      <div>
+        <blockquote>Jeder Raum entsteht zweimal – einmal im Entwurf, <em>einmal im Leben der Menschen, die ihn bewohnen.</em></blockquote>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AUSBLICK GALERIE -->
-<section class="warm-bg">
+<!-- HEUTE -->
+<section id="heute">
   <div class="wrap">
-    <span class="eyebrow fi">Der Ausblick</span>
-    <h2 class="fi" style="font-size:clamp(2rem,3.5vw,3rem);">Über den Dächern der Rosenthaler Vorstadt.</h2>
-    <div class="gallery fi">
-      <img src="fotos/penthouse/ausblick-fernseh.jpg" alt="Ausblick mit Fernsehturm" loading="lazy">
-      <img src="fotos/penthouse/ausblick-sued.jpg" alt="Ausblick über die Dächer" loading="lazy">
-      <img src="fotos/penthouse/ausblick-nord.jpg" alt="Ausblick Richtung Mitte" loading="lazy">
-      <img src="fotos/penthouse/ausblick-dach.jpg" alt="Dachpanorama Berlin Mitte" loading="lazy">
-      <img src="fotos/penthouse/terrasse.jpg" alt="Terrassen-Visualisierung" loading="lazy">
+    <div class="today-text r">
+      <div>
+        <span class="label">Der Zustand heute</span>
+        <h2 style="margin-top:1.2rem;">Ehrlich, roh, <em>bereit.</em></h2>
+      </div>
+      <p class="lead">So sieht das Dachgeschoss Rheinsberger Straße 9 heute aus. Besichtigen Sie den Rohbau und entwickeln Sie Ihr Konzept direkt vor Ort – mit Blick auf den Fernsehturm.</p>
+    </div>
+    <div class="today r">
+      <figure class="p"><img src="fotos/dachgeschoss/rohbau-raum.jpg" alt="Rohbau – Raum unter der Dachschräge" loading="lazy"></figure>
+      <figure class="l"><img src="fotos/dachgeschoss/rohbau-dachschraege.jpg" alt="Rohbau – Dachschräge, Ziegelwände und Durchgang" loading="lazy"></figure>
+      <figure class="p"><img src="fotos/dachgeschoss/rohbau-schiebetuer.jpg" alt="Rohbau – Raum mit großer Schiebetür zur Terrasse" loading="lazy"></figure>
+    </div>
+    <p class="caption">Aufnahmen: aktueller Rohbauzustand.</p>
+  </div>
+</section>
+
+<!-- AUSBLICK -->
+<section class="paper view" id="ausblick">
+  <div class="wrap sec-head r" style="margin-bottom:0;">
+    <div>
+      <span class="label">Der Ausblick</span>
+      <h2 style="max-width:18ch;">Über den Dächern der <em>Rosenthaler Vorstadt.</em></h2>
+    </div>
+    <div class="rail-ctrl">
+      <button type="button" id="railPrev" aria-label="Zurück">←</button>
+      <button type="button" id="railNext" aria-label="Weiter">→</button>
+    </div>
+  </div>
+  <div class="rail" id="rail">
+    <figure><img src="fotos/dachgeschoss/ausblick-fernsehturm.jpg" alt="Ausblick über die Dächer zum Fernsehturm" loading="lazy"></figure>
+    <figure><img src="fotos/dachgeschoss/ausblick-brunnenstrasse.jpg" alt="Ausblick auf die Brunnenstraße" loading="lazy"></figure>
+    <figure><img src="fotos/dachgeschoss/ausblick-mitte.jpg" alt="Ausblick über die Dächer von Berlin-Mitte" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- DAS HAUS -->
+<section id="haus">
+  <div class="wrap house">
+    <div class="r">
+      <span class="label">Das Haus</span>
+      <h2 style="margin-top:1.2rem;"><em>Brunneneck</em> – ein gewachsenes Ensemble.</h2>
+      <p class="lead" style="margin-top:1.4rem;">Zwei sorgfältig sanierte Gründerzeitgebäude in der Rosenthaler Vorstadt. 35 Wohnungen, vollständig kernsaniert – das Dachgeschoss ist das letzte, noch offene Kapitel.</p>
+      <div class="house-facts">
+        <div><b>35</b><span>Wohnungen im sanierten Altbauensemble, teils bereits bezogen</span></div>
+        <div><b>Aufzug</b><span>Personenaufzug bis ins Dachgeschoss</span></div>
+        <div><b>Treppenhaus</b><span>Vollständig saniert, originale Details erhalten</span></div>
+        <div><b>Neuer Hof</b><span>Neu gestalteter Innenhof als gemeinsamer Außenbereich</span></div>
+      </div>
+    </div>
+    <div class="r">
+      <div class="house-imgs">
+        <figure><img src="fotos/penthouse/bestand-we32.jpg" alt="Fertige Bestandswohnung – Wohnbereich mit Rundbogen und Fischgrätparkett" loading="lazy"></figure>
+        <figure><img src="fotos/we30/neu-02.jpg" alt="Fertige Wohnung 30 – Wohnraum mit zwei Fenstern, Durchgang und Eichenparkett" loading="lazy"></figure>
+        <figure><img src="fotos/penthouse/bestand-1.jpg" alt="Sanierte Bestandswohnung" loading="lazy"></figure>
+      </div>
+      <p class="caption">Fertige Wohnungen im Brunneneck – Referenz für Ausbauqualität und Materialstandard.</p>
+      <div class="more">
+        <p>Weitere verfügbare Einheiten im Haus</p>
+        <div>
+          <a class="tlink" href="wohnung-30.html">WE 30 · 97 m² →</a>
+          <a class="tlink" href="wohnung-32.html">WE 32 · 118 m² →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- LAGE -->
-<section id="lage">
-  <div class="wrap">
-    <div class="lage-grid fi">
-      <div class="lage-img">
-        <img src="Startseite - Brunnen-Eck_files/BRU_Visus_Berlin_Location-680x841.jpg" alt="Lage des Brunneneck in Berlin Mitte" loading="lazy">
-      </div>
-      <div class="lage-text">
-        <span class="eyebrow">Die Lage</span>
-        <h2>Am Brunneneck, im Herzen Berlins.</h2>
-        <p>Ein zentraler Kiez mit vielen Einflüssen – belebt und entspannt zugleich. Das Brunneneck liegt im Herzen der Rosenthaler Vorstadt und verbindet die lebendige Dynamik des Stadtzentrums mit der Ruhe des Kiezlebens.</p>
-        <p style="margin-top:1rem;">Direkt angebunden an das Berliner S- und U-Bahn-Netz, in unmittelbarer Nähe zu Parks, Restaurants und dem kulturellen Leben der Hauptstadt.</p>
-      </div>
-    </div>
+<section class="sand loc" id="lage">
+  <div class="loc-img"><img src="Startseite - Brunnen-Eck_files/BRU_Visus_Berlin_Location-680x841.jpg" alt="Lage des Brunneneck in Berlin Mitte" loading="lazy"></div>
+  <div class="loc-text r">
+    <span class="label">Die Lage</span>
+    <h2>Am Brunneneck, <em>im Herzen Berlins.</em></h2>
+    <p class="lead">Ein zentraler Kiez mit vielen Einflüssen – belebt und entspannt zugleich. Das Brunneneck liegt mitten in der Rosenthaler Vorstadt und verbindet die Dynamik des Stadtzentrums mit der Ruhe des Kiezlebens.</p>
+    <p class="lead">Direkt angebunden an das S- und U-Bahn-Netz, nah an Parks, Restaurants und dem kulturellen Leben der Hauptstadt.</p>
+    <p class="addr">Rheinsberger Straße 9 · Ecke Brunnenstraße · 10115 Berlin-Mitte</p>
   </div>
 </section>
 
-<!-- DEVELOPER -->
-<section class="dev-section" id="entwickler">
-  <div class="wrap" style="text-align:center;">
-    <span class="eyebrow">Der Projektentwickler</span>
-    <blockquote>Ein inhabergeführtes Unternehmen mit Tradition und Bewusstsein für städtisches Wohnen.</blockquote>
-    <p>Die Tiedemann Gruppe begegnet den Bedürfnissen ihrer Erwerber angemessen – im Sinne der Seele gewachsener Quartiere.</p>
-    <a class="dev-link" href="https://www.tiedemann-gruppe.de" target="_blank" rel="noopener">Zur Tiedemann Gruppe &rarr;</a>
+<!-- ENTWICKLER -->
+<section class="paper dev" id="entwickler">
+  <div class="wrap r">
+    <span class="label">Der Projektentwickler</span>
+    <h2>Ein Familienunternehmen <em>aus Berlin.</em></h2>
+    <p class="lead">Die Tiedemann Gruppe entwickelt und saniert Wohnhäuser in Berlin – hier im Brunneneck vom Altbau bis zum Dachgeschoss. Planung, Bau und Handwerk liegen bei uns in einer Hand. Sie kaufen direkt bei uns, ohne Makler und provisionsfrei.</p>
+    <a class="tlink" href="https://www.tiedemann-gruppe.de" target="_blank" rel="noopener">Zur Tiedemann Gruppe →</a>
   </div>
 </section>
 
 <!-- KONTAKT -->
-<section class="warm-bg" id="kontakt">
-  <div class="wrap">
-    <div class="contact-grid fi">
-      <div class="contact-info">
-        <span class="eyebrow">Kontakt</span>
-        <h2>Besichtigung vereinbaren.</h2>
-        <p style="margin-top:1rem;color:var(--muted);font-size:1.02rem;line-height:1.75;">Besichtigen Sie den Rohbau und entwickeln Sie Ihr Konzept direkt vor Ort. Wir freuen uns auf das Gespräch.</p>
-        <address>
-          <strong>Projektentwickler</strong>
-          Tiedemann Gruppe<br>
-          Große Hamburger Str. 32<br>
-          10115 Berlin
-          <strong>Telefon</strong>
-          <a href="tel:+4930208480216">030 / 20 84 80 216</a>
-          <strong>E-Mail</strong>
-          <a href="mailto:kontakt@tiedemann-gruppe.de">kontakt@tiedemann-gruppe.de</a>
-        </address>
-      </div>
-      <div>
-        <div class="form-wrap">
-          <form action="#" method="post">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" autocomplete="name" required>
-              </div>
-              <div class="form-field">
-                <label for="tel">Telefon</label>
-                <input type="tel" id="tel" name="telefon" autocomplete="tel">
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="email">E-Mail</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="form-field">
-              <label for="interesse">Interesse</label>
-              <input type="text" id="interesse" name="interesse" placeholder="Einzelwohnung / Gesamtpenthouse / Beratung">
-            </div>
-            <div class="form-field">
-              <label for="msg">Ihre Nachricht</label>
-              <textarea id="msg" name="nachricht"></textarea>
-            </div>
-            <div class="chk-wrap">
-              <input type="checkbox" id="dsgvo" required>
-              <label for="dsgvo" style="font-size:.85rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);">Ich akzeptiere die Datenschutzerklärung.</label>
-            </div>
-            <button class="btn btn-dark" type="submit">Anfrage senden &rarr;</button>
-          </form>
-        </div>
+<section id="kontakt">
+  <div class="wrap contact">
+    <div class="r">
+      <span class="label">Kontakt</span>
+      <h2>Besichtigung <em>vereinbaren.</em></h2>
+      <p class="lead">Besichtigen Sie den Rohbau und sprechen Sie mit uns über Ihre Vorstellungen. Provisionsfrei, direkt vom Projektentwickler.</p>
+      <div class="cards">
+        <a href="tel:+4930208480216"><span>Telefon</span><b>030 / 20 84 80 216</b></a>
+        <a href="mailto:kontakt@tiedemann-gruppe.de"><span>E-Mail</span><b>kontakt@tiedemann-gruppe.de</b></a>
+        <div><span>Büro</span><b>Tiedemann Gruppe<br>Große Hamburger Str. 32, 10115 Berlin</b></div>
       </div>
     </div>
+    <form class="r" action="kontakt.php" method="post">
+      <input type="hidden" name="seite" value="Penthouses">
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="f">
+        <label>Ich interessiere mich für</label>
+        <div class="chips" id="chips">
+          <label><input type="radio" name="interesse" value="Wohnung 3 · Ecke" data-key="w3"><span>Wohnung 3</span></label>
+          <label><input type="radio" name="interesse" value="Wohnung 4 · Hof" data-key="w4"><span>Wohnung 4</span></label>
+          <label><input type="radio" name="interesse" value="Gesamtpenthouse" data-key="gp"><span>Gesamtpenthouse</span></label>
+          <label><input type="radio" name="interesse" value="Allgemeine Beratung" data-key="info" checked><span>Beratung</span></label>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f"><label for="name">Name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+        <div class="f"><label for="tel">Telefon</label><input type="tel" id="tel" name="telefon" autocomplete="tel"></div>
+      </div>
+      <div class="f"><label for="email">E-Mail</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="f"><label for="msg">Nachricht</label><textarea id="msg" name="nachricht" placeholder="Wunschtermin für eine Besichtigung, Fragen zum Ausbau …"></textarea></div>
+      <label class="consent"><input type="checkbox" name="datenschutz" value="ja" required> Ich akzeptiere die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
+      <button class="btn btn-brick" type="submit">Anfrage senden <span class="arr">→</span></button>
+    </form>
   </div>
 </section>
 
+</main>
+
 <footer>
-  <span>© 2025 Tiedemann Gruppe · Brunneneck Berlin</span>
-  <span><a href="#">Impressum</a> &ensp;·&ensp; <a href="#">Datenschutz</a></span>
+  <div class="wrap">
+    <div class="foot-big"><a href="#start"><img src="fotos/logo/brunnen-eck-logo.png" alt="Brunnen-Eck – Ganz oben in Mitte" loading="lazy" width="400" height="67"></a></div>
+    <div class="foot">
+      <span>© 2026 Tiedemann Gruppe · Rheinsberger Straße 9, Berlin-Mitte</span>
+      <span><a href="impressum.html">Impressum</a> &ensp;·&ensp; <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <button class="lb-x" id="lbX" type="button" aria-label="Schließen">×</button>
+  <div><img id="lbImg" src="" alt=""><p id="lbCap"></p></div>
+</div>
+
 <script>
-// Nav scroll
-const nav = document.getElementById('sitenav');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Fade-in
-const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.08 });
-document.querySelectorAll('.fi').forEach(el => observer.observe(el));
+  // Nav
+  const nav = document.getElementById('nav');
+  const hero = document.getElementById('start');
+  const setNav = () => nav.classList.toggle('solid', scrollY > hero.offsetHeight - 80);
+  addEventListener('scroll', setNav, { passive: true }); setNav();
 
-// Hero slider
-(function() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dotsWrap = document.getElementById('heroDots');
-  let current = 0, timer;
+  // Reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.r').forEach(el => io.observe(el));
 
-  slides.forEach((_, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    btn.setAttribute('aria-label', 'Bild ' + (i + 1));
-    btn.addEventListener('click', () => goTo(i));
-    dotsWrap.appendChild(btn);
-  });
-
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    dotsWrap.children[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dotsWrap.children[current].classList.add('active');
-    clearInterval(timer);
-    timer = setInterval(() => goTo(current + 1), 6000);
+  // Hero slider
+  const slides = [...document.querySelectorAll('#heroMedia figure')];
+  const count = document.getElementById('heroCount');
+  const bar = document.getElementById('heroBar');
+  let cur = 0, timer;
+  const pad = n => String(n).padStart(2, '0');
+  function show(n) {
+    slides[cur].classList.remove('on');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('on');
+    count.textContent = pad(cur + 1) + ' / ' + pad(slides.length);
+    restart();
   }
+  function restart() {
+    clearTimeout(timer);
+    if (reduce) return;
+    bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run');
+    timer = setTimeout(() => show(cur + 1), 6500);
+  }
+  document.getElementById('heroPrev').onclick = () => show(cur - 1);
+  document.getElementById('heroNext').onclick = () => show(cur + 1);
+  restart();
 
-  timer = setInterval(() => goTo(current + 1), 6000);
-})();
+  // Tabs
+  const tabs = [...document.querySelectorAll('.tab')];
+  const cmp = [...document.querySelectorAll('.compare button')];
+  function select(id, focus) {
+    tabs.forEach(t => {
+      const on = t.id === id;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
+    });
+    cmp.forEach(b => b.classList.toggle('on', b.dataset.go === id));
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t.id));
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) select(tabs[(i + d + tabs.length) % tabs.length].id, true);
+    });
+  });
+  cmp.forEach(b => b.addEventListener('click', () => {
+    select(b.dataset.go);
+    document.getElementById('einheiten').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  }));
 
-// Lightbox
-(function() {
-  const lb = document.getElementById('lb');
-  const lbImg = document.getElementById('lbImg');
-  const lbCap = document.getElementById('lbCaption');
-  const lbClose = document.getElementById('lbClose');
+  // Preselect interest in form
+  document.querySelectorAll('[data-interest]').forEach(a => a.addEventListener('click', () => {
+    const r = document.querySelector('#chips input[data-key="' + a.dataset.interest + '"]');
+    if (r) r.checked = true;
+  }));
 
-  function open(src, caption) {
-    lbImg.src = src;
-    lbCap.textContent = caption || '';
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  // Gallery rail
+  const rail = document.getElementById('rail');
+  const step = () => rail.clientWidth * .7;
+  document.getElementById('railPrev').onclick = () => rail.scrollBy({ left: -step(), behavior: 'smooth' });
+  document.getElementById('railNext').onclick = () => rail.scrollBy({ left: step(), behavior: 'smooth' });
+
+  // Lightbox
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  let last;
+  function open(el) {
+    last = el;
+    lbImg.src = el.dataset.lb; lbImg.alt = el.dataset.cap || '';
+    lbImg.classList.toggle('photo', !/\.png$/i.test(el.dataset.lb));
+    lbCap.textContent = el.dataset.cap || '';
+    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+    document.getElementById('lbX').focus();
   }
   function close() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(() => { lbImg.src = ''; }, 300);
+    if (!lb.classList.contains('open')) return;
+    lb.classList.remove('open'); document.body.style.overflow = '';
+    if (last) last.focus();
   }
-
-  document.querySelectorAll('.grundriss-trigger').forEach(el => {
-    el.addEventListener('click', () => open(el.dataset.src, el.dataset.caption));
+  document.querySelectorAll('[data-lb]').forEach(el => {
+    el.addEventListener('click', () => open(el));
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); } });
   });
-  lbClose.addEventListener('click', close);
-  lb.addEventListener('click', e => { if (e.target === lb) close(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  document.getElementById('lbX').onclick = close;
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === lb.firstElementChild.nextElementSibling) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
+
+// Grundriss-Varianten
+document.querySelectorAll('.plan-vars').forEach(group => {
+  const plan = document.getElementById(group.dataset.for);
+  const img = plan.querySelector('img');
+  const meta = group.parentElement.querySelector('.plan-meta span');
+  group.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    group.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    img.src = b.dataset.src; img.alt = b.dataset.cap;
+    plan.dataset.lb = b.dataset.src; plan.dataset.cap = b.dataset.cap;
+    if (meta && b.dataset.meta) meta.textContent = b.dataset.meta;
+  }));
+});
 </script>
 </body>
 </html>
