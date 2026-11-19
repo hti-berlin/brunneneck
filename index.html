@@ -319,6 +319,33 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
   .hero-media img, .hero-media figure.on img { transform: none; transition: none; }
 }
 :focus-visible { outline: 2px solid var(--brick); outline-offset: 3px; }
+
+/* Heller Header: Foto frei, Text auf heller Fläche */
+.hero { min-height: 0; display: block; color: var(--ink); padding-top: 72px; background: var(--paper); }
+.hero::after { display: none; }
+.hero-media { position: relative; inset: auto; height: clamp(360px, 64svh, 760px); overflow: hidden; }
+.hero-media img { filter: brightness(1.08) contrast(.96); }
+.hero-body { position: relative; z-index: 2; background: var(--white); margin-top: clamp(-180px, -12vw, -64px); padding-top: clamp(2rem, 4vw, 3.5rem); padding-bottom: .5rem; }
+.hero .label { color: var(--brick); }
+.hero h1 { margin-top: 1.2rem; }
+.hero h1 em { color: var(--ink); }
+.hero-row p { color: var(--muted); }
+.hero .btn-ghost { border-color: rgba(27,25,22,.22); color: var(--ink); }
+.hero .btn-ghost:hover { background: rgba(27,25,22,.05); border-color: var(--navy); }
+.hero-facts { border-top: 1px solid var(--rule); }
+.hero-facts b { color: var(--ink); }
+.hero-facts span { color: var(--muted); }
+.hero-ctrl { color: var(--muted); }
+.hero-ctrl button { border-color: rgba(27,25,22,.22); color: var(--ink); }
+.hero-ctrl button:hover { background: rgba(27,25,22,.05); }
+.hero-bar { background: var(--rule); }
+.hero-bar i { background: var(--navy); }
+@media (max-width: 760px) {
+  .hero-media { height: clamp(260px, 46svh, 420px); }
+  .hero-body { margin-top: 0; }
+  .hero h1 em { color: var(--ink); }
+  .hero-facts > div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+}
 </style>
 </head>
 <body>
