@@ -468,7 +468,9 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
       </div>
       <p class="terms">Kaufpreis 879.000 € · 7.449 €/m²<br>Provisionsfrei · Bezugsfrei in 4 Wochen</p>
     </div>
-    <form class="r" action="#" method="post">
+    <form class="r" action="kontakt.php" method="post">
+      <input type="hidden" name="seite" value="Wohnung 32">
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <fieldset class="f" style="border:0;">
         <legend class="f-label">Ich interessiere mich für</legend>
         <div class="chips">
@@ -484,7 +486,7 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
       </div>
       <div class="f"><label for="email">E-Mail</label><input type="email" id="email" name="email" autocomplete="email" required></div>
       <div class="f"><label for="msg">Ihre Nachricht</label><textarea id="msg" name="nachricht" placeholder="Ich interessiere mich für Wohnung 32 (Rheinsberger Str. 9, 4. OG) …" required></textarea></div>
-      <label class="consent"><input type="checkbox" required> Ich akzeptiere die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
+      <label class="consent"><input type="checkbox" name="datenschutz" value="ja" required> Ich akzeptiere die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
       <button class="btn btn-brick" type="submit">Anfrage senden <span class="arr">→</span></button>
     </form>
   </div>

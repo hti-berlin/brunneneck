@@ -1,0 +1,66 @@
+name: Deploy zu IONOS (SFTP)
+
+# Lädt die Website in den IONOS-Webspace.
+# Läuft bei jedem Push auf main und lässt sich unter „Actions“ manuell starten.
+# Benötigte Repository-Secrets (Settings → Secrets and variables → Actions):
+#   IONOS_SFTP_HOST      z. B. access792848321.webspace-data.io
+#   IONOS_SFTP_USER      SFTP-Benutzer für den Website-Ordner
+#   IONOS_SFTP_PASSWORD  Passwort dieses Benutzers
+#   IONOS_REMOTE_DIR     Zielordner, z. B. /brunneneck-2026  (bei einem auf den Ordner beschränkten Benutzer: /)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ionos
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Website zusammenstellen
+        run: |
+          python3 - <<'EOF'
+          import os, re, shutil, urllib.parse
+          src = '.'
+          dist = 'dist'
+          shutil.rmtree(dist, ignore_errors=True)
+          os.makedirs(dist)
+          skip = {'Startseite - Brunnen-Eck.html'}
+          pages = [f for f in os.listdir(src) if f.endswith(('.html', '.php')) and f not in skip]
+          pages += ['newsletter/' + f for f in os.listdir('newsletter') if f.endswith('.html')]
+          files = set(pages) | {'.htaccess'}
+          for p in pages:
+              text = open(p, encoding='utf-8').read()
+              for ref in re.findall(r'(?:src|href|data-lb|data-src|data-full)="([^"#?]+)', text):
+                  ref = urllib.parse.unquote(ref)
+                  if ref.startswith(('http', 'mailto:', 'tel:', '/', 'data:')):
+                      continue
+                  path = os.path.normpath(os.path.join(os.path.dirname(p), ref))
+                  if os.path.isfile(path):
+                      files.add(path)
+          for f in sorted(files):
+              target = os.path.join(dist, f)
+              os.makedirs(os.path.dirname(target) or dist, exist_ok=True)
+              shutil.copy2(f, target)
+          print(f'{len(files)} Dateien zusammengestellt')
+          EOF
+
+      - name: lftp installieren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Per SFTP hochladen
+        env:
+          HOST: ${{ secrets.IONOS_SFTP_HOST }}
+          USER: ${{ secrets.IONOS_SFTP_USER }}
+          PASS: ${{ secrets.IONOS_SFTP_PASSWORD }}
+          REMOTE: ${{ secrets.IONOS_REMOTE_DIR }}
+        run: |
+          test -n "$HOST" && test -n "$USER" && test -n "$PASS" || { echo "Secrets fehlen"; exit 1; }
+          REMOTE="${REMOTE:-/brunneneck-2026}"
+          lftp -e "set sftp:auto-confirm yes; set net:max-retries 2; open -u \"$USER\",\"$PASS\" sftp://$HOST; mkdir -p -f \"$REMOTE\"; mirror -R --verbose --parallel=4 dist \"$REMOTE\"; quit"
