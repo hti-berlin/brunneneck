@@ -10,8 +10,7 @@ name: Deploy zu IONOS (SFTP)
 
 on:
   push:
-    # redesign-test nur bis zum Livegang: der Zielordner ist dann noch nicht öffentlich
-    branches: [main, redesign-test]
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
