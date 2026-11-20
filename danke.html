@@ -318,6 +318,19 @@ if (location.search.indexOf('fehler') !== -1) {
   document.getElementById('text').innerHTML = 'Bitte prüfen Sie Name, E-Mail-Adresse und die Zustimmung zur Datenschutzerklärung und versuchen Sie es erneut. Sie erreichen uns auch telefonisch unter <a href="tel:+4930208480216">030 / 20 84 80 216</a> oder per E-Mail an <a href="mailto:kontakt@tiedemann-gruppe.de">kontakt@tiedemann-gruppe.de</a>.';
 }
 </script>
+<script>
+if (/[?&]lang=en/.test(location.search)) {
+  document.documentElement.lang = 'en';
+  document.querySelector('.label').textContent = 'Contact';
+  document.getElementById('titel').innerHTML = 'Thank you for <em>your enquiry.</em>';
+  document.getElementById('text').innerHTML = 'We have received your message and will get back to you shortly. You can also reach us by phone on <a href="tel:+4930208480216">+49 30 208480216</a> or by email at <a href="mailto:kontakt@tiedemann-gruppe.de">kontakt@tiedemann-gruppe.de</a>.';
+  if (location.search.indexOf('fehler') !== -1) {
+    document.getElementById('titel').innerHTML = 'Your enquiry could <em>not be sent.</em>';
+    document.getElementById('text').innerHTML = 'Please check your name, email address and consent to the privacy policy and try again. You can also reach us by phone on <a href="tel:+4930208480216">+49 30 208480216</a> or by email at <a href="mailto:kontakt@tiedemann-gruppe.de">kontakt@tiedemann-gruppe.de</a>.';
+  }
+  document.querySelectorAll('a[href="index.html"]').forEach(function (a) { a.href = 'en.html'; if (/Zurück/.test(a.textContent)) a.textContent = '← Back to overview'; });
+}
+</script>
 <footer>
   <div class="wrap">
     <div class="foot-big"><a href="index.html"><img src="fotos/logo/brunnen-eck-logo.png" alt="Brunnen-Eck – Ganz oben in Mitte" loading="lazy" width="400" height="67"></a></div>

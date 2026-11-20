@@ -19,9 +19,11 @@ $dir     = __DIR__ . '/_daten';
 $pending = $dir . '/offen';
 $liste   = $dir . '/interessenten.csv';
 
+$en = (($_POST['sprache'] ?? $_GET['lang'] ?? '') === 'en');
+
 function weiter($status) {
-    global $seite;
-    header('Location: ' . $seite . '?s=' . $status);
+    global $seite, $en;
+    header('Location: ' . $seite . '?s=' . $status . ($en ? '&lang=en' : ''));
     exit;
 }
 function zeile($wert) {
@@ -54,6 +56,7 @@ if (isset($_GET['bestaetigen'])) {
     $d = json_decode(file_get_contents($datei), true);
     @unlink($datei);
     if (!$d) weiter('ungueltig');
+    $en = (($d['sprache'] ?? '') === 'en');
 
     $jetzt = date('d.m.Y H:i');
     $neu = !file_exists($liste);
@@ -66,6 +69,7 @@ if (isset($_GET['bestaetigen'])) {
     $text .= "Name:        {$d['name']}\n";
     $text .= "E-Mail:      {$d['email']}\n";
     $text .= "Interesse:   {$d['interesse']}\n";
+    $text .= "Sprache:     " . ($en ? 'Englisch' : 'Deutsch') . "\n";
     $text .= "Angemeldet:  {$d['zeit']}\n";
     $text .= "Bestätigt:   $jetzt\n\n";
     $text .= "Abmeldungen bitte formlos bearbeiten und den Eintrag aus dem Verteiler löschen.\n";
@@ -84,17 +88,29 @@ if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($_POST['
 
 $token = bin2hex(random_bytes(16));
 $ok = file_put_contents($pending . '/' . $token . '.json', json_encode([
-    'name' => $name, 'email' => $email, 'interesse' => $interesse, 'zeit' => date('d.m.Y H:i'),
+    'name' => $name, 'email' => $email, 'interesse' => $interesse, 'zeit' => date('d.m.Y H:i'), 'sprache' => $en ? 'en' : 'de',
 ], JSON_UNESCAPED_UNICODE));
 if ($ok === false) weiter('fehler');
 
 $link  = $basis . 'interessent.php?bestaetigen=' . $token;
-$text  = "Guten Tag $name,\n\n";
-$text .= "vielen Dank für Ihr Interesse am Brunneneck in Berlin-Mitte.\n\n";
-$text .= "Bitte bestätigen Sie Ihre Anmeldung zur Interessentenliste mit einem Klick auf diesen Link:\n\n";
-$text .= "$link\n\n";
-$text .= "Erst danach nehmen wir Sie auf. Der Link ist 7 Tage gültig. Wenn Sie sich nicht angemeldet haben, ignorieren Sie diese E-Mail einfach – es wird nichts gespeichert.\n\n";
-$text .= "Abmelden können Sie sich jederzeit mit einer kurzen Nachricht an $empfaenger.\n\n";
-$text .= "Mit freundlichen Grüßen\nTiedemann Gruppe\nGroße Hamburger Straße 32, 10115 Berlin\nTelefon 030 / 20 84 80 216\n";
+if ($en) {
+    $betreff = 'Please confirm: Brunneneck interest list';
+    $text  = "Dear $name,\n\n";
+    $text .= "thank you for your interest in the Brunneneck in Berlin-Mitte.\n\n";
+    $text .= "Please confirm your registration for our interest list by clicking this link:\n\n";
+    $text .= "$link\n\n";
+    $text .= "We will only add you once you have confirmed. The link is valid for 7 days. If you did not register, simply ignore this email - nothing will be stored.\n\n";
+    $text .= "You can unsubscribe at any time with a short message to $empfaenger.\n\n";
+    $text .= "Kind regards\nTiedemann Gruppe\nGroße Hamburger Straße 32, 10115 Berlin, Germany\nPhone +49 30 208480216\n";
+} else {
+    $betreff = 'Bitte bestätigen: Interessentenliste Brunneneck';
+    $text  = "Guten Tag $name,\n\n";
+    $text .= "vielen Dank für Ihr Interesse am Brunneneck in Berlin-Mitte.\n\n";
+    $text .= "Bitte bestätigen Sie Ihre Anmeldung zur Interessentenliste mit einem Klick auf diesen Link:\n\n";
+    $text .= "$link\n\n";
+    $text .= "Erst danach nehmen wir Sie auf. Der Link ist 7 Tage gültig. Wenn Sie sich nicht angemeldet haben, ignorieren Sie diese E-Mail einfach – es wird nichts gespeichert.\n\n";
+    $text .= "Abmelden können Sie sich jederzeit mit einer kurzen Nachricht an $empfaenger.\n\n";
+    $text .= "Mit freundlichen Grüßen\nTiedemann Gruppe\nGroße Hamburger Straße 32, 10115 Berlin\nTelefon 030 / 20 84 80 216\n";
+}
 
-weiter(senden($email, 'Bitte bestätigen: Interessentenliste Brunneneck', $text, $empfaenger) ? 'gesendet' : 'fehler');
+weiter(senden($email, $betreff, $text, $empfaenger) ? 'gesendet' : 'fehler');

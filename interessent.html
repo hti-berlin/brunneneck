@@ -321,6 +321,20 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
   else if (s === 'fehler') { t.innerHTML = 'Die Anmeldung hat <em>nicht geklappt.</em>'; p.innerHTML = 'Bitte prüfen Sie Name, E-Mail-Adresse und die Einwilligung und <a href="index.html#liste">versuchen Sie es erneut</a>.' + kontakt; }
 })();
 </script>
+<script>
+if (/[?&]lang=en/.test(location.search)) {
+  var s = (location.search.match(/[?&]s=([a-z]+)/) || [])[1], t = document.getElementById('titel'), p = document.getElementById('text');
+  var k = ' You can also reach us by phone on <a href="tel:+4930208480216">+49 30 208480216</a> or by email at <a href="mailto:kontakt@tiedemann-gruppe.de">kontakt@tiedemann-gruppe.de</a>.';
+  document.documentElement.lang = 'en';
+  document.querySelector('.label').textContent = 'Interest list';
+  t.innerHTML = 'Please check <em>your inbox.</em>';
+  p.innerHTML = 'We have sent you an email with a confirmation link. We will only add you to the interest list once you have clicked it. Please also check your spam folder.';
+  if (s === 'bestaetigt') { t.innerHTML = 'Thank you, <em>you are registered.</em>'; p.innerHTML = 'Your registration is confirmed. We will be in touch as soon as there is news about the Brunneneck penthouses.' + k; }
+  else if (s === 'ungueltig') { t.innerHTML = 'This link is <em>no longer valid.</em>'; p.innerHTML = 'The confirmation link has already been used or is older than 7 days. You are welcome to <a href="en.html#liste">register again</a>.' + k; }
+  else if (s === 'fehler') { t.innerHTML = 'Registration <em>did not work.</em>'; p.innerHTML = 'Please check your name, email address and consent and <a href="en.html#liste">try again</a>.' + k; }
+  document.querySelectorAll('a[href="index.html"]').forEach(function (a) { a.href = 'en.html'; if (/Zurück/.test(a.textContent)) a.textContent = '← Back to overview'; });
+}
+</script>
 <footer>
   <div class="wrap">
     <div class="foot-big"><a href="index.html"><img src="fotos/logo/brunnen-eck-logo.png" alt="Brunnen-Eck – Ganz oben in Mitte" loading="lazy" width="400" height="67"></a></div>
