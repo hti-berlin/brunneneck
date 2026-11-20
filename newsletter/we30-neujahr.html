@@ -6,13 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="x-apple-disable-message-reformatting">
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
-<meta name="color-scheme" content="light">
-<meta name="supported-color-schemes" content="light">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
 <title>Neues Jahr, neues Zuhause – Wohnung 30 im Brunneneck</title>
 <!--
   NEWSLETTER Wohnung 30 · Brunneneck
   Bilder und Links zeigen auf die Live-Seite https://brunneneckberlin.de/
-  Abmelde-Link: {{UNSUBSCRIBE_URL}} durch den Platzhalter Ihres Newsletter-Tools ersetzen.
+  Versand über Brevo; der Abmelde-Link im Fuß nutzt Brevos Platzhalter „unsubscribe“.
 -->
 <!--[if mso]>
 <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
@@ -33,11 +33,40 @@
     .col-pad { padding: 0 0 16px 0 !important; }
     .kpi { display: block !important; width: 100% !important; border-left: 0 !important; padding: 14px 0 !important; border-top: 1px solid #e8e1d6 !important; }
     .img-full { width: 100% !important; height: auto !important; }
+    .btn { width: 100% !important; }
     .btn a { display: block !important; }
+    .mob { display: block !important; max-height: none !important; overflow: visible !important; }
   }
+  .logo-hell { display: none; }
+
+  /* Dunkelmodus: Apple Mail, iOS, Outlook (Mac/App), Thunderbird u. a. */
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
+  @media (prefers-color-scheme: dark) {
+    body, .dm-bg { background: #121110 !important; }
+    .dm-card { background: #1b1916 !important; }
+    .dm-band { background: #24211d !important; }
+    .dm-head { color: #f4eee5 !important; }
+    .dm-text { color: #d8d0c4 !important; }
+    .dm-muted { color: #a69c90 !important; }
+    .dm-accent { color: #e0905f !important; }
+    .dm-line { border-color: #3a352f !important; }
+    .kpi { border-color: #3a352f !important; }
+    .logo-dunkel { display: none !important; }
+    .logo-hell { display: block !important; }
+  }
+  /* Outlook.com / Outlook-Web im Dunkelmodus */
+  [data-ogsb] .dm-bg { background: #121110 !important; }
+  [data-ogsb] .dm-card { background: #1b1916 !important; }
+  [data-ogsb] .dm-band { background: #24211d !important; }
+  [data-ogsc] .dm-head { color: #f4eee5 !important; }
+  [data-ogsc] .dm-text { color: #d8d0c4 !important; }
+  [data-ogsc] .dm-muted { color: #a69c90 !important; }
+  [data-ogsc] .dm-accent { color: #e0905f !important; }
+  [data-ogsc] .logo-dunkel { display: none !important; }
+  [data-ogsc] .logo-hell { display: block !important; }
 </style>
 </head>
-<body style="margin:0; padding:0; background:#f8f4ee;">
+<body class="dm-bg" style="margin:0; padding:0; background:#f8f4ee;">
 
 <!-- Vorschautext im Posteingang -->
 <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#f8f4ee; opacity:0;">
@@ -45,30 +74,31 @@
   &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
 </div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8f4ee;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-bg" style="background:#f8f4ee;">
 <tr><td align="center" style="padding:24px 12px;">
 
   <!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
-  <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background:#fdfcf9;">
+  <table role="presentation" class="container dm-card" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background:#fdfcf9;">
 
     <!-- Online ansehen -->
     <tr>
-      <td class="px" style="padding:14px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:18px; color:#7a7268; background:#f8f4ee;" align="right">
-        <a href="https://brunneneckberlin.de/newsletter/we30-neujahr.html" style="color:#7a7268; text-decoration:underline;">Im Browser ansehen</a>
+      <td class="px dm-bg dm-muted" style="padding:14px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:18px; color:#7a7268; background:#f8f4ee;" align="right">
+        <a href="https://brunneneckberlin.de/newsletter/we30-neujahr.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr" class="dm-muted" style="color:#7a7268; text-decoration:underline;">Im Browser ansehen</a>
       </td>
     </tr>
 
     <!-- Logo -->
     <tr>
-      <td class="px" style="padding:32px 40px 28px 40px; border-bottom:1px solid #e8e1d6;">
+      <td class="px dm-line" style="padding:32px 40px 28px 40px; border-bottom:1px solid #e8e1d6;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td align="left">
-              <a href="https://brunneneckberlin.de/" style="text-decoration:none;">
-                <img src="https://brunneneckberlin.de/fotos/logo/brunnen-eck-wortmarke.png" width="170" alt="Brunneneck" style="width:170px; height:auto; color:#24325d; font-family:'Segoe UI',Arial,sans-serif; font-size:16px;">
+              <a href="https://brunneneckberlin.de/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr" style="text-decoration:none;">
+                <img class="logo-dunkel" src="https://brunneneckberlin.de/fotos/logo/brunnen-eck-wortmarke.png" width="170" alt="Brunneneck" style="width:170px; height:auto; color:#24325d; font-family:'Segoe UI',Arial,sans-serif; font-size:16px;">
+                <!--[if !mso]><!--><img class="logo-hell" src="https://brunneneckberlin.de/fotos/logo/brunnen-eck-wortmarke-hell.png" width="170" alt="Brunneneck" style="display:none; width:170px; height:auto; color:#f4eee5; font-family:'Segoe UI',Arial,sans-serif; font-size:16px;"><!--<![endif]-->
               </a>
             </td>
-            <td align="right" style="font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">
+            <td align="right" class="dm-accent" style="font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">
               Neujahr 2027
             </td>
           </tr>
@@ -79,7 +109,7 @@
     <!-- Hero-Bild -->
     <tr>
       <td style="padding:0;">
-        <a href="https://brunneneckberlin.de/wohnung-30.html" style="text-decoration:none;">
+        <a href="https://brunneneckberlin.de/wohnung-30.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr" style="text-decoration:none;">
           <img class="img-full" src="https://brunneneckberlin.de/fotos/header/we30.jpg" width="600" alt="Wohnung 30: Blick durch die offene Wandöffnung in den hellen Wohnraum mit Eichenparkett" style="width:600px; max-width:100%; height:auto; background:#e8e1d6;">
         </a>
       </td>
@@ -88,14 +118,14 @@
     <!-- Headline -->
     <tr>
       <td class="px" style="padding:44px 40px 8px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-        <p style="margin:0 0 16px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Wohnung 30 · Brunnenstraße 146 · Berlin Mitte</p>
-        <h1 class="h1" style="margin:0; font-size:40px; line-height:44px; font-weight:300; color:#1b1916;">Neues Jahr. <strong style="font-weight:600;">Neues Zuhause.</strong></h1>
+        <p class="dm-accent" style="margin:0 0 16px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Wohnung 30 · Brunnenstraße 146 · Berlin Mitte</p>
+        <h1 class="h1 dm-head" style="margin:0; font-size:40px; line-height:44px; font-weight:300; color:#1b1916;">Neues Jahr. <strong style="font-weight:600;">Neues Zuhause.</strong></h1>
       </td>
     </tr>
 
     <!-- Intro -->
     <tr>
-      <td class="px" style="padding:20px 40px 8px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:17px; line-height:27px; color:#4a443d;">
+      <td class="px dm-text" style="padding:20px 40px 8px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:17px; line-height:27px; color:#4a443d;">
         <p style="margin:0 0 16px 0;">Die Tür steht offen: Wohnung 30 im Brunneneck ist fertig saniert, in 4 Wochen bezugsfrei und wartet auf ihre ersten Bewohnerinnen und Bewohner. Wer 2027 mit einem Umzug beginnen möchte, findet hier rund 97 m² Altbau mit Eichenparkett, zwei Bädern und einem Grundriss, der sich dem eigenen Leben anpasst.</p>
         <p style="margin:0;">Erstbezug nach Sanierung, im 4. Obergeschoss mit Aufzug – provisionsfrei direkt vom Bauträger.</p>
       </td>
@@ -115,23 +145,23 @@
     <!-- Kennzahlen -->
     <tr>
       <td class="px" style="padding:24px 40px 8px 40px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #e8e1d6; border-bottom:1px solid #e8e1d6;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-line" style="border-top:1px solid #e8e1d6; border-bottom:1px solid #e8e1d6;">
           <tr>
             <td class="kpi" width="25%" valign="top" style="padding:18px 12px 18px 0; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-              <p style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">649.000&nbsp;€</p>
-              <p style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">Kaufpreis</p>
+              <p class="dm-head" style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">649.000&nbsp;€</p>
+              <p class="dm-muted" style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">Kaufpreis</p>
             </td>
-            <td class="kpi" width="25%" valign="top" style="padding:18px 12px; border-left:1px solid #e8e1d6; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-              <p style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">ca.&nbsp;97&nbsp;m²</p>
-              <p style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">Wohnfläche</p>
+            <td class="kpi dm-line" width="25%" valign="top" style="padding:18px 12px; border-left:1px solid #e8e1d6; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
+              <p class="dm-head" style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">ca.&nbsp;97&nbsp;m²</p>
+              <p class="dm-muted" style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">Wohnfläche</p>
             </td>
-            <td class="kpi" width="25%" valign="top" style="padding:18px 12px; border-left:1px solid #e8e1d6; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-              <p style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">3&nbsp;Zimmer</p>
-              <p style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">2 Bäder</p>
+            <td class="kpi dm-line" width="25%" valign="top" style="padding:18px 12px; border-left:1px solid #e8e1d6; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
+              <p class="dm-head" style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">3&nbsp;Zimmer</p>
+              <p class="dm-muted" style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">2 Bäder</p>
             </td>
-            <td class="kpi" width="25%" valign="top" style="padding:18px 0 18px 12px; border-left:1px solid #e8e1d6; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-              <p style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">4.&nbsp;OG</p>
-              <p style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">mit Aufzug</p>
+            <td class="kpi dm-line" width="25%" valign="top" style="padding:18px 0 18px 12px; border-left:1px solid #e8e1d6; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
+              <p class="dm-head" style="margin:0; font-size:22px; line-height:28px; font-weight:300; color:#1b1916;">4.&nbsp;OG</p>
+              <p class="dm-muted" style="margin:4px 0 0 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:#7a7268;">mit Aufzug</p>
             </td>
           </tr>
         </table>
@@ -144,13 +174,24 @@
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="btn">
           <tr>
             <td style="background:#a8532f;">
-              <!--[if mso]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" href="https://brunneneckberlin.de/wohnung-30.html#kontakt" style="height:48px;v-text-anchor:middle;width:300px;" stroked="f" fillcolor="#a8532f"><center style="color:#ffffff;font-family:'Segoe UI',Arial,sans-serif;font-size:14px;font-weight:600;">Besichtigung vereinbaren</center></v:rect><![endif]-->
+              <!--[if mso]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" href="https://brunneneckberlin.de/wohnung-30.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr#kontakt" style="height:48px;v-text-anchor:middle;width:300px;" stroked="f" fillcolor="#a8532f"><center style="color:#ffffff;font-family:'Segoe UI',Arial,sans-serif;font-size:14px;font-weight:600;">Besichtigung vereinbaren</center></v:rect><![endif]-->
               <!--[if !mso]><!-->
-              <a href="https://brunneneckberlin.de/wohnung-30.html#kontakt" style="display:inline-block; padding:15px 28px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:18px; font-weight:600; color:#ffffff; text-decoration:none; text-align:center;">Besichtigung vereinbaren &rarr;</a>
+              <a href="https://brunneneckberlin.de/wohnung-30.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr#kontakt" style="display:inline-block; padding:15px 28px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:18px; font-weight:600; color:#ffffff; text-decoration:none; text-align:center;">Besichtigung vereinbaren &rarr;</a>
               <!--<![endif]-->
             </td>
           </tr>
         </table>
+        <!--[if !mso]><!-->
+        <div class="mob" style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="btn" style="margin-top:12px;">
+            <tr>
+              <td style="background:#1a7f4b;">
+                <a href="https://wa.me/491781192113?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wohnung%2030%20im%20Brunneneck%20und%20m%C3%B6chte%20gern%20einen%20Besichtigungstermin%20vereinbaren." style="display:block; padding:15px 28px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:18px; font-weight:600; color:#ffffff; text-decoration:none; text-align:center;">Per WhatsApp anfragen &rarr;</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--<![endif]-->
       </td>
     </tr>
 
@@ -173,9 +214,9 @@
     <!-- Grundriss-Varianten -->
     <tr>
       <td class="px" style="padding:44px 40px 8px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-        <p style="margin:0 0 14px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Ihr Grundriss für 2027</p>
-        <h2 class="h2" style="margin:0 0 16px 0; font-size:28px; line-height:34px; font-weight:300; color:#1b1916;">Loft oder Familie – <strong style="font-weight:600;">Sie entscheiden.</strong></h2>
-        <p style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Der Grundriss lässt sich auf zwei Arten bewohnen. Welche passt zu Ihrem neuen Jahr?</p>
+        <p class="dm-accent" style="margin:0 0 14px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Ihr Grundriss für 2027</p>
+        <h2 class="h2 dm-head" style="margin:0 0 16px 0; font-size:28px; line-height:34px; font-weight:300; color:#1b1916;">Loft oder Familie – <strong style="font-weight:600;">Sie entscheiden.</strong></h2>
+        <p class="dm-text" style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Der Grundriss lässt sich auf zwei Arten bewohnen. Welche passt zu Ihrem neuen Jahr?</p>
       </td>
     </tr>
     <tr>
@@ -185,16 +226,16 @@
             <td class="col col-pad" width="50%" valign="top" style="padding-right:8px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:2px solid #a8532f;">
                 <tr><td style="padding:16px 0 0 0;">
-                  <p style="margin:0 0 8px 0; font-size:17px; line-height:24px; font-weight:300; color:#1b1916;">Variante <strong style="font-weight:600;">Loft</strong></p>
-                  <p style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Wohnzimmer (23,57 m²) und Essbereich (19,57 m²) gehen offen ineinander über – Raum zum Kochen, Essen und Empfangen.</p>
+                  <p class="dm-head" style="margin:0 0 8px 0; font-size:17px; line-height:24px; font-weight:300; color:#1b1916;">Variante <strong style="font-weight:600;">Loft</strong></p>
+                  <p class="dm-text" style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Wohnzimmer (23,57 m²) und Essbereich (19,57 m²) gehen offen ineinander über – Raum zum Kochen, Essen und Empfangen.</p>
                 </td></tr>
               </table>
             </td>
             <td class="col" width="50%" valign="top" style="padding-left:8px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:2px solid #24325d;">
                 <tr><td style="padding:16px 0 0 0;">
-                  <p style="margin:0 0 8px 0; font-size:17px; line-height:24px; font-weight:300; color:#1b1916;">Variante <strong style="font-weight:600;">Familie</strong></p>
-                  <p style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Der zweite Raum erhält eine eigene Tür und wird zum Kinder-, Gäste- oder Arbeitszimmer (ca. 19,6 m²).</p>
+                  <p class="dm-head" style="margin:0 0 8px 0; font-size:17px; line-height:24px; font-weight:300; color:#1b1916;">Variante <strong style="font-weight:600;">Familie</strong></p>
+                  <p class="dm-text" style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Der zweite Raum erhält eine eigene Tür und wird zum Kinder-, Gäste- oder Arbeitszimmer (ca. 19,6 m²).</p>
                 </td></tr>
               </table>
             </td>
@@ -204,7 +245,7 @@
     </tr>
     <tr>
       <td class="px" style="padding:24px 40px 8px 40px;">
-        <a href="https://brunneneckberlin.de/wohnung-30.html#grundriss" style="text-decoration:none;">
+        <a href="https://brunneneckberlin.de/wohnung-30.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr#grundriss" style="text-decoration:none;">
           <img class="img-full" src="https://brunneneckberlin.de/fotos/grundrisse/we30-variante-a.png?v=2" width="520" alt="Grundriss Wohnung 30, Variante Loft, mit Raumflächen" style="width:520px; max-width:100%; height:auto; background:#f8f4ee;">
         </a>
       </td>
@@ -213,16 +254,16 @@
     <!-- Ausstattung -->
     <tr>
       <td class="px" style="padding:44px 40px 8px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-        <p style="margin:0 0 14px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Ausstattung</p>
-        <h2 class="h2" style="margin:0 0 20px 0; font-size:28px; line-height:34px; font-weight:300; color:#1b1916;">Fertig zum <strong style="font-weight:600;">Einziehen.</strong></h2>
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:15px; line-height:22px; color:#4a443d;">
-          <tr><td style="padding:10px 0; border-top:1px solid #e8e1d6;"><span style="color:#a8532f;">—</span>&nbsp;&nbsp;Eichenparkett von Bauwerk, Fliesen von Florim</td></tr>
-          <tr><td style="padding:10px 0; border-top:1px solid #e8e1d6;"><span style="color:#a8532f;">—</span>&nbsp;&nbsp;Grohe-Armaturen in „Hard Graphite“</td></tr>
-          <tr><td style="padding:10px 0; border-top:1px solid #e8e1d6;"><span style="color:#a8532f;">—</span>&nbsp;&nbsp;Bad en suite und Gäste-WC</td></tr>
-          <tr><td style="padding:10px 0; border-top:1px solid #e8e1d6;"><span style="color:#a8532f;">—</span>&nbsp;&nbsp;Walk-in-Ankleide (4,60 m²)</td></tr>
-          <tr><td style="padding:10px 0; border-top:1px solid #e8e1d6;"><span style="color:#a8532f;">—</span>&nbsp;&nbsp;Separate Küche mit Fenster (9,49 m²)</td></tr>
-          <tr><td style="padding:10px 0; border-top:1px solid #e8e1d6;"><span style="color:#a8532f;">—</span>&nbsp;&nbsp;Lichtkonzept mit Deckenspots, Personenaufzug, Kellerabteil</td></tr>
-          <tr><td style="padding:10px 0; border-top:1px solid #e8e1d6; border-bottom:1px solid #e8e1d6;"><span style="color:#a8532f;">—</span>&nbsp;&nbsp;Kaufpreis 649.000 € · 6.683 €/m²</td></tr>
+        <p class="dm-accent" style="margin:0 0 14px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Ausstattung</p>
+        <h2 class="h2 dm-head" style="margin:0 0 20px 0; font-size:28px; line-height:34px; font-weight:300; color:#1b1916;">Fertig zum <strong style="font-weight:600;">Einziehen.</strong></h2>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-text" style="font-size:15px; line-height:22px; color:#4a443d;">
+          <tr><td class="dm-line" style="padding:10px 0; border-top:1px solid #e8e1d6;"><span class="dm-accent" style="color:#a8532f;">—</span>&nbsp;&nbsp;Eichenparkett von Bauwerk, Fliesen von Florim</td></tr>
+          <tr><td class="dm-line" style="padding:10px 0; border-top:1px solid #e8e1d6;"><span class="dm-accent" style="color:#a8532f;">—</span>&nbsp;&nbsp;Grohe-Armaturen in „Hard Graphite“</td></tr>
+          <tr><td class="dm-line" style="padding:10px 0; border-top:1px solid #e8e1d6;"><span class="dm-accent" style="color:#a8532f;">—</span>&nbsp;&nbsp;Bad en suite und Gäste-WC</td></tr>
+          <tr><td class="dm-line" style="padding:10px 0; border-top:1px solid #e8e1d6;"><span class="dm-accent" style="color:#a8532f;">—</span>&nbsp;&nbsp;Walk-in-Ankleide (4,60 m²)</td></tr>
+          <tr><td class="dm-line" style="padding:10px 0; border-top:1px solid #e8e1d6;"><span class="dm-accent" style="color:#a8532f;">—</span>&nbsp;&nbsp;Separate Küche mit Fenster (9,49 m²)</td></tr>
+          <tr><td class="dm-line" style="padding:10px 0; border-top:1px solid #e8e1d6;"><span class="dm-accent" style="color:#a8532f;">—</span>&nbsp;&nbsp;Lichtkonzept mit Deckenspots, Personenaufzug, Kellerabteil</td></tr>
+          <tr><td class="dm-line" style="padding:10px 0; border-top:1px solid #e8e1d6; border-bottom:1px solid #e8e1d6;"><span class="dm-accent" style="color:#a8532f;">—</span>&nbsp;&nbsp;Kaufpreis 649.000 € · 6.683 €/m²</td></tr>
         </table>
       </td>
     </tr>
@@ -230,12 +271,12 @@
     <!-- Lage -->
     <tr>
       <td class="px" style="padding:44px 40px 8px 40px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4eee5;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-band" style="background:#f4eee5;">
           <tr>
             <td style="padding:32px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-              <p style="margin:0 0 14px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Die Lage</p>
-              <h2 class="h2" style="margin:0 0 14px 0; font-size:24px; line-height:30px; font-weight:300; color:#1b1916;">Mitten im Kiez, <strong style="font-weight:600;">direkt an der U8.</strong></h2>
-              <p style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Zwischen Mauerpark, Arkonaplatz und Rosenthaler Platz: Cafés, Restaurants, Galerien und Wochenmärkte sind zu Fuß erreichbar. Die U-Bahn-Station Bernauer Straße liegt gegenüber dem Hauseingang.</p>
+              <p class="dm-accent" style="margin:0 0 14px 0; font-size:11px; line-height:16px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#a8532f;">Die Lage</p>
+              <h2 class="h2 dm-head" style="margin:0 0 14px 0; font-size:24px; line-height:30px; font-weight:300; color:#1b1916;">Mitten im Kiez, <strong style="font-weight:600;">direkt an der U8.</strong></h2>
+              <p class="dm-text" style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Zwischen Mauerpark, Arkonaplatz und Rosenthaler Platz: Cafés, Restaurants, Galerien und Wochenmärkte sind zu Fuß erreichbar. Die U-Bahn-Station Bernauer Straße liegt gegenüber dem Hauseingang.</p>
             </td>
           </tr>
         </table>
@@ -245,8 +286,8 @@
     <!-- Abschluss + CTA 2 -->
     <tr>
       <td class="px" style="padding:48px 40px 8px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-        <h2 class="h2" style="margin:0 0 16px 0; font-size:28px; line-height:34px; font-weight:300; color:#1b1916;">Lernen Sie Ihre neue Wohnung <strong style="font-weight:600;">vor Ort kennen.</strong></h2>
-        <p style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Rebecca Prossek zeigt Ihnen Wohnung 30 gern persönlich. Vereinbaren Sie einen Termin – wir freuen uns auf Ihre Nachricht.</p>
+        <h2 class="h2 dm-head" style="margin:0 0 16px 0; font-size:28px; line-height:34px; font-weight:300; color:#1b1916;">Lernen Sie Ihre neue Wohnung <strong style="font-weight:600;">vor Ort kennen.</strong></h2>
+        <p class="dm-text" style="margin:0; font-size:15px; line-height:24px; color:#4a443d;">Rebecca Prossek zeigt Ihnen Wohnung 30 gern persönlich. Vereinbaren Sie einen Termin – wir freuen uns auf Ihre Nachricht.</p>
       </td>
     </tr>
     <tr>
@@ -264,18 +305,23 @@
       </td>
     </tr>
     <tr>
-      <td class="px" style="padding:8px 40px 48px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:15px; line-height:24px; color:#4a443d;">
-        oder telefonisch: <a href="tel:+4930208480216" style="color:#a8532f; text-decoration:none; font-weight:600;">030 / 20 84 80 216</a>
+      <td class="px dm-text" style="padding:8px 40px 48px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:15px; line-height:24px; color:#4a443d;">
+        oder telefonisch: <a href="tel:+4930208480216" class="dm-accent" style="color:#a8532f; text-decoration:none; font-weight:600;">030 / 20 84 80 216</a>
+        <!--[if !mso]><!-->
+        <div class="mob" style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+          oder direkt per WhatsApp: <a href="https://wa.me/491781192113?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wohnung%2030%20im%20Brunneneck%20und%20m%C3%B6chte%20gern%20einen%20Besichtigungstermin%20vereinbaren." class="dm-accent" style="color:#a8532f; text-decoration:none; font-weight:600;">Nachricht schreiben</a>
+        </div>
+        <!--<![endif]-->
       </td>
     </tr>
 
     <!-- Weitere Einheiten -->
     <tr>
       <td class="px" style="padding:0 40px 40px 40px; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #e8e1d6;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-line" style="border-top:1px solid #e8e1d6;">
           <tr>
-            <td style="padding:20px 0 0 0; font-size:13px; line-height:20px; color:#7a7268;">
-              Ebenfalls im Brunneneck: <a href="https://brunneneckberlin.de/wohnung-32.html" style="color:#a8532f; font-weight:600;">Wohnung 32</a> mit 4,5 Zimmern auf ca. 118 m² und die <a href="https://brunneneckberlin.de/#einheiten" style="color:#a8532f; font-weight:600;">Penthouses im Dachgeschoss</a>.
+            <td class="dm-muted" style="padding:20px 0 0 0; font-size:13px; line-height:20px; color:#7a7268;">
+              Ebenfalls im Brunneneck: <a href="https://brunneneckberlin.de/wohnung-32.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr" class="dm-accent" style="color:#a8532f; font-weight:600;">Wohnung 32</a> mit 4,5 Zimmern auf ca. 118 m² und die <a href="https://brunneneckberlin.de/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr#einheiten" class="dm-accent" style="color:#a8532f; font-weight:600;">Penthouses im Dachgeschoss</a>.
             </td>
           </tr>
         </table>
@@ -284,10 +330,10 @@
 
     <!-- Footer -->
     <tr>
-      <td class="px" style="padding:32px 40px 36px 40px; background:#f4eee5; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:19px; color:#7a7268;">
-        <p style="margin:0 0 10px 0;"><strong style="color:#1b1916; font-weight:600;">Tiedemann Projekt GmbH</strong><br>Große Hamburger Str. 32 · 10115 Berlin<br>030 / 20 84 80 216 · <a href="mailto:kontakt@tiedemann-gruppe.de" style="color:#7a7268;">kontakt@tiedemann-gruppe.de</a></p>
+      <td class="px dm-band dm-muted" style="padding:32px 40px 36px 40px; background:#f4eee5; font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:19px; color:#7a7268;">
+        <p style="margin:0 0 10px 0;"><strong class="dm-head" style="color:#1b1916; font-weight:600;">Tiedemann Projekt GmbH</strong><br>Große Hamburger Str. 32 · 10115 Berlin<br>030 / 20 84 80 216 · <a href="mailto:kontakt@tiedemann-gruppe.de" class="dm-muted" style="color:#7a7268;">kontakt@tiedemann-gruppe.de</a></p>
         <p style="margin:0 0 10px 0;">Kaufpreis 649.000 € · provisionsfrei · Angaben ohne Gewähr, maßgeblich sind die Vertragsunterlagen.</p>
-        <p style="margin:0;"><a href="https://www.tiedemann-gruppe.de/impressum" style="color:#7a7268;">Impressum</a> &nbsp;·&nbsp; <a href="{{UNSUBSCRIBE_URL}}" style="color:#7a7268;">Newsletter abbestellen</a></p>
+        <p style="margin:0;"><a href="https://brunneneckberlin.de/impressum.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=we30-neujahr" class="dm-muted" style="color:#7a7268;">Impressum</a> &nbsp;·&nbsp; <a href="{{ unsubscribe }}" class="dm-muted" style="color:#7a7268;">Newsletter abbestellen</a></p>
       </td>
     </tr>
 
