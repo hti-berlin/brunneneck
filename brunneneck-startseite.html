@@ -367,6 +367,12 @@ form { background: var(--white); padding: clamp(1.5rem, 4vw, 3rem); border: 1px 
 @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .f-row { grid-template-columns: 1fr; gap: 0; } }
 
+@media (max-width: 760px) { .nav .btn { display: none; } }
+@media (max-width: 600px) {
+  .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; overflow: visible; }
+  .tab { min-width: 0; white-space: normal; text-align: center; padding: .7rem .3rem; font-size: var(--fs-small); line-height: 1.25; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
+  .tab small { display: block; margin: .25rem 0 0; }
+}
 /* Handy-Schnellkontakt */
 .mbar { display: none; }
 @media (max-width: 760px) {
@@ -525,7 +531,7 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
       <div class="tabs" role="tablist" aria-label="Einheiten">
         <button class="tab" role="tab" id="t-w3" aria-controls="p-w3" aria-selected="true">Wohnung 3<small>Ecke</small></button>
         <button class="tab" role="tab" id="t-w4" aria-controls="p-w4" aria-selected="false" tabindex="-1">Wohnung 4<small>Hof</small></button>
-        <button class="tab" role="tab" id="t-gp" aria-controls="p-gp" aria-selected="false" tabindex="-1">Gesamtpenthouse<small>Alternative</small></button>
+        <button class="tab" role="tab" id="t-gp" aria-controls="p-gp" aria-selected="false" tabindex="-1">Gesamt&shy;penthouse<small>Alternative</small></button>
       </div>
     </div>
 
