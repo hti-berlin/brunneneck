@@ -1,6 +1,6 @@
 # Brunneneck – statische Website auf IONOS
 
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 Options -Indexes -MultiViews
 AddDefaultCharset UTF-8
 
