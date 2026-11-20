@@ -7,7 +7,9 @@
 $empfaenger = 'kontakt@tiedemann-gruppe.de';
 $absender   = 'website@brunneneckberlin.de';   // Absenderadresse der Website
 $danke      = 'danke.html';
-$fehler     = 'danke.html?fehler=1';
+$en         = (($_POST['sprache'] ?? '') === 'en');
+$danke      = $en ? 'danke.html?lang=en' : 'danke.html';
+$fehler     = $en ? 'danke.html?fehler=1&lang=en' : 'danke.html?fehler=1';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.html');
@@ -48,7 +50,7 @@ $text .= "Name:       $name\n";
 $text .= "E-Mail:     $email\n";
 $text .= "Telefon:    " . ($telefon !== '' ? $telefon : '–') . "\n";
 $text .= "Interesse:  " . ($interesse !== '' ? $interesse : '–') . "\n";
-$text .= "Seite:      " . ($seite !== '' ? $seite : '–') . "\n\n";
+$text .= "Seite:      " . ($seite !== '' ? $seite : '–') . ($en ? ' (englische Seite – bitte auf Englisch antworten)' : '') . "\n\n";
 $text .= "Nachricht:\n" . ($nachricht !== '' ? $nachricht : '–') . "\n\n";
 $text .= "Datenschutzerklärung akzeptiert: ja\n";
 $text .= "Gesendet: " . date('d.m.Y H:i') . "\n";
