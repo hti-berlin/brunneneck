@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /kontakt.php
 Disallow: /danke.html
+Disallow: /stats/
 
 Sitemap: https://brunneneckberlin.de/sitemap.xml
