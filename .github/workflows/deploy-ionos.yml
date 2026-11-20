@@ -34,10 +34,10 @@ jobs:
           skip = {'Startseite - Brunnen-Eck.html'}
           pages = [f for f in os.listdir(src) if f.endswith(('.html', '.php')) and f not in skip]
           pages += ['newsletter/' + f for f in os.listdir('newsletter') if f.endswith('.html')]
-          files = set(pages) | {'.htaccess'}
+          files = set(pages) | {f for f in ['.htaccess', 'robots.txt', 'sitemap.xml', 'favicon.ico', 'apple-touch-icon.png'] if os.path.isfile(f)}
           for p in pages:
               text = open(p, encoding='utf-8').read()
-              for ref in re.findall(r'(?:src|href|data-lb|data-src|data-full)="([^"#?]+)', text):
+              for ref in re.findall(r'(?:src|href|content|data-lb|data-src|data-full)="([^"#?]+)', text):
                   ref = urllib.parse.unquote(ref)
                   for live in ('https://brunneneckberlin.de/', 'https://www.brunneneckberlin.de/'):
                       if ref.startswith(live):
