@@ -660,5 +660,30 @@ footer { background: var(--sand); color: var(--muted); font-size: var(--fs-small
   });
 })();
 </script>
+<!-- Matomo (cookielos, eigener Server) -->
+<script>
+var _paq = window._paq = window._paq || [];
+_paq.push(['disableCookies']);
+_paq.push(['setDoNotTrack', true]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+  var u = '/stats/';
+  _paq.push(['setTrackerUrl', u + 'matomo.php']);
+  _paq.push(['setSiteId', '1']);
+  var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+  g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+})();
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+  if (!a) return;
+  var tel = a.getAttribute('href').indexOf('tel:') === 0;
+  _paq.push(['trackEvent', 'Kontakt', tel ? 'Telefon-Klick' : 'E-Mail-Klick', location.pathname]);
+});
+document.addEventListener('submit', function (e) {
+  if ((e.target.getAttribute('action') || '').indexOf('kontakt.php') > -1)
+    _paq.push(['trackEvent', 'Kontakt', 'Formular gesendet', location.pathname]);
+});
+</script>
 </body>
 </html>
