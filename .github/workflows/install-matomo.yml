@@ -1,0 +1,33 @@
+name: Matomo installieren (einmalig)
+
+# Lädt die aktuelle Matomo-Version von builds.matomo.org und überträgt sie per SFTP
+# in den Unterordner /stats des Website-Ordners. Nur manuell startbar.
+# Vorhandene Dateien werden überschrieben, die Konfiguration (config/config.ini.php) bleibt erhalten.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Matomo herunterladen
+        run: |
+          curl -fsSL https://builds.matomo.org/matomo-latest.zip -o matomo.zip
+          unzip -q matomo.zip
+          rm -f matomo/config/config.ini.php
+          du -sh matomo
+          ls matomo | head
+
+      - name: lftp installieren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Per SFTP hochladen
+        env:
+          HOST: ${{ secrets.IONOS_SFTP_HOST }}
+          USER: ${{ secrets.IONOS_SFTP_USER }}
+          PASS: ${{ secrets.IONOS_SFTP_PASSWORD }}
+          REMOTE: ${{ secrets.IONOS_REMOTE_DIR }}
+        run: |
+          BASE="${REMOTE:-/}"; BASE="${BASE%/}"
+          lftp -e "set sftp:auto-confirm yes; set net:max-retries 2; open -u \"$USER\",\"$PASS\" sftp://$HOST; mkdir -p -f \"$BASE/stats\"; mirror -R --parallel=8 matomo \"$BASE/stats\"; quit"
